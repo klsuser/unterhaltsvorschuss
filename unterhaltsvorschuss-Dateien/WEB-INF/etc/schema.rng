@@ -1,0 +1,3300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:t="http://xmlns.cit.de/intelliform/transaction" xmlns:u="http://xmlns.cit.de/intelliform/user" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+   <start>
+      <element name="myForm">
+         <ref name="intelliform-attributes"/>
+         <optional>
+            <element name="idData">
+               <ref name="EIdPersonalDataType"/>
+            </element>
+         </optional><!--aux field 'monat' omitted-->
+         <optional>
+            <element name="ja_nein_feld">
+               <a:documentation>Titel: Einwilligung
+Beschriftung: Ich bin damit einverstanden, dass die von mir eingegebenen Daten weiterverarbeitet werden dürfen.
+Prüfausdruck: (/^\s*$/.test(value))||(value==true)
+Prüfmeldung: Zur Antragstellung ist die Einwilligung zur Weiterverarbeitung Ihrer Eingabedaten erforderlich.
+</a:documentation>
+               <ref name="optional-assistants-boolean"/>
+            </element>
+         </optional>
+         <element name="eid">
+            <a:documentation>Titel: eid
+Beschriftung: Möchten Sie die eID Ihres nPA nutzen?
+</a:documentation>
+            <ref name="assistants-boolean"/>
+         </element>
+         <optional>
+            <element name="id_feld">
+               <ref name="EIdPersonalDataType"/>
+            </element>
+         </optional>
+         <element name="antragsteller"><!--aux field 'F00000013_h' omitted--><!--aux field 'F00000045_h' omitted--><!--aux field 'F00000014_h' omitted--><!--aux field 'F00000066_h' omitted-->
+            <optional>
+               <element name="myage">
+                  <a:documentation>Titel: myage
+Beschriftung: myage:
+</a:documentation>
+                  <text/>
+               </element>
+            </optional>
+            <optional>
+               <element name="f00000043">
+                  <a:documentation>Titel: F00000043
+Beschriftung: F00000043:
+</a:documentation>
+                  <text/>
+               </element>
+            </optional>
+            <optional>
+               <element name="f00000013">
+                  <a:documentation>Titel: F00000013
+Beschriftung: F00000013:
+</a:documentation>
+                  <text/>
+               </element>
+            </optional>
+            <optional>
+               <element name="f00000045">
+                  <a:documentation>Titel: F00000045
+Beschriftung: F00000045:
+</a:documentation>
+                  <text/>
+               </element>
+            </optional>
+            <optional>
+               <element name="f00000014">
+                  <a:documentation>Titel: F00000014
+Beschriftung: F00000014:
+</a:documentation>
+                  <text/>
+               </element>
+            </optional>
+            <optional>
+               <element name="f00000066">
+                  <a:documentation>Titel: F00000066
+Beschriftung: F00000066:
+</a:documentation>
+                  <text/>
+               </element>
+            </optional>
+            <optional>
+               <element name="f00000067">
+                  <a:documentation>Titel: F00000067
+Beschriftung: F00000067:
+</a:documentation>
+                  <text/>
+               </element>
+            </optional>
+            <element name="geschlecht">
+               <a:documentation>Titel: geschlecht
+Beschriftung: Geschlecht
+</a:documentation>
+               <choice>
+                  <value>männlich</value>
+                  <a:documentation>männlich</a:documentation>
+                  <value>weiblich</value>
+                  <a:documentation>weiblich</a:documentation>
+                  <value>divers</value>
+                  <a:documentation>divers</a:documentation>
+                  <value>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</value>
+                  <a:documentation>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</a:documentation>
+               </choice>
+            </element>
+            <element name="beruf">
+               <a:documentation>Titel: beruf
+Beschriftung: Beruf
+</a:documentation>
+               <ref name="assistants-text"/>
+            </element>
+            <element name="arbeitgeber">
+               <a:documentation>Titel: arbeitgeber
+Beschriftung: Arbeitgeber
+</a:documentation>
+               <ref name="assistants-text"/>
+            </element>
+            <element name="geburtsort">
+               <a:documentation>Titel: geburtsort
+Beschriftung: Geburtsort
+</a:documentation>
+               <ref name="assistants-text"/>
+            </element>
+            <element name="staatsangehoerigkeit">
+               <a:documentation>Titel: staatsangehoerigkeit
+Beschriftung: Staatsangehörigkeit
+</a:documentation>
+               <ref name="assistants-text"/>
+            </element>
+            <element name="wohnhaftinberlin">
+               <a:documentation>Titel: wohnhaftinberlin
+Beschriftung: Wohnen Sie aktuell in Berlin?
+</a:documentation>
+               <ref name="assistants-boolean"/>
+            </element>
+            <optional>
+               <element name="strassenichtberlin">
+                  <a:documentation>Titel: strassenichtberlin
+Beschriftung: Straße
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="hausnummernichtberlin">
+                  <a:documentation>Titel: hausnummernichtberlin
+Beschriftung: Hausnummer
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="postleitzahlnichtberlin">
+                  <a:documentation>Titel: postleitzahlnichtberlin
+Beschriftung: Postleitzahl
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="ortnichtberlin">
+                  <a:documentation>Titel: ortnichtberlin
+Beschriftung: Ort
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <optional>
+                  <element name="f00000053">
+                     <a:documentation>Titel: F00000053
+Beschriftung: F00000053:
+</a:documentation>
+                     <text/>
+                  </element>
+               </optional><!--aux field 'onlyberlin' omitted--><!--aux field 'beznrh' omitted-->
+               <optional>
+                  <element name="objtype">
+                     <a:documentation>Titel: objtype
+Beschriftung: Objekttyp
+</a:documentation>
+                     <optional>
+                        <choice>
+                           <value>*STRASSE*</value>
+                           <a:documentation>*STRASSE*</a:documentation>
+                           <value>AUTOBAHN</value>
+                           <a:documentation>AUTOBAHN</a:documentation>
+                           <value>AUTOBAHNABSCHNITT</value>
+                           <a:documentation>AUTOBAHNABSCHNITT</a:documentation>
+                           <value>BAHNHOF</value>
+                           <a:documentation>BAHNHOF</a:documentation>
+                           <value>BRUECKE</value>
+                           <a:documentation>BRUECKE</a:documentation>
+                           <value>BRUECKE_IN_PARK</value>
+                           <a:documentation>BRUECKE_IN_PARK</a:documentation>
+                           <value>FLUGHAFEN</value>
+                           <a:documentation>FLUGHAFEN</a:documentation>
+                           <value>FORST</value>
+                           <a:documentation>FORST</a:documentation>
+                           <value>FORSTAMT</value>
+                           <a:documentation>FORSTAMT</a:documentation>
+                           <value>FUSS-/RADWEG</value>
+                           <a:documentation>FUSS-/RADWEG</a:documentation>
+                           <value>FUSSGAENGERBRUECKE</value>
+                           <a:documentation>FUSSGAENGERBRUECKE</a:documentation>
+                           <value>GEWAESSER</value>
+                           <a:documentation>GEWAESSER</a:documentation>
+                           <value>GRUENANLAGE</value>
+                           <a:documentation>GRUENANLAGE</a:documentation>
+                           <value>HALBINSEL</value>
+                           <a:documentation>HALBINSEL</a:documentation>
+                           <value>INSEL</value>
+                           <a:documentation>INSEL</a:documentation>
+                           <value>KLEINGARTENANLAGE</value>
+                           <a:documentation>KLEINGARTENANLAGE</a:documentation>
+                           <value>OBJEKT</value>
+                           <a:documentation>OBJEKT</a:documentation>
+                           <value>OERTL.BEGRIFF</value>
+                           <a:documentation>OERTL.BEGRIFF</a:documentation>
+                           <value>PARK</value>
+                           <a:documentation>PARK</a:documentation>
+                           <value>PARKPLATZ</value>
+                           <a:documentation>PARKPLATZ</a:documentation>
+                           <value>PLATZ</value>
+                           <a:documentation>PLATZ</a:documentation>
+                           <value>PLATZ_IN_FORST</value>
+                           <a:documentation>PLATZ_IN_FORST</a:documentation>
+                           <value>PRIVATSTRASSE</value>
+                           <a:documentation>PRIVATSTRASSE</a:documentation>
+                           <value>SCHLEUSE</value>
+                           <a:documentation>SCHLEUSE</a:documentation>
+                           <value>SIEDLUNG</value>
+                           <a:documentation>SIEDLUNG</a:documentation>
+                           <value>SPORTSTAETTE</value>
+                           <a:documentation>SPORTSTAETTE</a:documentation>
+                           <value>STADTBAHNBOGEN</value>
+                           <a:documentation>STADTBAHNBOGEN</a:documentation>
+                           <value>STRASSE</value>
+                           <a:documentation>STRASSE</a:documentation>
+                           <value>STRASSE_IN_FORST</value>
+                           <a:documentation>STRASSE_IN_FORST</a:documentation>
+                           <value>STRASSE_IN_KGA</value>
+                           <a:documentation>STRASSE_IN_KGA</a:documentation>
+                           <value>STRASSE_IN_PARK</value>
+                           <a:documentation>STRASSE_IN_PARK</a:documentation>
+                           <value>TUNNEL</value>
+                           <a:documentation>TUNNEL</a:documentation>
+                           <value>VERWALTUNGSWEG</value>
+                           <a:documentation>VERWALTUNGSWEG</a:documentation>
+                           <value>WALDWEG</value>
+                           <a:documentation>WALDWEG</a:documentation>
+                           <value>WASSERWERK</value>
+                           <a:documentation>WASSERWERK</a:documentation>
+                           <value>WOHNSCHIFF</value>
+                           <a:documentation>WOHNSCHIFF</a:documentation>
+                           <value>ZUFAHRT</value>
+                           <a:documentation>ZUFAHRT</a:documentation>
+                        </choice>
+                     </optional>
+                  </element>
+               </optional><!--aux field 'F00000053h' omitted--><!--aux field 'F00000016h' omitted-->
+               <optional>
+                  <element name="f00000016">
+                     <a:documentation>Titel: F00000016
+Beschriftung: F00000016:
+</a:documentation>
+                     <text/>
+                  </element>
+               </optional><!--aux field 'F00000084h' omitted-->
+               <optional>
+                  <element name="f00000084">
+                     <a:documentation>Titel: F00000084
+Beschriftung: F00000084:
+</a:documentation>
+                     <text/>
+                  </element>
+               </optional><!--aux field 'hnrh' omitted-->
+               <optional>
+                  <element name="hnr">
+                     <a:documentation>Titel: hnr
+Beschriftung: hnr:
+</a:documentation>
+                     <text/>
+                  </element>
+               </optional><!--aux field 'F00000054h' omitted-->
+               <optional>
+                  <element name="f00000054">
+                     <a:documentation>Titel: F00000054
+Beschriftung: F00000054:
+</a:documentation>
+                     <text/>
+                  </element>
+               </optional>
+               <element name="otname">
+                  <a:documentation>Titel: otname
+Beschriftung: Ortsteil
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="bzrname">
+                  <a:documentation>Titel: bzrname
+Beschriftung: Bezirk
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="otnr">
+                  <a:documentation>Titel: otnr
+Beschriftung: otnr:
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="bzrnr">
+                  <a:documentation>Titel: bzrnr
+Beschriftung: bzrnr:
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element><!--aux field 'F00000035h' omitted-->
+               <element name="strnr">
+                  <a:documentation>Titel: strnr
+Beschriftung: strnr:
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <optional>
+                  <element name="f00000035">
+                     <a:documentation>Titel: F00000035
+Beschriftung: F00000035:
+</a:documentation>
+                     <text/>
+                  </element>
+               </optional><!--aux field 'landh' omitted-->
+               <optional>
+                  <element name="land">
+                     <a:documentation>Titel: land
+Beschriftung: land:
+</a:documentation>
+                     <text/>
+                  </element>
+               </optional>
+               <element name="k1000">
+                  <a:documentation>Titel: k1000
+Beschriftung: k1000:
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="k5000">
+                  <a:documentation>Titel: k5000
+Beschriftung: k5000:
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="xstat">
+                  <a:documentation>Titel: xstat
+Beschriftung: xstat:
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="ystat">
+                  <a:documentation>Titel: ystat
+Beschriftung: ystat:
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="etrs89_x">
+                  <a:documentation>Titel: etrs89_x
+Beschriftung: etrs89_x:
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="etrs89_y">
+                  <a:documentation>Titel: etrs89_y
+Beschriftung: etrs89_y:
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <optional>
+                  <element name="rbs_valid">
+                     <a:documentation>Titel: rbs_valid
+Beschriftung: rbs_valid:
+</a:documentation>
+                     <text/>
+                  </element>
+               </optional>
+            </optional>
+            <optional>
+               <element name="dortwohnhaftseit">
+                  <a:documentation>Titel: dortwohnhaftseit
+Beschriftung: dort wohnhaft seit
+Prüfausdruck: (/^\s*$/.test(value))||(value &lt; new Date())
+Prüfmeldung: Das Datum muss in der Vergangenheit liegen
+</a:documentation>
+                  <ref name="optional-assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="telefon">
+                  <a:documentation>Titel: telefon
+Beschriftung: Telefon
+Prüfmuster: /(^\s*$)|(^(^([0(+][0-9\.-\/\+ ()]{7,})$)$)/
+Prüfmeldung: Bitte geben Sie eine gültige Telefonnummer an.
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="ausweisung">
+                  <a:documentation>Titel: ausweisung
+Beschriftung: Bitte geben Sie die Art an, wie Sie sich ausweisen wollen
+</a:documentation>
+                  <choice>
+                     <value/>
+                     <a:documentation/>
+                     <value>Personalausweis</value>
+                     <a:documentation>Personalausweis</a:documentation>
+                     <value>Reisepass</value>
+                     <a:documentation>Reisepass</a:documentation>
+                  </choice>
+               </element>
+               <optional>
+                  <element name="ausweisnr">
+                     <a:documentation>Titel: ausweisnr
+Beschriftung: {myForm.ausweisung}nummer
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="gueltigbis">
+                     <a:documentation>Titel: gueltigbis
+Beschriftung: gültig bis
+Prüfmeldung: Das Datum muss in der Zukunft liegen
+</a:documentation>
+                     <ref name="assistants-date"/>
+                  </element>
+               </optional>
+            </optional>
+            <element name="kontovorhanden">
+               <a:documentation>Titel: kontovorhanden
+Beschriftung: Verfügen Sie über ein eigenes Bankkonto?
+</a:documentation>
+               <ref name="assistants-boolean"/>
+            </element>
+            <optional>
+               <element name="bankname">
+                  <a:documentation>Titel: bankname
+Beschriftung: Name der Bank
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="kontoinhaber">
+                  <a:documentation>Titel: kontoinhaber
+Beschriftung: Kontoinhaber/in
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="F00000106">
+                  <a:documentation>Titel: iban
+Beschriftung: &lt;span lang="en"&gt;&lt;abbr title="International Bank Account Number"&gt;IBAN&lt;/abbr&gt;&lt;/span&gt;
+Prüfausdruck: isValidIBAN(value)
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional><!--aux field 'beznum' omitted--><!--aux field 'otnum' omitted-->
+               <optional>
+                  <element name="selectdistrict">
+                     <a:documentation>Titel: selectDistrict
+Beschriftung: selectDistrict:
+</a:documentation>
+                     <text/>
+                  </element>
+               </optional>
+            </optional>
+         </element>
+         <element name="antragstellerweitere">
+            <element name="familienstand">
+               <a:documentation>Titel: familienstand
+Beschriftung: &lt;p/&gt;
+</a:documentation>
+               <choice>
+                  <value>verheiratet</value>
+                  <a:documentation>Ich bin verheiratet</a:documentation>
+                  <value>lebenspartnerschaft</value>
+                  <a:documentation>Ich lebe in einer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft</a:documentation>
+                  <value>ledig</value>
+                  <a:documentation>Ich bin ledig</a:documentation>
+                  <value>geschieden</value>
+                  <a:documentation>Ich bin rechtskräftig geschieden</a:documentation>
+                  <value>nicht mehr lebenspartnerschaft</value>
+                  <a:documentation>Ich lebe nicht mehr in einer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft</a:documentation>
+                  <value>verwitwet</value>
+                  <a:documentation>Ich bin verwitwet</a:documentation>
+                  <value>getrennt</value>
+                  <a:documentation>Ich lebe vom Ehegatten/Lebenspartner/der Ehegattin/Lebenspartnerin getrennt</a:documentation>
+               </choice>
+            </element>
+            <optional>
+               <element name="vomanderenelternteilgetrennt">
+                  <a:documentation>Titel: vomanderenelternteilgetrennt
+Beschriftung: Bitte wählen Sie den zutreffenden Punkt aus
+</a:documentation>
+                  <choice>
+                     <value>Ich lebe vom anderen Elternteil getrennt</value>
+                     <a:documentation>Ich lebe vom anderen Elternteil getrennt</a:documentation>
+                     <value>Ich habe noch nie mit dem anderen Elternteil meines Kindes zusammengelebt</value>
+                     <a:documentation>Ich habe noch nie mit dem anderen Elternteil meines Kindes zusammengelebt</a:documentation>
+                  </choice>
+               </element>
+            </optional>
+            <optional>
+               <element name="geschiedenseit">
+                  <a:documentation>Titel: geschiedenseit
+Beschriftung: Ich bin rechtskräftig geschieden seit dem
+Prüfausdruck: value &lt; new Date()
+</a:documentation>
+                  <ref name="assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="nichtmehringleichgeschlechtlicherlebenspartnerschaftseit">
+                  <a:documentation>Titel: nichtmehringleichgeschlechtlicherlebenspartnerschaftseit
+Beschriftung: Ich lebe nicht mehr in einer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft seit dem
+Prüfausdruck: value &lt; new Date()
+</a:documentation>
+                  <ref name="assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="verwitwetseit">
+                  <a:documentation>Titel: verwitwetseit
+Beschriftung: Ich bin verwitwet seit dem
+Prüfausdruck: value &lt; new Date()
+</a:documentation>
+                  <ref name="assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="vonelternteilgetrenntseit">
+                  <a:documentation>Titel: vonelternteilgetrenntseit
+Beschriftung: Ich lebe vom anderen Elternteil getrennt seit dem
+Prüfausdruck: value &lt; new Date()
+</a:documentation>
+                  <ref name="assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="vomehegattenehegattingetrenntseit">
+                  <a:documentation>Titel: vomehegattenehegattingetrenntseit
+Beschriftung: Ich lebe vom Ehegatten/Lebenspartner/der Ehegattin/Lebenspartnerin getrennt seit dem
+Prüfausdruck: value &lt; new Date()
+</a:documentation>
+                  <ref name="assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="vonehepartnergetrenntweil">
+                  <a:documentation>Titel: vonehepartnergetrenntweil
+Beschriftung: Begründung
+</a:documentation>
+                  <choice>
+                     <value>Weil mindestens einer von uns die Ehe/Lebenspartnerschaft nicht mehr fortführen möchte</value>
+                     <a:documentation>Weil mindestens einer von uns die Ehe/Lebenspartnerschaft nicht mehr fortführen möchte</a:documentation>
+                     <value>Weil die Ehe im Ausland geschlossen wurde und/oder mein Ehegatte/meine Ehegattin noch nicht einreisen konnte</value>
+                     <a:documentation>Weil die Ehe im Ausland geschlossen wurde und/oder mein Ehegatte/meine Ehegattin noch nicht einreisen konnte</a:documentation>
+                     <value>Weil mein Ehegatte/Lebenspartner/meine Ehegattin/Lebenspartnerin voraussichtlich wenigstens sechs Monate wegen einer gerichtlichen Anordnung (wie Haft, Krankheit, Behinderung) in einer Anstalt lebt</value>
+                     <a:documentation>Weil mein Ehegatte/Lebenspartner/meine Ehegattin/Lebenspartnerin voraussichtlich wenigstens sechs Monate wegen einer gerichtlichen Anordnung (wie Haft, Krankheit, Behinderung) in einer Anstalt lebt</a:documentation>
+                  </choice>
+               </element>
+            </optional>
+            <optional>
+               <optional>
+                  <element name="geschlecht">
+                     <a:documentation>Titel: geschlecht
+Beschriftung: Geschlecht
+</a:documentation>
+                     <optional>
+                        <choice>
+                           <value>männlich</value>
+                           <a:documentation>männlich</a:documentation>
+                           <value>weiblich</value>
+                           <a:documentation>weiblich</a:documentation>
+                           <value>divers</value>
+                           <a:documentation>divers</a:documentation>
+                           <value>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</value>
+                           <a:documentation>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</a:documentation>
+                        </choice>
+                     </optional>
+                  </element>
+               </optional>
+               <element name="name">
+                  <a:documentation>Titel: name
+Beschriftung: Name
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="vorname">
+                  <a:documentation>Titel: vorname
+Beschriftung: Vorname
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="geburtsdatum">
+                  <a:documentation>Titel: geburtsdatum
+Beschriftung: Geburtsdatum
+Prüfausdruck: (/^\s*$/.test(value))||(value &lt; new Date())
+</a:documentation>
+                  <ref name="optional-assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="strasse">
+                  <a:documentation>Titel: strasse
+Beschriftung: Straße
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="hausnummer">
+                  <a:documentation>Titel: hausnummer
+Beschriftung: Hausnummer
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="postleitzahl">
+                  <a:documentation>Titel: postleitzahl
+Beschriftung: Postleitzahl
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="ort">
+                  <a:documentation>Titel: ort
+Beschriftung: Ort
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <optional>
+                  <element name="land">
+                     <a:documentation>Titel: land
+Beschriftung: Land
+</a:documentation>
+                     <optional>
+                        <ref name="assistants-text"/>
+                     </optional>
+                  </element>
+               </optional>
+            </optional>
+         </element>
+         <element name="kind">
+            <element name="geschlecht">
+               <a:documentation>Titel: geschlecht
+Beschriftung: Geschlecht
+</a:documentation>
+               <choice>
+                  <value>männlich</value>
+                  <a:documentation>männlich</a:documentation>
+                  <value>weiblich</value>
+                  <a:documentation>weiblich</a:documentation>
+                  <value>divers</value>
+                  <a:documentation>divers</a:documentation>
+                  <value>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</value>
+                  <a:documentation>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</a:documentation>
+               </choice>
+            </element>
+            <element name="name">
+               <a:documentation>Titel: name
+Beschriftung: Name
+</a:documentation>
+               <ref name="assistants-text"/>
+            </element>
+            <element name="vorname">
+               <a:documentation>Titel: vorname
+Beschriftung: Vorname
+</a:documentation>
+               <ref name="assistants-text"/>
+            </element>
+            <element name="geburtsdatum">
+               <a:documentation>Titel: geburtsdatum
+Beschriftung: Geburtsdatum
+Prüfausdruck: value &gt; myForm.antragsteller.F00000066_h &amp;&amp; value &lt; new Date()
+Prüfmeldung: Das Geburtsdatum liegt vor Ihrem eigenen Geburtsdatum oder in der Zukunft
+</a:documentation>
+               <ref name="assistants-date"/>
+            </element>
+            <element name="geburtsort">
+               <a:documentation>Titel: geburtsort
+Beschriftung: Geburtsort
+</a:documentation>
+               <ref name="assistants-text"/>
+            </element>
+            <element name="staatsangehoerigkeit">
+               <a:documentation>Titel: staatsangehoerigkeit
+Beschriftung: Staatsangehörigkeit
+</a:documentation>
+               <ref name="assistants-text"/>
+            </element>
+            <optional>
+               <element name="aufenthaltstitelgueltigbis">
+                  <a:documentation>Titel: aufenthaltstitelgueltigbis
+Beschriftung: Aufenthaltstitel gültig bis
+Prüfausdruck: value &gt; new Date()
+Prüfmeldung: Das Datum muss in der Zukunft liegen
+</a:documentation>
+                  <ref name="assistants-date"/>
+               </element>
+            </optional>
+            <element name="leistungsbezugnachuvg">
+               <a:documentation>Titel: leistungsbezugnachuvg
+Beschriftung: Für mein Kind wurden bereits Leistungen nach dem &lt;abbr title="Unterhaltsvorschuss"&gt;UVG&lt;/abbr&gt; bezogen
+</a:documentation>
+               <ref name="assistants-boolean"/>
+            </element>
+            <optional>
+               <element name="leistungsbezugbehoerde">
+                  <a:documentation>Titel: leistungsbezugbehoerde
+Beschriftung: Bei welcher Behörde wurden bereits Leistungen nach dem &lt;abbr title="Unterhaltsvorschuss"&gt;UVG&lt;/abbr&gt; bezogen?
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="leistungsbezugvon">
+                  <a:documentation>Titel: leistungsbezugvon
+Beschriftung: Zeitraum von
+</a:documentation>
+                  <ref name="optional-assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="leistungsbezugbis">
+                  <a:documentation>Titel: leistungsbezugbis
+Beschriftung: bis
+</a:documentation>
+                  <ref name="optional-assistants-date"/>
+               </element>
+            </optional>
+            <element name="waisenrente">
+               <a:documentation>Titel: waisenrente
+Beschriftung: Bitte machen Sie eine Angabe zu den Waisenbezügen oder Schadenersatzleitungen Ihres Kindes
+</a:documentation>
+               <choice>
+                  <value>Ich erhalte für mein Kind keine Waisenbezüge oder Schadenersatzleistungen</value>
+                  <a:documentation>Ich erhalte für mein Kind keine Waisenbezüge oder Schadenersatzleistungen</a:documentation>
+                  <value>Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen</value>
+                  <a:documentation>Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen</a:documentation>
+                  <value>Ich habe für mein Kind einen Antrag auf Waisenbezüge gestellt</value>
+                  <a:documentation>Ich habe für mein Kind einen Antrag auf Waisenbezüge gestellt</a:documentation>
+               </choice>
+            </element>
+            <optional>
+               <element name="waisenrentehoehe">
+                  <a:documentation>Titel: waisenrentehöhe
+Beschriftung: Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen in Höhe von monatlich
+</a:documentation>
+                  <ref name="optional-assistants-currency"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="waisenrenteleistungsstelle">
+                  <a:documentation>Titel: waisenrenteleistungsstelle
+Beschriftung: Bei welcher Leistungsstelle wurden bereits Waisenbezüge oder Schadenersatzleistungen bezogen?
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="antragwaisenbezuegegestelltam">
+                  <a:documentation>Titel: antragwaisenbezuegegestelltam
+Beschriftung: Wann haben Sie einen Antrag auf Waisenbezüge für Ihr Kind gestellt?
+</a:documentation>
+                  <ref name="optional-assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="waisenbezuegebehoerde">
+                  <a:documentation>Titel: waisenbezuegebehoerde
+Beschriftung: Bei welcher Behörde wurde ein Antrag auf Waisenbezüge gestellt?
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="waisenbezuegeaktenzeichen">
+                  <a:documentation>Titel: waisenbezuegeaktenzeichen
+Beschriftung: Aktenzeichen
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <element name="hilfelebensunterhalt">
+               <a:documentation>Titel: hilfelebensunterhalt
+Beschriftung: Erhalten Sie bisher Hilfen zur Sicherung des Lebensunterhalts vom JobCenter/Sozialamt?
+</a:documentation>
+               <choice>
+                  <value>keine hilfe</value>
+                  <a:documentation>Nein</a:documentation>
+                  <value>hilfe</value>
+                  <a:documentation>Ja</a:documentation>
+                  <value>demnächst hilfen</value>
+                  <a:documentation>Ich werde demnächst Hilfen beantragen müssen</a:documentation>
+               </choice>
+            </element>
+            <optional>
+               <element name="hilfelebensunterhaltnr">
+                  <a:documentation>Titel: hilfelebensunterhaltnr
+Beschriftung: Aktenzeichen oder Bedarfsgemeinschaftsnummer
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="hilfelebensunterhaltbegruendung">
+                  <a:documentation>Titel: hilfelebensunterhaltbegruendung
+Beschriftung: Begründung
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+         </element>
+         <optional>
+            <element name="kindueber12">
+               <element name="leistungenjobcenter">
+                  <a:documentation>Titel: leistungenjobcenter
+Beschriftung: Leistungen vom Jobcenter nach dem &lt;abbr title="Sozialgesetzbuch"&gt;SGB&lt;/abbr&gt; II ("Hartz IV") beantragt/erhalten
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+               <element name="kinderwohngeld">
+                  <a:documentation>Titel: kinderwohngeld
+Beschriftung: Kinderwohngeld beantragt/erhalten
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+               <element name="erzielungbruttoeinkommen">
+                  <a:documentation>Titel: Einkommen des Elternteils, bei dem das Kind lebt
+Beschriftung: Der Elternteil, bei dem das Kind lebt, hat im maßgeblichen Monat Bruttoeinkommen in Höhe von mindestens 600 Euro erzielt
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+               <optional>
+                  <element name="kindschule">
+                     <a:documentation>Titel: kindschule
+Beschriftung: Das Kind geht/ging in folgende Schule
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+                  <element name="schulebeendet">
+                     <a:documentation>Titel: schulebeendet
+Beschriftung: Hat das Kind die Schule beendet?
+</a:documentation>
+                     <ref name="assistants-boolean"/>
+                  </element>
+                  <optional>
+                     <element name="schulevoraussichtlichesende">
+                        <a:documentation>Titel: schulevoraussichtlichesende
+Beschriftung: voraussichtliches Ende
+</a:documentation>
+                        <ref name="optional-assistants-date"/>
+                     </element>
+                  </optional>
+                  <optional>
+                     <element name="schulebeendetseit">
+                        <a:documentation>Titel: schulebeendetseit
+Beschriftung: beendet seit
+Prüfausdruck: (/^\s*$/.test(value))||(value &lt; new Date())
+Prüfmeldung: Das Datum muss in der Vergangenheit liegen
+</a:documentation>
+                        <ref name="optional-assistants-date"/>
+                     </element>
+                  </optional>
+                  <optional>
+                     <element name="kindabschluss">
+                        <a:documentation>Titel: kindabschluss
+Beschriftung: angestrebter oder erreichter Abschluss
+</a:documentation>
+                        <ref name="assistants-text"/>
+                     </element>
+                  </optional>
+                  <optional>
+                     <element name="ausbildungsbeginn">
+                        <a:documentation>Titel: ausbildungsbeginn
+Beschriftung: Das Kind hat eine Ausbildung begonnen am
+</a:documentation>
+                        <ref name="optional-assistants-date"/>
+                     </element>
+                  </optional>
+                  <optional>
+                     <element name="ausbildungals">
+                        <a:documentation>Titel: ausbildungals
+Beschriftung: als
+</a:documentation>
+                        <ref name="assistants-text"/>
+                     </element>
+                  </optional>
+                  <optional>
+                     <element name="ausbildungvoraussichtlichesende">
+                        <a:documentation>Titel: ausbildungvoraussichtlichesende
+Beschriftung: voraussichtliches Ende
+</a:documentation>
+                        <ref name="optional-assistants-date"/>
+                     </element>
+                  </optional>
+                  <optional>
+                     <element name="ausbildungsverguetung">
+                        <a:documentation>Titel: ausbildungsverguetung
+Beschriftung: Ausbildungsvergütung netto
+</a:documentation>
+                        <ref name="optional-assistants-currency"/>
+                     </element>
+                  </optional>
+                  <optional>
+                     <element name="ausbildungunterkunft">
+                        <a:documentation>Titel: ausbildungunterkunft
+Beschriftung: Das Kind hat ausbildungsbedingt eine eigene Unterkunft außerhalb des elterlichen Haushalts
+</a:documentation>
+                        <ref name="assistants-boolean"/>
+                     </element>
+                  </optional>
+                  <element name="kinderwerbstaetigkeit">
+                     <a:documentation>Titel: kinderwerbstaetigkeit
+Beschriftung: Das Kind hat statt einer Ausbildung eine Erwerbstätigkeit aufgenommen
+</a:documentation>
+                     <ref name="assistants-boolean"/>
+                  </element>
+                  <optional>
+                     <element name="verguetungerwerbstaetigkeit">
+                        <a:documentation>Titel: verguetungerwerbstaetigkeit
+Beschriftung: Monatliche Vergütung netto
+</a:documentation>
+                        <ref name="optional-assistants-currency"/>
+                     </element>
+                  </optional>
+               </optional>
+               <element name="kindeinkuenfte">
+                  <a:documentation>Titel: kindeinkuenfte
+Beschriftung: Das Kind bezieht Einkünfte
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+               <optional>
+                  <element name="kindhalbwaisenrente">
+                     <a:documentation>Titel: kindhalbwaisenrente
+Beschriftung: Halbwaisenrente
+</a:documentation>
+                     <ref name="assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="halbwaisenrentehoehe">
+                     <a:documentation>Titel: halbwaisenrentehoehe
+Beschriftung: Halbwaisenrente in Höhe von monatlich
+</a:documentation>
+                     <ref name="assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="schadensersatzleistungen">
+                     <a:documentation>Titel: schadensersatzleistungen
+Beschriftung: Schadenersatzleistungen, die wegen des Todes des anderen Elternteils oder eines Stiefelternteils gezahlt werden
+</a:documentation>
+                     <ref name="assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="nichtselbststaendigearbeit">
+                     <a:documentation>Titel: nichtselbststaendigearbeit
+Beschriftung: Einkünfte aus nichtselbstständiger Arbeit, Ausbildung, Freiwilligendienst
+</a:documentation>
+                     <ref name="assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="selbststaendigearbeit">
+                     <a:documentation>Titel: selbststaendigearbeit
+Beschriftung: Einkünfte aus Land- oder Forstwirtschaft, Gewerbebetrieb oder selbstständiger Tätigkeit
+</a:documentation>
+                     <ref name="assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="kapitalvermoegen">
+                     <a:documentation>Titel: kapitalvermoegen
+Beschriftung: Einkünfte aus Kapitalvermögen, Vermietung oder Verpachtung
+</a:documentation>
+                     <ref name="assistants-boolean"/>
+                  </element>
+               </optional>
+               <element name="erlernterberuf">
+                  <a:documentation>Titel: erlernterberuf
+Beschriftung: Erlernter Beruf
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="ausgeuebtetaetigkeit">
+                  <a:documentation>Titel: ausgeuebtetaetigkeit
+Beschriftung: Derzeit ausgeübte Tätigkeit
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="monatlichesnettoeinkommen">
+                  <a:documentation>Titel: monatlichesnettoeinkommen
+Beschriftung: Monatliches Nettoeinkommen
+</a:documentation>
+                  <ref name="optional-assistants-currency"/>
+               </element>
+               <element name="steuerklasse">
+                  <zeroOrMore>
+                     <element>
+                        <nsName ns=""/>
+                        <attribute name="label"/>
+                        <ref name="assistants-boolean"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+               <element name="kinderfreibetrag">
+                  <a:documentation>Titel: kinderfreibetrag
+Beschriftung: Kinderfreibetrag
+</a:documentation>
+                  <ref name="optional-assistants-currency"/>
+               </element>
+            </element>
+         </optional>
+         <element name="vormundschaft">
+            <element name="beistandschaft">
+               <a:documentation>Titel: beistandschaft
+Beschriftung: Für mein Kind wird zum Zweck der Unterhaltsregelung und/oder Vaterschaftsfeststellung eine Beistandschaft oder Vormundschaft bei einem Jugendamt oder der &lt;abbr title="Arbeiterwohlfahrt"&gt;AWO&lt;/abbr&gt; geführt
+</a:documentation>
+               <ref name="assistants-boolean"/>
+            </element>
+            <optional>
+               <element name="beistandschaftseit">
+                  <a:documentation>Titel: beistandschaftseit
+Beschriftung: seit
+</a:documentation>
+                  <ref name="optional-assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="beistandschaftbeantragtam">
+                  <a:documentation>Titel: beistandschaftbeantragtam
+Beschriftung: bzw. wurde beantragt am
+</a:documentation>
+                  <ref name="optional-assistants-date"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="beistandschaftbehoerde">
+                  <a:documentation>Titel: beistandschaftbehoerde
+Beschriftung: beim
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="beistandschaftgeschzeichen">
+                  <a:documentation>Titel: beistandschaftgeschzeichen
+Beschriftung: Geschäftszeichen
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="beistandauskunftserteilung">
+                  <a:documentation>Titel: beistandauskunftserteilung
+Beschriftung: Mit der Auskunftserteilung des Beistandes an die Unterhaltsvorschussstelle bin ich einverstanden
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+            </optional>
+            <element name="beauftragungrechtsanwaltsbuero">
+               <a:documentation>Titel: beauftragungrechtsanwaltsbuero
+Beschriftung: Ich habe ein Rechtsanwaltsbüro beauftragt
+</a:documentation>
+               <ref name="assistants-boolean"/>
+            </element>
+            <optional>
+               <element name="name">
+                  <a:documentation>Titel: name
+Beschriftung: Name des Rechtsanwaltsbüros
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="strasse">
+                  <a:documentation>Titel: strasse
+Beschriftung: Straße
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="hausnummer">
+                  <a:documentation>Titel: hausnummer
+Beschriftung: Hausnummer
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="postleitzahl">
+                  <a:documentation>Titel: postleitzahl
+Beschriftung: Postleitzahl
+</a:documentation>
+                  <ref name="optional-assistants-number"/>
+               </element>
+               <element name="ort">
+                  <a:documentation>Titel: ort
+Beschriftung: Ort
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="aktenzeichen">
+                  <a:documentation>Titel: aktenzeichen
+Beschriftung: Aktenzeichen
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="beauftragtmit">
+                  <zeroOrMore>
+                     <element>
+                        <nsName ns=""/>
+                        <attribute name="label"/>
+                        <ref name="assistants-boolean"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+         </element>
+         <element name="andererelternteil1">
+            <element name="kindehelich">
+               <a:documentation>Titel: kindehelich
+Beschriftung: Bitte wählen Sie den zutreffenden Punkt aus
+</a:documentation>
+               <choice>
+                  <value>vaterschaft nicht feststellbar</value>
+                  <a:documentation>Die Vaterschaft ist nicht feststellbar</a:documentation>
+                  <value>nicht ehelich</value>
+                  <a:documentation>Das Kind ist nicht ehelich geboren</a:documentation>
+                  <value>ehelich</value>
+                  <a:documentation>Das Kind ist ehelich geboren</a:documentation>
+               </choice>
+            </element>
+            <optional>
+               <element name="vaterschaftnichtfeststellbarweil">
+                  <a:documentation>Titel: vaterschaftnichtfeststellbarweil
+Beschriftung: Begründung
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="vaterschaftanerkannt">
+                  <a:documentation>Titel: vaterschaftanerkannt
+Beschriftung: Ist die Vaterschaft anerkannt?
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="antragauffeststellungvaterschaft">
+                  <a:documentation>Titel: antragauffeststellungvaterschaft
+Beschriftung: Wurde ein Antrag auf Feststellung der Vaterschaft gestellt?
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="vaterschaftsfeststellungsverfahrenbei">
+                  <a:documentation>Titel: vaterschaftsfeststellungsverfahrenbei
+Beschriftung: Ein Vaterschaftsfeststellungsverfahren ist bereits eingeleitet durch/bei
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="vaterschaftnochnichtfestgestelltweil">
+                  <a:documentation>Titel: vaterschaftnochnichtfestgestelltweil
+Beschriftung: Die Vaterschaft ist noch nicht festgestellt, weil
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="ehemannvater">
+                  <a:documentation>Titel: ehemannvater
+Beschriftung: Der Ehemann ist der Vater des Kindes
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="vaterschaftsanfechtungsklage">
+                  <a:documentation>Titel: vaterschaftsanfechtungsklage
+Beschriftung: Ist eine Vaterschaftsanfechtungsklage anhängig?
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+            </optional>
+            <optional>
+               <element name="vaterschaftsanfechtungsklageamtsgericht">
+                  <a:documentation>Titel: vaterschaftsanfechtungsklageamtsgericht
+Beschriftung: Eine Vaterschaftsanfechtungsklage ist bereits anhängig bei
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+            <optional>
+               <optional>
+                  <element name="geschlecht">
+                     <a:documentation>Titel: geschlecht
+Beschriftung: Geschlecht
+</a:documentation>
+                     <optional>
+                        <choice>
+                           <value>männlich</value>
+                           <a:documentation>männlich</a:documentation>
+                           <value>weiblich</value>
+                           <a:documentation>weiblich</a:documentation>
+                           <value>divers</value>
+                           <a:documentation>divers</a:documentation>
+                           <value>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</value>
+                           <a:documentation>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</a:documentation>
+                        </choice>
+                     </optional>
+                  </element>
+               </optional>
+               <element name="name">
+                  <a:documentation>Titel: name
+Beschriftung: Name
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="vorname">
+                  <a:documentation>Titel: vorname
+Beschriftung: Vorname
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="strasse">
+                  <a:documentation>Titel: strasse
+Beschriftung: Straße
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="hausnummer">
+                  <a:documentation>Titel: hausnummer
+Beschriftung: Hausnummer
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="postleitzahl">
+                  <a:documentation>Titel: postleitzahl
+Beschriftung: Postleitzahl
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="ort">
+                  <a:documentation>Titel: ort
+Beschriftung: Ort
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <optional>
+                  <element name="land">
+                     <a:documentation>Titel: land
+Beschriftung: Land
+</a:documentation>
+                     <optional>
+                        <ref name="assistants-text"/>
+                     </optional>
+                  </element>
+               </optional>
+               <element name="geburtsdatum">
+                  <a:documentation>Titel: geburtsdatum
+Beschriftung: Geburtsdatum
+</a:documentation>
+                  <ref name="optional-assistants-date"/>
+               </element>
+               <optional>
+                  <element name="familienstand">
+                     <a:documentation>Titel: familienstand
+Beschriftung: Familienstand
+</a:documentation>
+                     <optional>
+                        <choice>
+                           <value/>
+                           <a:documentation/>
+                           <value>ledig</value>
+                           <a:documentation>ledig</a:documentation>
+                           <value>verheiratet</value>
+                           <a:documentation>verheiratet</a:documentation>
+                           <value>verwitwet</value>
+                           <a:documentation>verwitwet</a:documentation>
+                           <value>geschieden</value>
+                           <a:documentation>geschieden</a:documentation>
+                           <value>Ehe aufgehoben</value>
+                           <a:documentation>Ehe aufgehoben</a:documentation>
+                           <value>in eingetragener Lebenspartnerschaft</value>
+                           <a:documentation>in eingetragener Lebenspartnerschaft</a:documentation>
+                           <value>durch Tod aufgelöste Lebenspartnerschaft</value>
+                           <a:documentation>durch Tod aufgelöste Lebenspartnerschaft</a:documentation>
+                           <value>aufgehobene Lebenspartnerschaft</value>
+                           <a:documentation>aufgehobene Lebenspartnerschaft</a:documentation>
+                           <value>durch Todeserklärung aufgelöste Lebenspartnerschaft</value>
+                           <a:documentation>durch Todeserklärung aufgelöste Lebenspartnerschaft</a:documentation>
+                           <value>nicht bekannt</value>
+                           <a:documentation>nicht bekannt</a:documentation>
+                        </choice>
+                     </optional>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="staatsangehoerigkeit">
+                     <a:documentation>Titel: staatsangehoerigkeit
+Beschriftung: Staatsangehörigkeit
+</a:documentation>
+                     <optional>
+                        <ref name="assistants-text"/>
+                     </optional>
+                  </element>
+               </optional>
+               <element name="geburtsort">
+                  <a:documentation>Titel: geburtsort
+Beschriftung: Geburtsort
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <optional>
+                  <element name="geburtsland">
+                     <a:documentation>Titel: geburtsland
+Beschriftung: Geburtsland
+</a:documentation>
+                     <optional>
+                        <ref name="assistants-text"/>
+                     </optional>
+                  </element>
+               </optional>
+               <element name="telefon">
+                  <a:documentation>Titel: telefon
+Beschriftung: Telefon
+Prüfmuster: /(^\s*$)|(^(^([0(+][0-9\.-\/\+ ()]{7,})$)$)/
+Prüfmeldung: Bitte geben Sie eine gültige Telefonnummer an.
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+            </optional>
+         </element>
+         <optional>
+            <element name="andererelternteil2">
+               <element name="schulabschluss">
+                  <a:documentation>Titel: schulabschluss
+Beschriftung: Schulabschluss
+</a:documentation>
+                  <choice>
+                     <value>kein Schulabschluss</value>
+                     <a:documentation>kein Schulabschluss</a:documentation>
+                     <value>Schulart nicht bekannt</value>
+                     <a:documentation>Schulart nicht bekannt</a:documentation>
+                     <value>Gymnasium</value>
+                     <a:documentation>Gymnasium</a:documentation>
+                     <value>Realschule/Polytechnische Oberschule</value>
+                     <a:documentation>Realschule/Polytechnische Oberschule</a:documentation>
+                     <value>Gesamtschule</value>
+                     <a:documentation>Gesamtschule</a:documentation>
+                     <value>Hauptschule</value>
+                     <a:documentation>Hauptschule</a:documentation>
+                     <value>Sonderschule</value>
+                     <a:documentation>Sonderschule</a:documentation>
+                  </choice>
+               </element>
+               <optional>
+                  <element name="berufsausbildungkeine">
+                     <a:documentation>Titel: berufsausbildungkeine
+Beschriftung: keine
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="berufsausbildungnichtbekannt">
+                     <a:documentation>Titel: berufsausbildungnichtbekannt
+Beschriftung: nicht bekannt
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="lehre">
+                     <a:documentation>Titel: lehre
+Beschriftung: Lehre
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="lehreals">
+                     <a:documentation>Titel: lehreals
+Beschriftung: Lehre als
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="lehreabgebrochen">
+                     <a:documentation>Titel: lehreabgebrochen
+Beschriftung: abgebrochen
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="fachschulausbildung">
+                     <a:documentation>Titel: fachschulausbildung
+Beschriftung: Fachschulausbildung
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="fachschulausbildungals">
+                     <a:documentation>Titel: fachschulausbildungals
+Beschriftung: Fachschulausbildung als
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="fachschulausbildungabgebrochen">
+                     <a:documentation>Titel: fachschulausbildungabgebrochen
+Beschriftung: abgebrochen
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="studium">
+                     <a:documentation>Titel: studium
+Beschriftung: Studium
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="studiumals">
+                     <a:documentation>Titel: studiumals
+Beschriftung: Studium mit Fachrichtung
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="studiumabgebrochen">
+                     <a:documentation>Titel: studiumabgebrochen
+Beschriftung: abgebrochen
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="ausbildungstudiumanerkanntindtl">
+                     <a:documentation>Titel: ausbildungstudiumanerkanntindtl
+Beschriftung: Ausbildung/Studium anerkannt in Deutschland
+</a:documentation>
+                     <ref name="assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="ausbildungstudiumanerkanntin">
+                     <a:documentation>Titel: ausbildungstudiumanerkanntin
+Beschriftung: Ausbildung/Studium anerkannt in
+</a:documentation>
+                     <optional>
+                        <ref name="assistants-text"/>
+                     </optional>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="ausbildungstudiumdauertnochan">
+                     <a:documentation>Titel: ausbildungstudiumdauertnochan
+Beschriftung: Ausbildung/Studium dauert noch an
+</a:documentation>
+                     <ref name="assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="ausbildungstudiumbis">
+                     <a:documentation>Titel: ausbildungstudiumbis
+Beschriftung: bis
+</a:documentation>
+                     <ref name="optional-assistants-date"/>
+                  </element>
+               </optional>
+               <element name="aktuelleberuflichetaetigkeit">
+                  <a:documentation>Titel: aktuelleberuflichetaetigkeit
+Beschriftung: Aktuelle oder letzte berufliche Tätigkeit
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="beruflichetaetigkeitseit">
+                  <a:documentation>Titel: beruflichetaetigkeitseit
+Beschriftung: seit
+</a:documentation>
+                  <ref name="optional-assistants-date"/>
+               </element>
+               <element name="beruflichetaetigkeitbis">
+                  <a:documentation>Titel: beruflichetaetigkeitbis
+Beschriftung: bis
+</a:documentation>
+                  <ref name="optional-assistants-date"/>
+               </element>
+               <element name="arbeitgeber">
+                  <a:documentation>Titel: arbeitgeber
+Beschriftung: Arbeitgeber
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="aktuellesnettoeinkommen">
+                  <a:documentation>Titel: aktuellesnettoeinkommen
+Beschriftung: Aktuelles oder zuletzt bezogenes Nettoeinkommen monatlich etwa
+</a:documentation>
+                  <ref name="optional-assistants-currency"/>
+               </element>
+               <optional>
+                  <element name="taetigkeitbeendet">
+                     <a:documentation>Titel: taetigkeitbeendet
+Beschriftung: Tätigkeit beendet/abgebrochen
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="beendigungaufgrund">
+                     <a:documentation>Titel: beendigungaufgrund
+Beschriftung: Beendigung aufgrund
+</a:documentation>
+                     <optional>
+                        <choice>
+                           <value>Kündigung des Arbeitgebers</value>
+                           <a:documentation>Kündigung des Arbeitgebers</a:documentation>
+                           <value>Ablauf eines Zeitvertrages</value>
+                           <a:documentation>Ablauf eines Zeitvertrages</a:documentation>
+                           <value>Aufgabe der Selbstständigkeit</value>
+                           <a:documentation>Aufgabe der Selbstständigkeit</a:documentation>
+                           <value>eigener Kündigung</value>
+                           <a:documentation>eigener Kündigung</a:documentation>
+                        </choice>
+                     </optional>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="beendigunggruende">
+                     <a:documentation>Titel: beendigunggruende
+Beschriftung: Gründe für die Beendigung (wie Betriebsaufgabe oder Betriebsverkleinerung)
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="arbeitslos">
+                     <a:documentation>Titel: arbeitslos
+Beschriftung: arbeitslos
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="arbeitslosseit">
+                     <a:documentation>Titel: arbeitslosseit
+Beschriftung: seit
+</a:documentation>
+                     <ref name="optional-assistants-date"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="arbeitsunfaehigerkrankt">
+                     <a:documentation>Titel: arbeitsunfaehigerkrankt
+Beschriftung: arbeitsunfähig erkrankt
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="arbeitsunfaehigerkranktseit">
+                     <a:documentation>Titel: arbeitsunfaehigerkranktseit
+Beschriftung: seit
+</a:documentation>
+                     <ref name="optional-assistants-date"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="erwerbsunfaehig">
+                     <a:documentation>Titel: erwerbsunfaehig
+Beschriftung: erwerbsunfähig
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="erwerbsunfaehigseit">
+                     <a:documentation>Titel: erwerbsunfaehigseit
+Beschriftung: seit
+</a:documentation>
+                     <ref name="optional-assistants-date"/>
+                  </element>
+               </optional>
+            </element>
+         </optional>
+         <optional>
+            <element name="andererelternteil3">
+               <optional>
+                  <element name="bezugalg">
+                     <a:documentation>Titel: bezugalg
+Beschriftung: Bezug von Arbeitslosengeld
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="algleistungsstelle">
+                     <a:documentation>Titel: algleistungsstelle
+Beschriftung: Leistungsstelle
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="alghoehe">
+                     <a:documentation>Titel: alghoehe
+Beschriftung: Höhe des Arbeitslosengeldes monatlich ca.
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="bezugalgii">
+                     <a:documentation>Titel: bezugalgii
+Beschriftung: Bezug von Arbeitslosengeld II
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="algiileistungsstelle">
+                     <a:documentation>Titel: algiileistungsstelle
+Beschriftung: Leistungsstelle
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="algiihoehe">
+                     <a:documentation>Titel: algiihoehe
+Beschriftung: Höhe des Arbeitslosengeldes II monatlich ca.
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="bezugkrankengeld">
+                     <a:documentation>Titel: bezugkrankengeld
+Beschriftung: Krankengeld
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="krankengeldleistungsstelle">
+                     <a:documentation>Titel: krankengeldleistungsstelle
+Beschriftung: Leistungsstelle
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="krankengeldhoehe">
+                     <a:documentation>Titel: krankengeldhoehe
+Beschriftung: Höhe des Krankengeldes monatlich ca.
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="bezugrente">
+                     <a:documentation>Titel: bezugrente
+Beschriftung: Rente
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="renteleistungsstelle">
+                     <a:documentation>Titel: renteleistungsstelle
+Beschriftung: Leistungsstelle
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="rentehoehe">
+                     <a:documentation>Titel: rentehoehe
+Beschriftung: Höhe der Rente monatlich ca.
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="bezugsozialhilfe">
+                     <a:documentation>Titel: bezugsozialhilfe
+Beschriftung: Sozialhilfe
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="sozialhilfeleistungsstelle">
+                     <a:documentation>Titel: sozialhilfeleistungsstelle
+Beschriftung: Leistungsstelle
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="sozialhilfehoehe">
+                     <a:documentation>Titel: sozialhilfehoehe
+Beschriftung: Höhe der Sozialhilfe monatlich ca.
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <element name="krankenkasse">
+                  <a:documentation>Titel: krankenkasse
+Beschriftung: Krankenkasse
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="rentenversicherungstraeger">
+                  <a:documentation>Titel: rentenversicherungsträger
+Beschriftung: Rentenversicherungsträger
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <element name="sonstigesozialversicherung">
+                  <a:documentation>Titel: sonstigesozialversicherung
+Beschriftung: Sonstige Sozialversicherung
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <optional>
+                  <element name="einkommenausnebentaetigkeit">
+                     <a:documentation>Titel: einkommenausnebentaetigkeit
+Beschriftung: Einkommen aus Nebentätigkeit
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="einkommennebentaetigkeithoehe">
+                     <a:documentation>Titel: einkommennebentaetigkeithoehe
+Beschriftung: Nettoeinkommen monatlich ca.
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="einkommenausvermietung">
+                     <a:documentation>Titel: einkommenausvermietung
+Beschriftung: Einkommen aus Vermietung / Verpachtung
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="einkommenvermietunghoehe">
+                     <a:documentation>Titel: einkommenvermietunghoehe
+Beschriftung: Nettoeinkommen monatlich ca.
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="sonstigeeinkommensumme">
+                     <a:documentation>Titel: sonstigeeinkommensumme
+Beschriftung: Summe der sonstigen Einkommen
+</a:documentation>
+                     <text/>
+                  </element>
+               </optional>
+               <element name="sonstigeseinkommenerlaeuterung">
+                  <a:documentation>Titel: sonstigeseinkommenerlaeuterung
+Beschriftung: Erläuterungen
+</a:documentation>
+                  <ref name="assistants-text"/>
+               </element>
+               <optional>
+                  <element name="grundbesitz">
+                     <a:documentation>Titel: grundbesitz
+Beschriftung: Grundbesitz (Haus / Eigentumswohnung / unbebautes Grundstück - auch im Ausland)
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="grundbesitzstrasse">
+                     <a:documentation>Titel: grundbesitzstrasse
+Beschriftung: Straße
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="grundbesitzhausnummer">
+                     <a:documentation>Titel: grundbesitzhausnummer
+Beschriftung: Hausnummer
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="grundbesitzpostleitzahl">
+                     <a:documentation>Titel: grundbesitzpostleitzahl
+Beschriftung: Postleitzahl
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="grundbesitzort">
+                     <a:documentation>Titel: grundbesitzort
+Beschriftung: Ort
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="grundbesitzland">
+                     <a:documentation>Titel: grundbesitzland
+Beschriftung: Land
+</a:documentation>
+                     <optional>
+                        <ref name="assistants-text"/>
+                     </optional>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="kapitallebensversicherung">
+                     <a:documentation>Titel: kapitallebensversicherung
+Beschriftung: Kapitallebensversicherung
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="kapitallebensversicherungbei">
+                     <a:documentation>Titel: kapitallebensversicherungbei
+Beschriftung: bei
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="sparguthaben">
+                     <a:documentation>Titel: sparguthaben
+Beschriftung: Sparguthaben
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="sparguthabenbei">
+                     <a:documentation>Titel: sparguthabenbei
+Beschriftung: bei
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="wertpapiere">
+                     <a:documentation>Titel: wertpapiere
+Beschriftung: Wertpapiere (Aktien / Fondsanteile)
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="wertpapierebei">
+                     <a:documentation>Titel: wertpapierebei
+Beschriftung: bei
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="girokonto">
+                     <a:documentation>Titel: girokonto
+Beschriftung: Girokonto
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="girokontobei">
+                     <a:documentation>Titel: girokontobei
+Beschriftung: bei
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="F00000106">
+                     <a:documentation>Titel: girokontoiban
+Beschriftung: &lt;span lang="en"&gt;&lt;abbr title="International Bank Account Number"&gt;IBAN&lt;/abbr&gt;&lt;/span&gt;
+Prüfausdruck: (/^\s*$/.test(value))||(isValidIBAN(value))
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="pkw">
+                     <a:documentation>Titel: pkw
+Beschriftung: PKW
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="pkwmarke">
+                     <a:documentation>Titel: pkwmarke
+Beschriftung: Marke
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="pkwkennzeichen">
+                     <a:documentation>Titel: pkwkennzeichen
+Beschriftung: Kennzeichen
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="pkwwert">
+                     <a:documentation>Titel: pkwwert
+Beschriftung: Wert ca.
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="vermoegensonstiges">
+                     <a:documentation>Titel: vermoegensonstiges
+Beschriftung: Sonstiges
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="vermoegensonstigeserlaeuterung">
+                     <a:documentation>Titel: vermoegensonstigeserlaeuterung
+Beschriftung: Erläuterungen
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="schwerbehinderung">
+                     <a:documentation>Titel: schwerbehinderung
+Beschriftung: Schwerbehinderung
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="behinderungsgrad">
+                     <a:documentation>Titel: behinderungsgrad
+Beschriftung: %
+</a:documentation>
+                     <ref name="optional-assistants-number"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="behinderungbekannt">
+                     <a:documentation>Titel: behinderungbekannt
+Beschriftung: keine bekannt
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="behinderungsonstiges">
+                     <a:documentation>Titel: behinderungsonstiges
+Beschriftung: Sonstiges (wie Art der gesundheitlichen Beeinträchtigung)
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="behinderungsonstigesausfuehrung">
+                     <a:documentation>Titel: behinderungsonstigesausfuehrung
+Beschriftung: Erläuterungen
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="weitere_unterhaltsverpflichtungen">
+                     <zeroOrMore>
+                        <element name="weitere_unterhaltsverpflichtungen-item">
+                           <element name="berechtigtername">
+                              <a:documentation>Titel: berechtigtername
+Beschriftung: Name
+</a:documentation>
+                              <ref name="assistants-text"/>
+                           </element>
+                           <element name="berechtigtervorname">
+                              <a:documentation>Titel: berechtigtervorname
+Beschriftung: Vorname(n)
+</a:documentation>
+                              <ref name="assistants-text"/>
+                           </element>
+                           <element name="berechtigtergeburtsdatum">
+                              <a:documentation>Titel: berechtigtergeburtsdatum
+Beschriftung: Geburtsdatum
+</a:documentation>
+                              <ref name="optional-assistants-date"/>
+                           </element>
+                           <element name="berechtigterunterhalt">
+                              <a:documentation>Titel: berechtigterunterhalt
+Beschriftung: Höhe des Unterhalts
+</a:documentation>
+                              <ref name="optional-assistants-currency"/>
+                           </element>
+                        </element>
+                     </zeroOrMore>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="schulden">
+                     <a:documentation>Titel: schulden
+Beschriftung: Schulden
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="schuldenbei">
+                     <a:documentation>Titel: schuldenbei
+Beschriftung: bei
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="schuldenhoehe">
+                     <a:documentation>Titel: schuldenhoehe
+Beschriftung: Höhe ca.
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="insolvenzverfahren">
+                     <a:documentation>Titel: insolvenzverfahren
+Beschriftung: Insolvenzverfahren eröffnet/beantragt
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="schuldnerberatung">
+                     <a:documentation>Titel: schuldnerberatung
+Beschriftung: z. B. Schuldnerberatung
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="vermoegensauskunft">
+                     <a:documentation>Titel: vermoegensauskunft
+Beschriftung: Vermögensauskunft (früher: eidesstattliche Versicherung) wurde bereits abgegeben
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="vermoegensauskunfterlaeuterung">
+                     <a:documentation>Titel: vermoegensauskunfterlaeuterung
+Beschriftung: Erläuterungen
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="keineangaben">
+                     <a:documentation>Titel: keineangaben
+Beschriftung: Ich kann keine Angaben machen
+</a:documentation>
+                     <ref name="optional-assistants-boolean"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="keineangabenweil">
+                     <a:documentation>Titel: keineangabenweil
+Beschriftung: weil
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+            </element>
+         </optional>
+         <optional>
+            <element name="betreuung">
+               <element name="lebtinmeinemhaushaltseit">
+                  <a:documentation>Titel: lebtinmeinemhaushaltseit
+Beschriftung: Das Kind lebt in meinem Haushalt seit dem
+Prüfausdruck: value &lt; new Date()
+Prüfmeldung: Das Datum muss in der Vergangenheit liegen
+</a:documentation>
+                  <ref name="assistants-date"/>
+               </element>
+               <element name="betreuungkind">
+                  <a:documentation>Titel: betreuungkind
+Beschriftung: Bitte machen Sie Angaben zur Versorgung und Betreuung Ihres Kindes
+</a:documentation>
+                  <choice>
+                     <value>alleine</value>
+                     <a:documentation>Ich versorge und betreue mein Kind alleine. Es hat seinen Lebensmittelpunkt bei mir.</a:documentation>
+                     <value>geteilt</value>
+                     <a:documentation>Ich teile mir die Versorgung und Betreuung meines Kindes mit dem anderen Elternteil.</a:documentation>
+                  </choice>
+               </element>
+               <optional>
+                  <element name="verinbarungumgangsrecht">
+                     <a:documentation>Titel: verinbarungumgangsrecht
+Beschriftung: Geben Sie bitte die Vereinbarungsart an, welche für das Umgangsrecht getroffen wurde
+</a:documentation>
+                     <choice>
+                        <value>Es gibt eine gerichtlichtliche Vereinbarung bezüglich des Umgangsrechtes.</value>
+                        <a:documentation>Es gibt eine gerichtlichtliche Vereinbarung bezüglich des Umgangsrechtes.</a:documentation>
+                        <value>Das Umgangsrecht wurde unter den Eltern vereinbart.</value>
+                        <a:documentation>Das Umgangsrecht wurde unter den Eltern vereinbart.</a:documentation>
+                        <value>Sonstige Vereinbarung (zum Beispiel über Rechtsanwälte)</value>
+                        <a:documentation>Sonstige Vereinbarung (zum Beispiel über Rechtsanwälte)</a:documentation>
+                     </choice>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="vereinbarunggilt">
+                     <a:documentation>Titel: vereinbarunggilt
+Beschriftung: Die Regelung gilt
+</a:documentation>
+                     <choice>
+                        <value/>
+                        <a:documentation/>
+                        <value>wöchentlich</value>
+                        <a:documentation>wöchentlich</a:documentation>
+                        <value>14-täglich</value>
+                        <a:documentation>14-täglich</a:documentation>
+                        <value>davon abweichende Regelung</value>
+                        <a:documentation>davon abweichende Regelung</a:documentation>
+                     </choice>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="vereinbarungumgangsrechtsonstige">
+                     <a:documentation>Titel: vereinbarungumgangsrechtsonstige
+Beschriftung: Bitte beschreiben Sie die Regelung
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="betreuungszeiten_des_anderen_elternteiles">
+                     <zeroOrMore>
+                        <element name="betreuungszeiten_des_anderen_elternteiles-item">
+                           <optional>
+                              <element name="tag">
+                                 <a:documentation>Titel: tag
+Beschriftung: Wochentag
+</a:documentation>
+                                 <optional>
+                                    <choice>
+                                       <value>--- bitte auswählen ---</value>
+                                       <a:documentation>--- bitte auswählen ---</a:documentation>
+                                       <value>Montag</value>
+                                       <a:documentation>Montag</a:documentation>
+                                       <value>Dienstag</value>
+                                       <a:documentation>Dienstag</a:documentation>
+                                       <value>Mittwoch</value>
+                                       <a:documentation>Mittwoch</a:documentation>
+                                       <value>Donnerstag</value>
+                                       <a:documentation>Donnerstag</a:documentation>
+                                       <value>Freitag</value>
+                                       <a:documentation>Freitag</a:documentation>
+                                       <value>Samstag</value>
+                                       <a:documentation>Samstag</a:documentation>
+                                       <value>Sonntag</value>
+                                       <a:documentation>Sonntag</a:documentation>
+                                    </choice>
+                                 </optional>
+                              </element>
+                           </optional>
+                           <optional>
+                              <element name="ganztags">
+                                 <a:documentation>Titel: ganztags
+Beschriftung: ganztags
+</a:documentation>
+                                 <ref name="optional-assistants-boolean"/>
+                              </element>
+                           </optional>
+                           <element name="inderzeitvon">
+                              <a:documentation>Titel: inderzeitvon
+Beschriftung: in der Zeit von
+</a:documentation>
+                              <ref name="assistants-text"/>
+                           </element>
+                           <element name="inderzeitbis">
+                              <a:documentation>Titel: inderzeitbis
+Beschriftung: bis
+Prüfmeldung: Bitte geben Sie die Uhrzeit im Format hh:mm an
+</a:documentation>
+                              <ref name="assistants-text"/>
+                           </element>
+                        </element>
+                     </zeroOrMore>
+                  </element>
+               </optional>
+            </element>
+         </optional>
+         <optional>
+            <element name="unterhalt">
+               <element name="unterhaltsfestsetzung">
+                  <a:documentation>Titel: unterhaltsfestsetzung
+Beschriftung: Bitte wählen Sie den zutreffenden Punkt bezüglich der Unterhaltsfestsetzung aus
+</a:documentation>
+                  <choice>
+                     <value>Eine Unterhaltsfestsetzung ist bereits erfolgt</value>
+                     <a:documentation>Eine Unterhaltsfestsetzung ist bereits erfolgt</a:documentation>
+                     <value>Eine Unterhaltsfestsetzung erfolgte bisher nicht</value>
+                     <a:documentation>Eine Unterhaltsfestsetzung erfolgte bisher nicht</a:documentation>
+                     <value>Ein Antrag auf Unterhaltsfestsetzung wurde bereits gestellt</value>
+                     <a:documentation>Ein Antrag auf Unterhaltsfestsetzung wurde bereits gestellt</a:documentation>
+                     <value>Es ist kein Antrag auf Unterhaltsfestsetzung gestellt worden</value>
+                     <a:documentation>Es ist kein Antrag auf Unterhaltsfestsetzung gestellt worden</a:documentation>
+                  </choice>
+               </element>
+               <optional>
+                  <element name="unterhaltsfestsetzungbehoerde">
+                     <a:documentation>Titel: unterhaltsfestsetzungbehoerde
+Beschriftung: Welche Behörde hat die Unterhaltsfestsetzung beschlossen?
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="verpflichtungunterhaltmonatlich">
+                     <a:documentation>Titel: verpflichtungunterhaltmonatlich
+Beschriftung: Nach der Unterhaltsfestsetzung besteht die Verpflichtung, für das Kind monatlich folgenden Unterhalt zu zahlen
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="antragunterhaltsfestsetzungam">
+                     <a:documentation>Titel: antragunterhaltsfestsetzungam
+Beschriftung: Ein Antrag auf Unterhaltsfestsetzung ist am
+</a:documentation>
+                     <ref name="optional-assistants-date"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="antragunterhaltsfestsetzungamtsgericht">
+                     <a:documentation>Titel: antragunterhaltsfestsetzungamtsgericht
+Beschriftung: gestellt worden beim
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="antragunterhaltsfestsetzunggeschzeich">
+                     <a:documentation>Titel: antragunterhaltsfestsetzunggeschzeich
+Beschriftung: Geschäftszeichen
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="keinantragunterhaltsfestsetzungweil">
+                     <a:documentation>Titel: keinantragunterhaltsfestsetzungweil
+Beschriftung: weil
+</a:documentation>
+                     <choice>
+                        <value>der Kindesvater unbekannt ist</value>
+                        <a:documentation>der Kindesvater unbekannt ist</a:documentation>
+                        <value>der andere Elternteil ausschließlich ALG-II Leistungen bezieht/ Rentner ist</value>
+                        <a:documentation>der andere Elternteil ausschließlich ALG-II Leistungen bezieht/ Rentner ist</a:documentation>
+                        <value>die Trennung gerade erst erfolgt ist</value>
+                        <a:documentation>die Trennung gerade erst erfolgt ist</a:documentation>
+                        <value>ein anderer Grund vorliegt</value>
+                        <a:documentation>ein anderer Grund vorliegt</a:documentation>
+                     </choice>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="keinantragunterhaltsfestsetzunganderergrund">
+                     <a:documentation>Titel: keinantragunterhaltsfestsetzunganderergrund
+Beschriftung: Es ist kein Antrag auf Unterhaltsfestsetzung gestellt worden, weil
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <element name="unterhaltszahlungandereret">
+                  <a:documentation>Titel: unterhaltszahlungandereret
+Beschriftung: Der andere Elternteil zahlt
+</a:documentation>
+                  <choice>
+                     <value>keinen Unterhalt</value>
+                     <a:documentation>keinen Unterhalt</a:documentation>
+                     <value>nur noch geringeren Unterhalt</value>
+                     <a:documentation>nur noch geringeren Unterhalt</a:documentation>
+                  </choice>
+               </element>
+               <optional>
+                  <element name="keinenunterhalt_seit">
+                     <a:documentation>Titel: keinenunterhalt seit
+Beschriftung: seit
+</a:documentation>
+                     <ref name="optional-assistants-date"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="letztezahlungam">
+                     <a:documentation>Titel: letztezahlungam
+Beschriftung: letzte Zahlung am
+</a:documentation>
+                     <ref name="optional-assistants-date"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="unterhaltinhoehevon">
+                     <a:documentation>Titel: unterhaltinhoehevon
+Beschriftung: in Höhe von
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="geringererunterhaltinhoehevon">
+                     <a:documentation>Titel: geringererunterhaltinhoehevon
+Beschriftung: in Höhe von
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="geringererunterhaltseit">
+                     <a:documentation>Titel: geringererunterhaltseit
+Beschriftung: seit
+</a:documentation>
+                     <ref name="optional-assistants-date"/>
+                  </element>
+               </optional>
+               <element name="vorauszahlung">
+                  <a:documentation>Titel: vorauszahlung
+Beschriftung: Erfolgte eine Vorauszahlung?
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+               <optional>
+                  <element name="vorauszahlungmonate">
+                     <a:documentation>Titel: vorauszahlungmonate
+Beschriftung: Es erfolgte eine Vorauszahlung für die Monate
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="vorauszahlunginhoehevon">
+                     <a:documentation>Titel: vorauszahlunginhoehevon
+Beschriftung: in Höhe von
+</a:documentation>
+                     <ref name="optional-assistants-currency"/>
+                  </element>
+               </optional>
+               <element name="zahlungunterhaltsrelevanteleistungen">
+                  <a:documentation>Titel: zahlungunterhaltsrelevanteleistungen
+Beschriftung: Zahlt der andere Elternteil unterhaltsrelevante Leistungen an mich?
+</a:documentation>
+                  <ref name="assistants-boolean"/>
+               </element>
+               <optional>
+                  <element name="unterhaltsrelevanteleistung">
+                     <a:documentation>Titel: unterhaltsrelevanteleistung
+Beschriftung: Der andere Elternteil zahlt an mich folgende unterhaltsrelevante Leistungen
+</a:documentation>
+                     <ref name="assistants-text"/>
+                  </element>
+               </optional>
+            </element>
+         </optional>
+         <element name="weiterekinder">
+            <optional>
+               <element name="weitere_gemeinsame_kinder">
+                  <zeroOrMore>
+                     <element name="weitere_gemeinsame_kinder-item">
+                        <element name="name">
+                           <a:documentation>Titel: name
+Beschriftung: Name
+</a:documentation>
+                           <ref name="assistants-text"/>
+                        </element>
+                        <element name="vorname">
+                           <a:documentation>Titel: vorname
+Beschriftung: Vorname(n)
+</a:documentation>
+                           <ref name="assistants-text"/>
+                        </element>
+                        <element name="geburtsdatum">
+                           <a:documentation>Titel: geburtsdatum
+Beschriftung: Geburtsdatum
+Prüfausdruck: (/^\s*$/.test(value))||(value &lt; new Date())
+Prüfmeldung: Das Datum muss in der Vergangenheit liegen
+</a:documentation>
+                           <ref name="optional-assistants-date"/>
+                        </element>
+                        <element name="lebtbei">
+                           <a:documentation>Titel: lebtbei
+Beschriftung: lebt bei
+</a:documentation>
+                           <ref name="assistants-text"/>
+                        </element>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <element name="bemerkungen">
+               <a:documentation>Titel: bemerkungen
+Beschriftung: Bemerkungen
+</a:documentation>
+               <ref name="assistants-text"/>
+            </element>
+         </element>
+         <element name="einwilligungdatenaustausch">
+            <a:documentation>Titel: einwilligungdatenaustausch
+Beschriftung: Ich bin damit einverstanden, dass die notwendigen Daten zur Durchführung des &lt;abbr title="Unterhaltsvorschussgesetz"&gt;UVG&lt;/abbr&gt; mit dem Beistand, dem (Amts-)Pfleger oder dem Vormund ausgetauscht werden können. Die erteilte Einwilligung ist freiwillig und kann jederzeit widerrufen werden. Bis zum Widerruf bleibt die Rechtmäßigkeit der Verarbeitung auf der Grundlage der Einwilligung unberührt.
+</a:documentation>
+            <ref name="assistants-boolean"/>
+         </element>
+         <optional>
+            <element name="bda_xfall_app_orgname1">
+               <a:documentation>Titel: bda_xfall_app_orgName1
+Beschriftung: bda_xfall_app_orgName1:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_orgname2">
+               <a:documentation>Titel: bda_xfall_app_orgname2
+Beschriftung: bda_xfall_app_orgname2:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_bezirknr">
+               <a:documentation>Titel: bda_xfall_app_bezirkNr
+Beschriftung: bda_xfall_app_bezirkNr:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_email">
+               <a:documentation>Titel: bda_xfall_app_eMail
+Beschriftung: bda_xfall_app_eMail:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_faxno">
+               <a:documentation>Titel: bda_xfall_app_faxNo
+Beschriftung: bda_xfall_app_faxNo:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_bezirk">
+               <a:documentation>Titel: bda_xfall_app_bezirk
+Beschriftung: bda_xfall_app_bezirk:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_mobileno">
+               <a:documentation>Titel: bda_xfall_app_mobileNo
+Beschriftung: bda_xfall_app_mobileNo:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_houseno">
+               <a:documentation>Titel: bda_xfall_app_houseNo
+Beschriftung: bda_xfall_app_houseNo:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_postalcode">
+               <a:documentation>Titel: bda_xfall_app_postalCode
+Beschriftung: bda_xfall_app_postalCode:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_city">
+               <a:documentation>Titel: bda_xfall_app_city
+Beschriftung: bda_xfall_app_city:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_country">
+               <a:documentation>Titel: bda_xfall_app_country
+Beschriftung: bda_xfall_app_country:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_telno">
+               <a:documentation>Titel: bda_xfall_app_telNo
+Beschriftung: bda_xfall_app_telNo:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_academictitle">
+               <a:documentation>Titel: bda_xfall_app_academicTitle
+Beschriftung: bda_xfall_app_academicTitle:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_formofaddress">
+               <a:documentation>Titel: bda_xfall_app_formOfAddress
+Beschriftung: bda_xfall_app_formOfAddress:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_postofficebox">
+               <a:documentation>Titel: bda_xfall_app_postOfficeBox
+Beschriftung: bda_xfall_app_postOfficeBox:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_identitynamespace">
+               <a:documentation>Titel: bda_xfall_app_identityNamespace
+Beschriftung: bda_xfall_app_identityNamespace:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_partnertype">
+               <a:documentation>Titel: bda_xfall_app_partnerType
+Beschriftung: bda_xfall_app_partnerType:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_street">
+               <a:documentation>Titel: bda_xfall_app_street
+Beschriftung: bda_xfall_app_street:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_firstname">
+               <a:documentation>Titel: bda_xfall_app_firstName
+Beschriftung: bda_xfall_app_firstName:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_lastname">
+               <a:documentation>Titel: bda_xfall_app_lastName
+Beschriftung: bda_xfall_app_lastName:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_app_nationality">
+               <a:documentation>Titel: bda_xfall_app_nationality
+Beschriftung: bda_xfall_app_nationality:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_partnertype">
+               <a:documentation>Titel: bda_xfall_aut_partnerType
+Beschriftung: bda_xfall_aut_partnerType:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_country">
+               <a:documentation>Titel: bda_xfall_aut_country
+Beschriftung: bda_xfall_aut_country:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_email">
+               <a:documentation>Titel: bda_xfall_aut_eMail
+Beschriftung: bda_xfall_aut_eMail:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_faxno">
+               <a:documentation>Titel: bda_xfall_aut_faxNo
+Beschriftung: bda_xfall_aut_faxNo:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_mobileno">
+               <a:documentation>Titel: bda_xfall_aut_mobileNo
+Beschriftung: bda_xfall_aut_mobileNo:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_telno">
+               <a:documentation>Titel: bda_xfall_aut_telNo
+Beschriftung: bda_xfall_aut_telNo:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_orgname1">
+               <a:documentation>Titel: bda_xfall_aut_orgName1
+Beschriftung: bda_xfall_aut_orgName1:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_postalcode">
+               <a:documentation>Titel: bda_xfall_aut_postalCode
+Beschriftung: bda_xfall_aut_postalCode:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_street">
+               <a:documentation>Titel: bda_xfall_aut_street
+Beschriftung: bda_xfall_aut_street:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_houseno">
+               <a:documentation>Titel: bda_xfall_aut_houseNo
+Beschriftung: bda_xfall_aut_houseNo:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_nationality">
+               <a:documentation>Titel: bda_xfall_aut_nationality
+Beschriftung: bda_xfall_aut_nationality:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_bezirknr">
+               <a:documentation>Titel: bda_xfall_aut_bezirkNr
+Beschriftung: bda_xfall_aut_bezirkNr:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_postofficebox">
+               <a:documentation>Titel: bda_xfall_aut_postOfficeBox
+Beschriftung: bda_xfall_aut_postOfficeBox:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_identitynamespace">
+               <a:documentation>Titel: bda_xfall_aut_identityNamespace
+Beschriftung: bda_xfall_aut_identityNamespace:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <optional>
+            <element name="bda_xfall_aut_city">
+               <a:documentation>Titel: bda_xfall_aut_city
+Beschriftung: bda_xfall_aut_city:
+</a:documentation>
+               <text/>
+            </element>
+         </optional>
+         <element name="dateien">
+            <optional>
+               <element name="scheidungsurteil">
+                  <a:documentation>Titel: scheidungsurteil
+Beschriftung: Scheidungsurteil
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="scheidungsurteil-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="aufhebungsurkunde">
+                  <a:documentation>Titel: aufhebungsurkunde
+Beschriftung: Aufhebungsurkunde Ihrer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="aufhebungsurkunde-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="sterbeurkunde">
+                  <a:documentation>Titel: sterbeurkunde
+Beschriftung: Sterbeurkunde des Ehegatten/der Ehegattin
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="sterbeurkunde-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="getrenntweilnachweis">
+                  <a:documentation>Titel: getrenntweilnachweis
+Beschriftung: Nachweis der gerichtlichen Anordnung (z. B. Haft/ Krankheit/ Behinderung)
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="getrenntweilnachweis-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="aufenthaltstitel">
+                  <a:documentation>Titel: aufenthaltstitel
+Beschriftung: Aufenthaltstitel Ihres Kindes
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="aufenthaltstitel-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="nachweiseuebereinkommenundkrankenkasse">
+                  <a:documentation>Titel: nachweiseuebereinkommenundkrankenkasse
+Beschriftung: Nachweise über Einkommen und Krankenkasse Ihres Kindes bei Daueraufenthaltsrecht nach § 4a FreizügG/EU (für EU/EWR/Schweiz) Ihres Kindes
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="nachweiseuebereinkommenundkrankenkasse-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="geburtsurkunde">
+                  <a:documentation>Titel: geburtsurkunde
+Beschriftung: Geburtsurkunde Ihres Kindes
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="geburtsurkunde-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="vaterschaftsanerkennungsurkunde">
+                  <a:documentation>Titel: vaterschaftsanerkennungsurkunde
+Beschriftung: Vaterschaftsanerkennungsurkunde, falls die hochgeladene Geburtsurkunde den Vater nicht ausweist
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="vaterschaftsanerkennungsurkunde-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="leistungsbezugbescheid">
+                  <a:documentation>Titel: leistungsbezugbescheid
+Beschriftung: Bescheid des Leistungsbezugs Ihres Kindes nach UVG
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="leistungsbezugbescheid-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="bewilligungsbescheid">
+                  <a:documentation>Titel: bewilligungsbescheid
+Beschriftung: Bewilligungsbescheid der Waisenbezüge oder Schadensersatzleistungen für Ihr Kind
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="bewilligungsbescheid-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="antragsbestaetigungwaisenbezuege">
+                  <a:documentation>Titel: antragsbestaetigungwaisenbezuege
+Beschriftung: Nachweis der Beantragung auf Waisenbezüge für Ihr Kind
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="antragsbestaetigungwaisenbezuege-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="hilfelebensunterhaltbescheid">
+                  <a:documentation>Titel: hilfelebensunterhaltbescheid
+Beschriftung: Bescheid über Ihre Hilfen zur Sicherung des Lebensunterhalts
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="hilfelebensunterhaltbescheid-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="anlagevereinbarung">
+                  <a:documentation>Titel: anlagevereinbarung
+Beschriftung: Schriftliche Vereinbarung zur Betreuung Ihres Kindes
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="anlagevereinbarung-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="monatlicheauflistung">
+                  <a:documentation>Titel: monatlicheauflistung
+Beschriftung: Monatliche Auflistung der Betreuung
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="monatlicheauflistung-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="bescheidjobcenter">
+                  <a:documentation>Titel: bescheidjobcenter
+Beschriftung: Bescheid über Leistungen vom Jobcenter für {myForm.monat}
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="bescheidjobcenter-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="bescheidkinderwohngeld">
+                  <a:documentation>Titel: bescheidkinderwohngeld
+Beschriftung: Bescheid über die Beziehung von Kinderwohngeld
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="bescheidkinderwohngeld-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="schulbescheinigung">
+                  <a:documentation>Titel: schulbescheinigung
+Beschriftung: Schulbescheinigung Ihres Kindes
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="schulbescheinigung-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="ausbildungsnachweis">
+                  <a:documentation>Titel: ausbildungsnachweis
+Beschriftung: Ausbildungs- bzw. Arbeitsvertrag und entsprechende Nachweise über das erzielte Einkommen (z. B. Lohn- und Gehaltsbescheinigungen) Ihres Kindes
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="ausbildungsnachweis-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="nachweishalbwaisenrente">
+                  <a:documentation>Titel: nachweishalbwaisenrente
+Beschriftung: Nachweis über die Halbwaisenrente Ihres Kindes
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="nachweishalbwaisenrente-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="nachweisschadensersatzleistungen">
+                  <a:documentation>Titel: nachweisschadensersatzleistungen
+Beschriftung: Nachweis über den Bezug Ihres Kindes von Schadensersatzleistungen
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="nachweisschadensersatzleistungen-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="nachweisnichtselbststaendigearbeit">
+                  <a:documentation>Titel: nachweisnichtselbststaendigearbeit
+Beschriftung: Nachweis über Einkünfte aus nichtselbstständiger Arbeit, Ausbildung, Freiwilligendienst Ihres Kindes
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="nachweisnichtselbststaendigearbeit-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="nachweisselbststaendigearbeit">
+                  <a:documentation>Titel: nachweisselbststaendigearbeit
+Beschriftung: Nachweise über Einkünfte aus Land- oder Forstwirtschaft, Gewerbebetrieb oder selbstständiger Tätigkeit Ihres Kindes
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="nachweisselbststaendigearbeit-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="nachweiskapitalvermoegen">
+                  <a:documentation>Titel: nachweiskapitalvermoegen
+Beschriftung: Nachweis über Einkünfte Ihres Kindes aus Kapitalvermögen, Vermietung oder Verpachtung
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="nachweiskapitalvermoegen-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="privatrechtlichevereinbarung">
+                  <a:documentation>Titel: privatrechtlichevereinbarung
+Beschriftung: Unterhaltstitel oder die privatrechtliche Vereinbarung zum Unterhalt
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="privatrechtlichevereinbarung-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+            <optional>
+               <element name="unterhaltsrelevanteleistungnachweis">
+                  <a:documentation>Titel: unterhaltsrelevanteleistungnachweis
+Beschriftung: Nachweis über unterhaltsrelevante Leistungen
+</a:documentation>
+                  <zeroOrMore>
+                     <element name="unterhaltsrelevanteleistungnachweis-item">
+                        <ref name="assistants-file-element"/>
+                     </element>
+                  </zeroOrMore>
+               </element>
+            </optional>
+         </element>
+      </element>
+   </start>
+   <define name="intelliform-attributes">
+      <zeroOrMore>
+         <attribute>
+            <nsName ns="http://xmlns.cit.de/intelliform/transaction"/>
+         </attribute>
+      </zeroOrMore>
+      <zeroOrMore>
+         <attribute>
+            <nsName ns="http://xmlns.cit.de/intelliform/user"/>
+         </attribute>
+      </zeroOrMore>
+   </define>
+   <define name="assistants-boolean">
+      <data type="boolean">
+         <param name="pattern">true|false</param>
+      </data>
+   </define>
+   <define name="assistants-date">
+      <data type="date">
+         <param name="pattern">[0-9]{4}-[0-9]{2}-[0-9]{2}</param>
+      </data>
+   </define>
+   <define name="assistants-number">
+      <data type="decimal"/>
+   </define>
+   <define name="assistants-currency">
+      <attribute name="currency">
+         <data type="string">
+            <param name="pattern">[A-Z]{3}</param>
+         </data>
+      </attribute>
+      <data type="decimal"/>
+   </define>
+   <define name="assistants-number-unit">
+      <attribute name="unit"/>
+      <data type="decimal"/>
+   </define>
+   <define name="assistants-text">
+      <data type="string"/>
+   </define>
+   <define name="assistants-file-element">
+      <element name="file">
+         <attribute name="id"/>
+         <optional>
+            <attribute name="length">
+               <data type="long"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="content-type"/>
+         </optional>
+         <optional>
+            <attribute name="description"/>
+         </optional>
+         <optional>
+            <attribute name="pdf-page-count">
+               <data type="nonNegativeInteger"/>
+            </attribute>
+         </optional>
+         <data type="string"/>
+      </element>
+   </define>
+   <define name="optional-assistants-boolean">
+      <choice>
+         <ref name="assistants-boolean"/>
+         <ref name="empty-string"/>
+      </choice>
+   </define>
+   <define name="optional-assistants-date">
+      <choice>
+         <ref name="assistants-date"/>
+         <ref name="empty-string"/>
+      </choice>
+   </define>
+   <define name="optional-assistants-number">
+      <choice>
+         <ref name="assistants-number"/>
+         <ref name="empty-string"/>
+      </choice>
+   </define>
+   <define name="optional-assistants-number-unit">
+      <attribute name="unit"/>
+      <choice>
+         <data type="decimal"/>
+         <ref name="empty-string"/>
+      </choice>
+   </define>
+   <define name="optional-assistants-currency">
+      <attribute name="currency">
+         <data type="string">
+            <param name="pattern">[A-Z]{3}</param>
+         </data>
+      </attribute>
+      <choice>
+         <data type="decimal"/>
+         <ref name="empty-string"/>
+      </choice>
+   </define>
+   <define name="optional-assistants-text">
+      <ref name="assistants-text"/>
+   </define>
+   <define name="optional-assistants-file">
+      <optional>
+         <ref name="assistants-file-element"/>
+      </optional>
+   </define>
+   <define name="optional-assistants-file-multi">
+      <zeroOrMore>
+         <ref name="assistants-file-element"/>
+      </zeroOrMore>
+   </define>
+   <define name="empty-string">
+      <data type="string">
+         <param name="length">0</param>
+      </data>
+   </define>
+   <define name="EIdPersonalDataType">
+      <optional>
+         <optional>
+            <element name="AcademicTitle">
+               <ref name="assistants-text"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="AgeVerificationResult">
+               <attribute name="value">
+                  <data type="positiveInteger"/>
+               </attribute>
+               <ref name="assistants-boolean"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="ArtisticName">
+               <ref name="assistants-text"/>
+            </element>
+         </optional>
+         <element name="AuthenticationType">
+            <ref name="assistants-text"/>
+         </element>
+         <optional>
+            <element name="CommunityIdVerificationResult">
+               <attribute name="value"/>
+               <ref name="assistants-boolean"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="DateOfBirth">
+               <ref name="assistants-date"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="DocumentType">
+               <ref name="EIdDocumentType"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="DocumentValidityReferenceDate">
+               <ref name="assistants-date"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="DocumentValidityStatus">
+               <ref name="EIdDocumentValidityStatusType"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="FamilyNames">
+               <ref name="assistants-text"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="BirthName">
+               <ref name="assistants-text"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="GivenNames">
+               <ref name="assistants-text"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="IssuingState">
+               <ref name="EIdIcaoCountryType"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="PlaceOfBirth">
+               <choice>
+                  <element name="FreetextPlace">
+                     <ref name="assistants-text"/>
+                  </element>
+                  <ref name="EIdPlaceType"/>
+               </choice>
+            </element>
+         </optional>
+         <optional>
+            <element name="PlaceOfResidence">
+               <ref name="EIdPlaceType"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="RestrictedID">
+               <ref name="EIdRestrictedIdType"/>
+            </element>
+         </optional>
+         <optional>
+            <element name="TransactionAttachmentReference">
+               <ref name="assistants-text"/>
+            </element>
+         </optional>
+      </optional>
+   </define>
+   <define name="EIdPlaceType">
+      <optional>
+         <element name="City">
+            <ref name="assistants-text"/>
+         </element>
+      </optional>
+      <optional>
+         <element name="Country">
+            <ref name="EIdIcaoCountryType"/>
+         </element>
+      </optional>
+      <optional>
+         <element name="State">
+            <ref name="assistants-text"/>
+         </element>
+      </optional>
+      <optional>
+         <element name="Street">
+            <ref name="assistants-text"/>
+         </element>
+      </optional>
+      <optional>
+         <element name="Street_Name">
+            <ref name="assistants-text"/>
+         </element>
+      </optional>
+      <optional>
+         <element name="Street_Number">
+            <ref name="assistants-text"/>
+         </element>
+      </optional>
+      <optional>
+         <element name="Street_NumberSuffix">
+            <ref name="assistants-text"/>
+         </element>
+      </optional>
+      <optional>
+         <element name="ZipCode">
+            <ref name="assistants-text"/>
+         </element>
+      </optional>
+   </define>
+   <define name="EIdIcaoCountryType">
+      <data type="string">
+         <param name="pattern">[A-Z ]{1,3}</param>
+      </data>
+   </define>
+   <define name="EIdDocumentType">
+      <data type="string">
+         <param name="pattern">[A-Z ]{2}</param>
+      </data>
+   </define>
+   <define name="EIdRestrictedIdType">
+      <data type="hexBinary"/>
+   </define>
+   <define name="EIdDocumentValidityStatusType">
+      <value>EeIdValid</value>
+   </define>
+</grammar>

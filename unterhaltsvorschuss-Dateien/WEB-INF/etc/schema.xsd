@@ -1,0 +1,4116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="myForm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="idData"/>
+        <xs:element minOccurs="0" ref="ja_nein_feld"/>
+        <xs:element ref="eid"/>
+        <xs:element minOccurs="0" ref="id_feld"/>
+        <xs:element ref="antragsteller"/>
+        <xs:element ref="antragstellerweitere"/>
+        <xs:element ref="kind"/>
+        <xs:element minOccurs="0" ref="kindueber12"/>
+        <xs:element ref="vormundschaft"/>
+        <xs:element ref="andererelternteil1"/>
+        <xs:element minOccurs="0" ref="andererelternteil2"/>
+        <xs:element minOccurs="0" ref="andererelternteil3"/>
+        <xs:element minOccurs="0" ref="betreuung"/>
+        <xs:element minOccurs="0" ref="unterhalt"/>
+        <xs:element ref="weiterekinder"/>
+        <xs:element ref="einwilligungdatenaustausch"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_orgname1"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_orgname2"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_bezirknr"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_email"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_faxno"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_bezirk"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_mobileno"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_houseno"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_postalcode"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_city"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_country"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_telno"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_academictitle"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_formofaddress"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_postofficebox"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_identitynamespace"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_partnertype"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_street"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_firstname"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_lastname"/>
+        <xs:element minOccurs="0" ref="bda_xfall_app_nationality"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_partnertype"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_country"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_email"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_faxno"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_mobileno"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_telno"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_orgname1"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_postalcode"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_street"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_houseno"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_nationality"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_bezirknr"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_postofficebox"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_identitynamespace"/>
+        <xs:element minOccurs="0" ref="bda_xfall_aut_city"/>
+        <xs:element ref="dateien"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="intelliform-attributes"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="idData" type="EIdPersonalDataType"/>
+  <xs:element name="ja_nein_feld" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: Einwilligung
+Beschriftung: Ich bin damit einverstanden, dass die von mir eingegebenen Daten weiterverarbeitet werden dürfen.
+Prüfausdruck: (/^\s*$/.test(value))||(value==true)
+Prüfmeldung: Zur Antragstellung ist die Einwilligung zur Weiterverarbeitung Ihrer Eingabedaten erforderlich.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="eid" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: eid
+Beschriftung: Möchten Sie die eID Ihres nPA nutzen?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="id_feld" type="EIdPersonalDataType"/>
+  <xs:element name="antragsteller">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="myage"/>
+        <xs:element minOccurs="0" ref="f00000043"/>
+        <xs:element minOccurs="0" ref="f00000013"/>
+        <xs:element minOccurs="0" ref="f00000045"/>
+        <xs:element minOccurs="0" ref="f00000014"/>
+        <xs:element minOccurs="0" ref="f00000066"/>
+        <xs:element minOccurs="0" ref="f00000067"/>
+        <xs:element name="geschlecht">
+          <xs:annotation>
+            <xs:documentation>Titel: geschlecht
+Beschriftung: Geschlecht
+</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:token">
+              <xs:enumeration value="männlich">
+                <xs:annotation>
+                  <xs:documentation>männlich</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="weiblich">
+                <xs:annotation>
+                  <xs:documentation>weiblich</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="divers">
+                <xs:annotation>
+                  <xs:documentation>divers</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="ohne Angabe (gemäß § 45 b Personenstandsgesetz)">
+                <xs:annotation>
+                  <xs:documentation>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element ref="beruf"/>
+        <xs:element ref="arbeitgeber"/>
+        <xs:element ref="geburtsort"/>
+        <xs:element name="staatsangehoerigkeit" type="assistants-text">
+          <xs:annotation>
+            <xs:documentation>Titel: staatsangehoerigkeit
+Beschriftung: Staatsangehörigkeit
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="wohnhaftinberlin"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="strassenichtberlin"/>
+          <xs:element ref="hausnummernichtberlin"/>
+          <xs:element ref="postleitzahlnichtberlin"/>
+          <xs:element ref="ortnichtberlin"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element minOccurs="0" ref="f00000053"/>
+          <xs:element minOccurs="0" ref="objtype"/>
+          <xs:element minOccurs="0" ref="f00000016"/>
+          <xs:element minOccurs="0" ref="f00000084"/>
+          <xs:element minOccurs="0" ref="hnr"/>
+          <xs:element minOccurs="0" ref="f00000054"/>
+          <xs:element ref="otname"/>
+          <xs:element ref="bzrname"/>
+          <xs:element ref="otnr"/>
+          <xs:element ref="bzrnr"/>
+          <xs:element ref="strnr"/>
+          <xs:element minOccurs="0" ref="f00000035"/>
+          <xs:element minOccurs="0" name="land" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Titel: land
+Beschriftung: land:
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="k1000"/>
+          <xs:element ref="k5000"/>
+          <xs:element ref="xstat"/>
+          <xs:element ref="ystat"/>
+          <xs:element ref="etrs89_x"/>
+          <xs:element ref="etrs89_y"/>
+          <xs:element minOccurs="0" ref="rbs_valid"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="dortwohnhaftseit"/>
+        <xs:element minOccurs="0" ref="telefon"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="ausweisung"/>
+          <xs:element minOccurs="0" ref="ausweisnr"/>
+          <xs:element minOccurs="0" ref="gueltigbis"/>
+        </xs:sequence>
+        <xs:element ref="kontovorhanden"/>
+        <xs:element minOccurs="0" ref="bankname"/>
+        <xs:element minOccurs="0" ref="kontoinhaber"/>
+        <xs:element minOccurs="0" name="F00000106" type="assistants-text">
+          <xs:annotation>
+            <xs:documentation>Titel: iban
+Beschriftung: &lt;span lang="en"&gt;&lt;abbr title="International Bank Account Number"&gt;IBAN&lt;/abbr&gt;&lt;/span&gt;
+Prüfausdruck: isValidIBAN(value)
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" ref="selectdistrict"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="myage" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: myage
+Beschriftung: myage:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="f00000043" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000043
+Beschriftung: F00000043:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="f00000013" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000013
+Beschriftung: F00000013:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="f00000045" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000045
+Beschriftung: F00000045:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="f00000014" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000014
+Beschriftung: F00000014:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="f00000066" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000066
+Beschriftung: F00000066:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="f00000067" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000067
+Beschriftung: F00000067:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beruf" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: beruf
+Beschriftung: Beruf
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="arbeitgeber" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: arbeitgeber
+Beschriftung: Arbeitgeber
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="geburtsort" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: geburtsort
+Beschriftung: Geburtsort
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="wohnhaftinberlin" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: wohnhaftinberlin
+Beschriftung: Wohnen Sie aktuell in Berlin?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="strassenichtberlin" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: strassenichtberlin
+Beschriftung: Straße
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="hausnummernichtberlin" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: hausnummernichtberlin
+Beschriftung: Hausnummer
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="postleitzahlnichtberlin" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: postleitzahlnichtberlin
+Beschriftung: Postleitzahl
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ortnichtberlin" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: ortnichtberlin
+Beschriftung: Ort
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="f00000053" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000053
+Beschriftung: F00000053:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="objtype">
+    <xs:annotation>
+      <xs:documentation>Titel: objtype
+Beschriftung: Objekttyp
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:union>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="*STRASSE*">
+              <xs:annotation>
+                <xs:documentation>*STRASSE*</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AUTOBAHN">
+              <xs:annotation>
+                <xs:documentation>AUTOBAHN</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AUTOBAHNABSCHNITT">
+              <xs:annotation>
+                <xs:documentation>AUTOBAHNABSCHNITT</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="BAHNHOF">
+              <xs:annotation>
+                <xs:documentation>BAHNHOF</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="BRUECKE">
+              <xs:annotation>
+                <xs:documentation>BRUECKE</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="BRUECKE_IN_PARK">
+              <xs:annotation>
+                <xs:documentation>BRUECKE_IN_PARK</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FLUGHAFEN">
+              <xs:annotation>
+                <xs:documentation>FLUGHAFEN</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FORST">
+              <xs:annotation>
+                <xs:documentation>FORST</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FORSTAMT">
+              <xs:annotation>
+                <xs:documentation>FORSTAMT</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FUSS-/RADWEG">
+              <xs:annotation>
+                <xs:documentation>FUSS-/RADWEG</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FUSSGAENGERBRUECKE">
+              <xs:annotation>
+                <xs:documentation>FUSSGAENGERBRUECKE</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="GEWAESSER">
+              <xs:annotation>
+                <xs:documentation>GEWAESSER</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="GRUENANLAGE">
+              <xs:annotation>
+                <xs:documentation>GRUENANLAGE</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="HALBINSEL">
+              <xs:annotation>
+                <xs:documentation>HALBINSEL</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="INSEL">
+              <xs:annotation>
+                <xs:documentation>INSEL</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="KLEINGARTENANLAGE">
+              <xs:annotation>
+                <xs:documentation>KLEINGARTENANLAGE</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OBJEKT">
+              <xs:annotation>
+                <xs:documentation>OBJEKT</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OERTL.BEGRIFF">
+              <xs:annotation>
+                <xs:documentation>OERTL.BEGRIFF</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PARK">
+              <xs:annotation>
+                <xs:documentation>PARK</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PARKPLATZ">
+              <xs:annotation>
+                <xs:documentation>PARKPLATZ</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PLATZ">
+              <xs:annotation>
+                <xs:documentation>PLATZ</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PLATZ_IN_FORST">
+              <xs:annotation>
+                <xs:documentation>PLATZ_IN_FORST</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PRIVATSTRASSE">
+              <xs:annotation>
+                <xs:documentation>PRIVATSTRASSE</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="SCHLEUSE">
+              <xs:annotation>
+                <xs:documentation>SCHLEUSE</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="SIEDLUNG">
+              <xs:annotation>
+                <xs:documentation>SIEDLUNG</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="SPORTSTAETTE">
+              <xs:annotation>
+                <xs:documentation>SPORTSTAETTE</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="STADTBAHNBOGEN">
+              <xs:annotation>
+                <xs:documentation>STADTBAHNBOGEN</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="STRASSE">
+              <xs:annotation>
+                <xs:documentation>STRASSE</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="STRASSE_IN_FORST">
+              <xs:annotation>
+                <xs:documentation>STRASSE_IN_FORST</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="STRASSE_IN_KGA">
+              <xs:annotation>
+                <xs:documentation>STRASSE_IN_KGA</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="STRASSE_IN_PARK">
+              <xs:annotation>
+                <xs:documentation>STRASSE_IN_PARK</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="TUNNEL">
+              <xs:annotation>
+                <xs:documentation>TUNNEL</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="VERWALTUNGSWEG">
+              <xs:annotation>
+                <xs:documentation>VERWALTUNGSWEG</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="WALDWEG">
+              <xs:annotation>
+                <xs:documentation>WALDWEG</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="WASSERWERK">
+              <xs:annotation>
+                <xs:documentation>WASSERWERK</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="WOHNSCHIFF">
+              <xs:annotation>
+                <xs:documentation>WOHNSCHIFF</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ZUFAHRT">
+              <xs:annotation>
+                <xs:documentation>ZUFAHRT</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:length value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="f00000016" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000016
+Beschriftung: F00000016:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="f00000084" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000084
+Beschriftung: F00000084:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="hnr" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: hnr
+Beschriftung: hnr:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="f00000054" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000054
+Beschriftung: F00000054:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="otname" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: otname
+Beschriftung: Ortsteil
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bzrname" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: bzrname
+Beschriftung: Bezirk
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="otnr" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: otnr
+Beschriftung: otnr:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bzrnr" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: bzrnr
+Beschriftung: bzrnr:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="strnr" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: strnr
+Beschriftung: strnr:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="f00000035" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: F00000035
+Beschriftung: F00000035:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="k1000" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: k1000
+Beschriftung: k1000:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="k5000" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: k5000
+Beschriftung: k5000:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="xstat" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: xstat
+Beschriftung: xstat:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ystat" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: ystat
+Beschriftung: ystat:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="etrs89_x" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: etrs89_x
+Beschriftung: etrs89_x:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="etrs89_y" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: etrs89_y
+Beschriftung: etrs89_y:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="rbs_valid" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: rbs_valid
+Beschriftung: rbs_valid:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="dortwohnhaftseit" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: dortwohnhaftseit
+Beschriftung: dort wohnhaft seit
+Prüfausdruck: (/^\s*$/.test(value))||(value &lt; new Date())
+Prüfmeldung: Das Datum muss in der Vergangenheit liegen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="telefon" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: telefon
+Beschriftung: Telefon
+Prüfmuster: /(^\s*$)|(^(^([0(+][0-9\.-\/\+ ()]{7,})$)$)/
+Prüfmeldung: Bitte geben Sie eine gültige Telefonnummer an.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ausweisung">
+    <xs:annotation>
+      <xs:documentation>Titel: ausweisung
+Beschriftung: Bitte geben Sie die Art an, wie Sie sich ausweisen wollen
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="">
+          <xs:annotation>
+            <xs:documentation/>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Personalausweis">
+          <xs:annotation>
+            <xs:documentation>Personalausweis</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Reisepass">
+          <xs:annotation>
+            <xs:documentation>Reisepass</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="ausweisnr" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: ausweisnr
+Beschriftung: {myForm.ausweisung}nummer
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="gueltigbis" type="assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: gueltigbis
+Beschriftung: gültig bis
+Prüfmeldung: Das Datum muss in der Zukunft liegen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kontovorhanden" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: kontovorhanden
+Beschriftung: Verfügen Sie über ein eigenes Bankkonto?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bankname" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: bankname
+Beschriftung: Name der Bank
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kontoinhaber" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: kontoinhaber
+Beschriftung: Kontoinhaber/in
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="selectdistrict" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: selectDistrict
+Beschriftung: selectDistrict:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="antragstellerweitere">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="familienstand">
+          <xs:annotation>
+            <xs:documentation>Titel: familienstand
+Beschriftung: &lt;p/&gt;
+</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:token">
+              <xs:enumeration value="verheiratet">
+                <xs:annotation>
+                  <xs:documentation>Ich bin verheiratet</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="lebenspartnerschaft">
+                <xs:annotation>
+                  <xs:documentation>Ich lebe in einer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="ledig">
+                <xs:annotation>
+                  <xs:documentation>Ich bin ledig</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="geschieden">
+                <xs:annotation>
+                  <xs:documentation>Ich bin rechtskräftig geschieden</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="nicht mehr lebenspartnerschaft">
+                <xs:annotation>
+                  <xs:documentation>Ich lebe nicht mehr in einer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="verwitwet">
+                <xs:annotation>
+                  <xs:documentation>Ich bin verwitwet</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="getrennt">
+                <xs:annotation>
+                  <xs:documentation>Ich lebe vom Ehegatten/Lebenspartner/der Ehegattin/Lebenspartnerin getrennt</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" ref="vomanderenelternteilgetrennt"/>
+        <xs:element minOccurs="0" ref="geschiedenseit"/>
+        <xs:element minOccurs="0" ref="nichtmehringleichgeschlechtlicherlebenspartnerschaftseit"/>
+        <xs:element minOccurs="0" ref="verwitwetseit"/>
+        <xs:element minOccurs="0" ref="vonelternteilgetrenntseit"/>
+        <xs:element minOccurs="0" ref="vomehegattenehegattingetrenntseit"/>
+        <xs:element minOccurs="0" ref="vonehepartnergetrenntweil"/>
+        <xs:sequence minOccurs="0">
+          <xs:element minOccurs="0" name="geschlecht">
+            <xs:annotation>
+              <xs:documentation>Titel: geschlecht
+Beschriftung: Geschlecht
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:union>
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:enumeration value="männlich">
+                      <xs:annotation>
+                        <xs:documentation>männlich</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="weiblich">
+                      <xs:annotation>
+                        <xs:documentation>weiblich</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="divers">
+                      <xs:annotation>
+                        <xs:documentation>divers</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="ohne Angabe (gemäß § 45 b Personenstandsgesetz)">
+                      <xs:annotation>
+                        <xs:documentation>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleType>
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:length value="0"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:union>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="name" type="assistants-text">
+            <xs:annotation>
+              <xs:documentation>Titel: name
+Beschriftung: Name
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="vorname" type="assistants-text">
+            <xs:annotation>
+              <xs:documentation>Titel: vorname
+Beschriftung: Vorname
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="geburtsdatum" type="optional-assistants-date">
+            <xs:annotation>
+              <xs:documentation>Titel: geburtsdatum
+Beschriftung: Geburtsdatum
+Prüfausdruck: (/^\s*$/.test(value))||(value &lt; new Date())
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="strasse"/>
+          <xs:element ref="hausnummer"/>
+          <xs:element name="postleitzahl" type="assistants-text">
+            <xs:annotation>
+              <xs:documentation>Titel: postleitzahl
+Beschriftung: Postleitzahl
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="ort"/>
+          <xs:element minOccurs="0" name="land">
+            <xs:annotation>
+              <xs:documentation>Titel: land
+Beschriftung: Land
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:union memberTypes="assistants-text">
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:length value="0"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:union>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vomanderenelternteilgetrennt">
+    <xs:annotation>
+      <xs:documentation>Titel: vomanderenelternteilgetrennt
+Beschriftung: Bitte wählen Sie den zutreffenden Punkt aus
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="Ich lebe vom anderen Elternteil getrennt">
+          <xs:annotation>
+            <xs:documentation>Ich lebe vom anderen Elternteil getrennt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Ich habe noch nie mit dem anderen Elternteil meines Kindes zusammengelebt">
+          <xs:annotation>
+            <xs:documentation>Ich habe noch nie mit dem anderen Elternteil meines Kindes zusammengelebt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="geschiedenseit" type="assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: geschiedenseit
+Beschriftung: Ich bin rechtskräftig geschieden seit dem
+Prüfausdruck: value &lt; new Date()
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="nichtmehringleichgeschlechtlicherlebenspartnerschaftseit" type="assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: nichtmehringleichgeschlechtlicherlebenspartnerschaftseit
+Beschriftung: Ich lebe nicht mehr in einer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft seit dem
+Prüfausdruck: value &lt; new Date()
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="verwitwetseit" type="assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: verwitwetseit
+Beschriftung: Ich bin verwitwet seit dem
+Prüfausdruck: value &lt; new Date()
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vonelternteilgetrenntseit" type="assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: vonelternteilgetrenntseit
+Beschriftung: Ich lebe vom anderen Elternteil getrennt seit dem
+Prüfausdruck: value &lt; new Date()
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vomehegattenehegattingetrenntseit" type="assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: vomehegattenehegattingetrenntseit
+Beschriftung: Ich lebe vom Ehegatten/Lebenspartner/der Ehegattin/Lebenspartnerin getrennt seit dem
+Prüfausdruck: value &lt; new Date()
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vonehepartnergetrenntweil">
+    <xs:annotation>
+      <xs:documentation>Titel: vonehepartnergetrenntweil
+Beschriftung: Begründung
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="Weil mindestens einer von uns die Ehe/Lebenspartnerschaft nicht mehr fortführen möchte">
+          <xs:annotation>
+            <xs:documentation>Weil mindestens einer von uns die Ehe/Lebenspartnerschaft nicht mehr fortführen möchte</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Weil die Ehe im Ausland geschlossen wurde und/oder mein Ehegatte/meine Ehegattin noch nicht einreisen konnte">
+          <xs:annotation>
+            <xs:documentation>Weil die Ehe im Ausland geschlossen wurde und/oder mein Ehegatte/meine Ehegattin noch nicht einreisen konnte</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Weil mein Ehegatte/Lebenspartner/meine Ehegattin/Lebenspartnerin voraussichtlich wenigstens sechs Monate wegen einer gerichtlichen Anordnung (wie Haft, Krankheit, Behinderung) in einer Anstalt lebt">
+          <xs:annotation>
+            <xs:documentation>Weil mein Ehegatte/Lebenspartner/meine Ehegattin/Lebenspartnerin voraussichtlich wenigstens sechs Monate wegen einer gerichtlichen Anordnung (wie Haft, Krankheit, Behinderung) in einer Anstalt lebt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="strasse" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: strasse
+Beschriftung: Straße
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="hausnummer" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: hausnummer
+Beschriftung: Hausnummer
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ort" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: ort
+Beschriftung: Ort
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kind">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="geschlecht">
+          <xs:annotation>
+            <xs:documentation>Titel: geschlecht
+Beschriftung: Geschlecht
+</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:token">
+              <xs:enumeration value="männlich">
+                <xs:annotation>
+                  <xs:documentation>männlich</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="weiblich">
+                <xs:annotation>
+                  <xs:documentation>weiblich</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="divers">
+                <xs:annotation>
+                  <xs:documentation>divers</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="ohne Angabe (gemäß § 45 b Personenstandsgesetz)">
+                <xs:annotation>
+                  <xs:documentation>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="name" type="assistants-text">
+          <xs:annotation>
+            <xs:documentation>Titel: name
+Beschriftung: Name
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vorname" type="assistants-text">
+          <xs:annotation>
+            <xs:documentation>Titel: vorname
+Beschriftung: Vorname
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="geburtsdatum" type="assistants-date">
+          <xs:annotation>
+            <xs:documentation>Titel: geburtsdatum
+Beschriftung: Geburtsdatum
+Prüfausdruck: value &gt; myForm.antragsteller.F00000066_h &amp;&amp; value &lt; new Date()
+Prüfmeldung: Das Geburtsdatum liegt vor Ihrem eigenen Geburtsdatum oder in der Zukunft
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="geburtsort"/>
+        <xs:element name="staatsangehoerigkeit" type="assistants-text">
+          <xs:annotation>
+            <xs:documentation>Titel: staatsangehoerigkeit
+Beschriftung: Staatsangehörigkeit
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" ref="aufenthaltstitelgueltigbis"/>
+        <xs:element ref="leistungsbezugnachuvg"/>
+        <xs:element minOccurs="0" ref="leistungsbezugbehoerde"/>
+        <xs:element minOccurs="0" ref="leistungsbezugvon"/>
+        <xs:element minOccurs="0" ref="leistungsbezugbis"/>
+        <xs:element ref="waisenrente"/>
+        <xs:element minOccurs="0" ref="waisenrentehoehe"/>
+        <xs:element minOccurs="0" ref="waisenrenteleistungsstelle"/>
+        <xs:element minOccurs="0" ref="antragwaisenbezuegegestelltam"/>
+        <xs:element minOccurs="0" ref="waisenbezuegebehoerde"/>
+        <xs:element minOccurs="0" ref="waisenbezuegeaktenzeichen"/>
+        <xs:element ref="hilfelebensunterhalt"/>
+        <xs:element minOccurs="0" ref="hilfelebensunterhaltnr"/>
+        <xs:element minOccurs="0" ref="hilfelebensunterhaltbegruendung"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aufenthaltstitelgueltigbis" type="assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: aufenthaltstitelgueltigbis
+Beschriftung: Aufenthaltstitel gültig bis
+Prüfausdruck: value &gt; new Date()
+Prüfmeldung: Das Datum muss in der Zukunft liegen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="leistungsbezugnachuvg" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: leistungsbezugnachuvg
+Beschriftung: Für mein Kind wurden bereits Leistungen nach dem &lt;abbr title="Unterhaltsvorschuss"&gt;UVG&lt;/abbr&gt; bezogen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="leistungsbezugbehoerde" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: leistungsbezugbehoerde
+Beschriftung: Bei welcher Behörde wurden bereits Leistungen nach dem &lt;abbr title="Unterhaltsvorschuss"&gt;UVG&lt;/abbr&gt; bezogen?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="leistungsbezugvon" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: leistungsbezugvon
+Beschriftung: Zeitraum von
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="leistungsbezugbis" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: leistungsbezugbis
+Beschriftung: bis
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="waisenrente">
+    <xs:annotation>
+      <xs:documentation>Titel: waisenrente
+Beschriftung: Bitte machen Sie eine Angabe zu den Waisenbezügen oder Schadenersatzleitungen Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="Ich erhalte für mein Kind keine Waisenbezüge oder Schadenersatzleistungen">
+          <xs:annotation>
+            <xs:documentation>Ich erhalte für mein Kind keine Waisenbezüge oder Schadenersatzleistungen</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen">
+          <xs:annotation>
+            <xs:documentation>Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Ich habe für mein Kind einen Antrag auf Waisenbezüge gestellt">
+          <xs:annotation>
+            <xs:documentation>Ich habe für mein Kind einen Antrag auf Waisenbezüge gestellt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="waisenrentehoehe" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: waisenrentehöhe
+Beschriftung: Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen in Höhe von monatlich
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="waisenrenteleistungsstelle" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: waisenrenteleistungsstelle
+Beschriftung: Bei welcher Leistungsstelle wurden bereits Waisenbezüge oder Schadenersatzleistungen bezogen?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="antragwaisenbezuegegestelltam" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: antragwaisenbezuegegestelltam
+Beschriftung: Wann haben Sie einen Antrag auf Waisenbezüge für Ihr Kind gestellt?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="waisenbezuegebehoerde" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: waisenbezuegebehoerde
+Beschriftung: Bei welcher Behörde wurde ein Antrag auf Waisenbezüge gestellt?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="waisenbezuegeaktenzeichen" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: waisenbezuegeaktenzeichen
+Beschriftung: Aktenzeichen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="hilfelebensunterhalt">
+    <xs:annotation>
+      <xs:documentation>Titel: hilfelebensunterhalt
+Beschriftung: Erhalten Sie bisher Hilfen zur Sicherung des Lebensunterhalts vom JobCenter/Sozialamt?
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="keine hilfe">
+          <xs:annotation>
+            <xs:documentation>Nein</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="hilfe">
+          <xs:annotation>
+            <xs:documentation>Ja</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="demnächst hilfen">
+          <xs:annotation>
+            <xs:documentation>Ich werde demnächst Hilfen beantragen müssen</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="hilfelebensunterhaltnr" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: hilfelebensunterhaltnr
+Beschriftung: Aktenzeichen oder Bedarfsgemeinschaftsnummer
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="hilfelebensunterhaltbegruendung" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: hilfelebensunterhaltbegruendung
+Beschriftung: Begründung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kindueber12">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="leistungenjobcenter"/>
+        <xs:element ref="kinderwohngeld"/>
+        <xs:element ref="erzielungbruttoeinkommen"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="kindschule"/>
+          <xs:element ref="schulebeendet"/>
+          <xs:element minOccurs="0" ref="schulevoraussichtlichesende"/>
+          <xs:element minOccurs="0" ref="schulebeendetseit"/>
+          <xs:element minOccurs="0" ref="kindabschluss"/>
+          <xs:element minOccurs="0" ref="ausbildungsbeginn"/>
+          <xs:element minOccurs="0" ref="ausbildungals"/>
+          <xs:element minOccurs="0" ref="ausbildungvoraussichtlichesende"/>
+          <xs:element minOccurs="0" ref="ausbildungsverguetung"/>
+          <xs:element minOccurs="0" ref="ausbildungunterkunft"/>
+          <xs:element ref="kinderwerbstaetigkeit"/>
+          <xs:element minOccurs="0" ref="verguetungerwerbstaetigkeit"/>
+        </xs:sequence>
+        <xs:element ref="kindeinkuenfte"/>
+        <xs:element minOccurs="0" ref="kindhalbwaisenrente"/>
+        <xs:element minOccurs="0" ref="halbwaisenrentehoehe"/>
+        <xs:element minOccurs="0" ref="schadensersatzleistungen"/>
+        <xs:element minOccurs="0" ref="nichtselbststaendigearbeit"/>
+        <xs:element minOccurs="0" ref="selbststaendigearbeit"/>
+        <xs:element minOccurs="0" ref="kapitalvermoegen"/>
+        <xs:element ref="erlernterberuf"/>
+        <xs:element ref="ausgeuebtetaetigkeit"/>
+        <xs:element ref="monatlichesnettoeinkommen"/>
+        <xs:element ref="steuerklasse"/>
+        <xs:element ref="kinderfreibetrag"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="leistungenjobcenter" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: leistungenjobcenter
+Beschriftung: Leistungen vom Jobcenter nach dem &lt;abbr title="Sozialgesetzbuch"&gt;SGB&lt;/abbr&gt; II ("Hartz IV") beantragt/erhalten
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kinderwohngeld" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: kinderwohngeld
+Beschriftung: Kinderwohngeld beantragt/erhalten
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="erzielungbruttoeinkommen" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: Einkommen des Elternteils, bei dem das Kind lebt
+Beschriftung: Der Elternteil, bei dem das Kind lebt, hat im maßgeblichen Monat Bruttoeinkommen in Höhe von mindestens 600 Euro erzielt
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kindschule" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: kindschule
+Beschriftung: Das Kind geht/ging in folgende Schule
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schulebeendet" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: schulebeendet
+Beschriftung: Hat das Kind die Schule beendet?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schulevoraussichtlichesende" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: schulevoraussichtlichesende
+Beschriftung: voraussichtliches Ende
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schulebeendetseit" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: schulebeendetseit
+Beschriftung: beendet seit
+Prüfausdruck: (/^\s*$/.test(value))||(value &lt; new Date())
+Prüfmeldung: Das Datum muss in der Vergangenheit liegen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kindabschluss" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: kindabschluss
+Beschriftung: angestrebter oder erreichter Abschluss
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ausbildungsbeginn" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: ausbildungsbeginn
+Beschriftung: Das Kind hat eine Ausbildung begonnen am
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ausbildungals" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: ausbildungals
+Beschriftung: als
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ausbildungvoraussichtlichesende" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: ausbildungvoraussichtlichesende
+Beschriftung: voraussichtliches Ende
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ausbildungsverguetung" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: ausbildungsverguetung
+Beschriftung: Ausbildungsvergütung netto
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ausbildungunterkunft" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: ausbildungunterkunft
+Beschriftung: Das Kind hat ausbildungsbedingt eine eigene Unterkunft außerhalb des elterlichen Haushalts
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kinderwerbstaetigkeit" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: kinderwerbstaetigkeit
+Beschriftung: Das Kind hat statt einer Ausbildung eine Erwerbstätigkeit aufgenommen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="verguetungerwerbstaetigkeit" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: verguetungerwerbstaetigkeit
+Beschriftung: Monatliche Vergütung netto
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kindeinkuenfte" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: kindeinkuenfte
+Beschriftung: Das Kind bezieht Einkünfte
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kindhalbwaisenrente" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: kindhalbwaisenrente
+Beschriftung: Halbwaisenrente
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="halbwaisenrentehoehe" type="assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: halbwaisenrentehoehe
+Beschriftung: Halbwaisenrente in Höhe von monatlich
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schadensersatzleistungen" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: schadensersatzleistungen
+Beschriftung: Schadenersatzleistungen, die wegen des Todes des anderen Elternteils oder eines Stiefelternteils gezahlt werden
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="nichtselbststaendigearbeit" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: nichtselbststaendigearbeit
+Beschriftung: Einkünfte aus nichtselbstständiger Arbeit, Ausbildung, Freiwilligendienst
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="selbststaendigearbeit" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: selbststaendigearbeit
+Beschriftung: Einkünfte aus Land- oder Forstwirtschaft, Gewerbebetrieb oder selbstständiger Tätigkeit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kapitalvermoegen" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: kapitalvermoegen
+Beschriftung: Einkünfte aus Kapitalvermögen, Vermietung oder Verpachtung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="erlernterberuf" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: erlernterberuf
+Beschriftung: Erlernter Beruf
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ausgeuebtetaetigkeit" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: ausgeuebtetaetigkeit
+Beschriftung: Derzeit ausgeübte Tätigkeit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="monatlichesnettoeinkommen" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: monatlichesnettoeinkommen
+Beschriftung: Monatliches Nettoeinkommen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="steuerklasse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="kinderfreibetrag" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: kinderfreibetrag
+Beschriftung: Kinderfreibetrag
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vormundschaft">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="beistandschaft"/>
+        <xs:element minOccurs="0" ref="beistandschaftseit"/>
+        <xs:element minOccurs="0" ref="beistandschaftbeantragtam"/>
+        <xs:element minOccurs="0" ref="beistandschaftbehoerde"/>
+        <xs:element minOccurs="0" ref="beistandschaftgeschzeichen"/>
+        <xs:element minOccurs="0" ref="beistandauskunftserteilung"/>
+        <xs:element ref="beauftragungrechtsanwaltsbuero"/>
+        <xs:sequence minOccurs="0">
+          <xs:element name="name" type="assistants-text">
+            <xs:annotation>
+              <xs:documentation>Titel: name
+Beschriftung: Name des Rechtsanwaltsbüros
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="strasse"/>
+          <xs:element ref="hausnummer"/>
+          <xs:element name="postleitzahl" type="optional-assistants-number">
+            <xs:annotation>
+              <xs:documentation>Titel: postleitzahl
+Beschriftung: Postleitzahl
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="ort"/>
+          <xs:element ref="aktenzeichen"/>
+          <xs:element ref="beauftragtmit"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="beistandschaft" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: beistandschaft
+Beschriftung: Für mein Kind wird zum Zweck der Unterhaltsregelung und/oder Vaterschaftsfeststellung eine Beistandschaft oder Vormundschaft bei einem Jugendamt oder der &lt;abbr title="Arbeiterwohlfahrt"&gt;AWO&lt;/abbr&gt; geführt
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beistandschaftseit" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: beistandschaftseit
+Beschriftung: seit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beistandschaftbeantragtam" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: beistandschaftbeantragtam
+Beschriftung: bzw. wurde beantragt am
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beistandschaftbehoerde" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: beistandschaftbehoerde
+Beschriftung: beim
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beistandschaftgeschzeichen" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: beistandschaftgeschzeichen
+Beschriftung: Geschäftszeichen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beistandauskunftserteilung" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: beistandauskunftserteilung
+Beschriftung: Mit der Auskunftserteilung des Beistandes an die Unterhaltsvorschussstelle bin ich einverstanden
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beauftragungrechtsanwaltsbuero" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: beauftragungrechtsanwaltsbuero
+Beschriftung: Ich habe ein Rechtsanwaltsbüro beauftragt
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="aktenzeichen" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: aktenzeichen
+Beschriftung: Aktenzeichen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beauftragtmit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="andererelternteil1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="kindehelich"/>
+        <xs:element minOccurs="0" ref="vaterschaftnichtfeststellbarweil"/>
+        <xs:element minOccurs="0" ref="vaterschaftanerkannt"/>
+        <xs:element minOccurs="0" ref="antragauffeststellungvaterschaft"/>
+        <xs:element minOccurs="0" ref="vaterschaftsfeststellungsverfahrenbei"/>
+        <xs:element minOccurs="0" ref="vaterschaftnochnichtfestgestelltweil"/>
+        <xs:element minOccurs="0" ref="ehemannvater"/>
+        <xs:element minOccurs="0" ref="vaterschaftsanfechtungsklage"/>
+        <xs:element minOccurs="0" ref="vaterschaftsanfechtungsklageamtsgericht"/>
+        <xs:sequence minOccurs="0">
+          <xs:element minOccurs="0" name="geschlecht">
+            <xs:annotation>
+              <xs:documentation>Titel: geschlecht
+Beschriftung: Geschlecht
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:union>
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:enumeration value="männlich">
+                      <xs:annotation>
+                        <xs:documentation>männlich</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="weiblich">
+                      <xs:annotation>
+                        <xs:documentation>weiblich</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="divers">
+                      <xs:annotation>
+                        <xs:documentation>divers</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="ohne Angabe (gemäß § 45 b Personenstandsgesetz)">
+                      <xs:annotation>
+                        <xs:documentation>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleType>
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:length value="0"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:union>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="name" type="assistants-text">
+            <xs:annotation>
+              <xs:documentation>Titel: name
+Beschriftung: Name
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="vorname" type="assistants-text">
+            <xs:annotation>
+              <xs:documentation>Titel: vorname
+Beschriftung: Vorname
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="strasse"/>
+          <xs:element ref="hausnummer"/>
+          <xs:element name="postleitzahl" type="assistants-text">
+            <xs:annotation>
+              <xs:documentation>Titel: postleitzahl
+Beschriftung: Postleitzahl
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="ort"/>
+          <xs:element minOccurs="0" name="land">
+            <xs:annotation>
+              <xs:documentation>Titel: land
+Beschriftung: Land
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:union memberTypes="assistants-text">
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:length value="0"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:union>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="geburtsdatum" type="optional-assistants-date">
+            <xs:annotation>
+              <xs:documentation>Titel: geburtsdatum
+Beschriftung: Geburtsdatum
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="familienstand">
+            <xs:annotation>
+              <xs:documentation>Titel: familienstand
+Beschriftung: Familienstand
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:union>
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:enumeration value="">
+                      <xs:annotation>
+                        <xs:documentation/>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="ledig">
+                      <xs:annotation>
+                        <xs:documentation>ledig</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="verheiratet">
+                      <xs:annotation>
+                        <xs:documentation>verheiratet</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="verwitwet">
+                      <xs:annotation>
+                        <xs:documentation>verwitwet</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="geschieden">
+                      <xs:annotation>
+                        <xs:documentation>geschieden</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Ehe aufgehoben">
+                      <xs:annotation>
+                        <xs:documentation>Ehe aufgehoben</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="in eingetragener Lebenspartnerschaft">
+                      <xs:annotation>
+                        <xs:documentation>in eingetragener Lebenspartnerschaft</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="durch Tod aufgelöste Lebenspartnerschaft">
+                      <xs:annotation>
+                        <xs:documentation>durch Tod aufgelöste Lebenspartnerschaft</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="aufgehobene Lebenspartnerschaft">
+                      <xs:annotation>
+                        <xs:documentation>aufgehobene Lebenspartnerschaft</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="durch Todeserklärung aufgelöste Lebenspartnerschaft">
+                      <xs:annotation>
+                        <xs:documentation>durch Todeserklärung aufgelöste Lebenspartnerschaft</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="nicht bekannt">
+                      <xs:annotation>
+                        <xs:documentation>nicht bekannt</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleType>
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:length value="0"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:union>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="staatsangehoerigkeit">
+            <xs:annotation>
+              <xs:documentation>Titel: staatsangehoerigkeit
+Beschriftung: Staatsangehörigkeit
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:union memberTypes="assistants-text">
+                <xs:simpleType>
+                  <xs:restriction base="xs:token">
+                    <xs:length value="0"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:union>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element ref="geburtsort"/>
+          <xs:element minOccurs="0" ref="geburtsland"/>
+          <xs:element ref="telefon"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="kindehelich">
+    <xs:annotation>
+      <xs:documentation>Titel: kindehelich
+Beschriftung: Bitte wählen Sie den zutreffenden Punkt aus
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="vaterschaft nicht feststellbar">
+          <xs:annotation>
+            <xs:documentation>Die Vaterschaft ist nicht feststellbar</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="nicht ehelich">
+          <xs:annotation>
+            <xs:documentation>Das Kind ist nicht ehelich geboren</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="ehelich">
+          <xs:annotation>
+            <xs:documentation>Das Kind ist ehelich geboren</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="vaterschaftnichtfeststellbarweil" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: vaterschaftnichtfeststellbarweil
+Beschriftung: Begründung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vaterschaftanerkannt" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: vaterschaftanerkannt
+Beschriftung: Ist die Vaterschaft anerkannt?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="antragauffeststellungvaterschaft" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: antragauffeststellungvaterschaft
+Beschriftung: Wurde ein Antrag auf Feststellung der Vaterschaft gestellt?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vaterschaftsfeststellungsverfahrenbei" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: vaterschaftsfeststellungsverfahrenbei
+Beschriftung: Ein Vaterschaftsfeststellungsverfahren ist bereits eingeleitet durch/bei
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vaterschaftnochnichtfestgestelltweil" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: vaterschaftnochnichtfestgestelltweil
+Beschriftung: Die Vaterschaft ist noch nicht festgestellt, weil
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ehemannvater" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: ehemannvater
+Beschriftung: Der Ehemann ist der Vater des Kindes
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vaterschaftsanfechtungsklage" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: vaterschaftsanfechtungsklage
+Beschriftung: Ist eine Vaterschaftsanfechtungsklage anhängig?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vaterschaftsanfechtungsklageamtsgericht" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: vaterschaftsanfechtungsklageamtsgericht
+Beschriftung: Eine Vaterschaftsanfechtungsklage ist bereits anhängig bei
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="geburtsland">
+    <xs:annotation>
+      <xs:documentation>Titel: geburtsland
+Beschriftung: Geburtsland
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:union memberTypes="assistants-text">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:length value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="andererelternteil2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="schulabschluss"/>
+        <xs:element minOccurs="0" ref="berufsausbildungkeine"/>
+        <xs:element minOccurs="0" ref="berufsausbildungnichtbekannt"/>
+        <xs:element minOccurs="0" ref="lehre"/>
+        <xs:element minOccurs="0" ref="lehreals"/>
+        <xs:element minOccurs="0" ref="lehreabgebrochen"/>
+        <xs:element minOccurs="0" ref="fachschulausbildung"/>
+        <xs:element minOccurs="0" ref="fachschulausbildungals"/>
+        <xs:element minOccurs="0" ref="fachschulausbildungabgebrochen"/>
+        <xs:element minOccurs="0" ref="studium"/>
+        <xs:element minOccurs="0" ref="studiumals"/>
+        <xs:element minOccurs="0" ref="studiumabgebrochen"/>
+        <xs:element minOccurs="0" ref="ausbildungstudiumanerkanntindtl"/>
+        <xs:element minOccurs="0" ref="ausbildungstudiumanerkanntin"/>
+        <xs:element minOccurs="0" ref="ausbildungstudiumdauertnochan"/>
+        <xs:element minOccurs="0" ref="ausbildungstudiumbis"/>
+        <xs:element ref="aktuelleberuflichetaetigkeit"/>
+        <xs:element ref="beruflichetaetigkeitseit"/>
+        <xs:element ref="beruflichetaetigkeitbis"/>
+        <xs:element ref="arbeitgeber"/>
+        <xs:element ref="aktuellesnettoeinkommen"/>
+        <xs:element minOccurs="0" ref="taetigkeitbeendet"/>
+        <xs:element minOccurs="0" ref="beendigungaufgrund"/>
+        <xs:element minOccurs="0" ref="beendigunggruende"/>
+        <xs:element minOccurs="0" ref="arbeitslos"/>
+        <xs:element minOccurs="0" ref="arbeitslosseit"/>
+        <xs:element minOccurs="0" ref="arbeitsunfaehigerkrankt"/>
+        <xs:element minOccurs="0" ref="arbeitsunfaehigerkranktseit"/>
+        <xs:element minOccurs="0" ref="erwerbsunfaehig"/>
+        <xs:element minOccurs="0" ref="erwerbsunfaehigseit"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="schulabschluss">
+    <xs:annotation>
+      <xs:documentation>Titel: schulabschluss
+Beschriftung: Schulabschluss
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="kein Schulabschluss">
+          <xs:annotation>
+            <xs:documentation>kein Schulabschluss</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Schulart nicht bekannt">
+          <xs:annotation>
+            <xs:documentation>Schulart nicht bekannt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Gymnasium">
+          <xs:annotation>
+            <xs:documentation>Gymnasium</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Realschule/Polytechnische Oberschule">
+          <xs:annotation>
+            <xs:documentation>Realschule/Polytechnische Oberschule</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Gesamtschule">
+          <xs:annotation>
+            <xs:documentation>Gesamtschule</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Hauptschule">
+          <xs:annotation>
+            <xs:documentation>Hauptschule</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Sonderschule">
+          <xs:annotation>
+            <xs:documentation>Sonderschule</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="berufsausbildungkeine" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: berufsausbildungkeine
+Beschriftung: keine
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="berufsausbildungnichtbekannt" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: berufsausbildungnichtbekannt
+Beschriftung: nicht bekannt
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="lehre" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: lehre
+Beschriftung: Lehre
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="lehreals" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: lehreals
+Beschriftung: Lehre als
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="lehreabgebrochen" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: lehreabgebrochen
+Beschriftung: abgebrochen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="fachschulausbildung" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: fachschulausbildung
+Beschriftung: Fachschulausbildung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="fachschulausbildungals" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: fachschulausbildungals
+Beschriftung: Fachschulausbildung als
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="fachschulausbildungabgebrochen" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: fachschulausbildungabgebrochen
+Beschriftung: abgebrochen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="studium" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: studium
+Beschriftung: Studium
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="studiumals" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: studiumals
+Beschriftung: Studium mit Fachrichtung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="studiumabgebrochen" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: studiumabgebrochen
+Beschriftung: abgebrochen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ausbildungstudiumanerkanntindtl" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: ausbildungstudiumanerkanntindtl
+Beschriftung: Ausbildung/Studium anerkannt in Deutschland
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ausbildungstudiumanerkanntin">
+    <xs:annotation>
+      <xs:documentation>Titel: ausbildungstudiumanerkanntin
+Beschriftung: Ausbildung/Studium anerkannt in
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:union memberTypes="assistants-text">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:length value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="ausbildungstudiumdauertnochan" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: ausbildungstudiumdauertnochan
+Beschriftung: Ausbildung/Studium dauert noch an
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ausbildungstudiumbis" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: ausbildungstudiumbis
+Beschriftung: bis
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="aktuelleberuflichetaetigkeit" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: aktuelleberuflichetaetigkeit
+Beschriftung: Aktuelle oder letzte berufliche Tätigkeit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beruflichetaetigkeitseit" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: beruflichetaetigkeitseit
+Beschriftung: seit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beruflichetaetigkeitbis" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: beruflichetaetigkeitbis
+Beschriftung: bis
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="aktuellesnettoeinkommen" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: aktuellesnettoeinkommen
+Beschriftung: Aktuelles oder zuletzt bezogenes Nettoeinkommen monatlich etwa
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="taetigkeitbeendet" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: taetigkeitbeendet
+Beschriftung: Tätigkeit beendet/abgebrochen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="beendigungaufgrund">
+    <xs:annotation>
+      <xs:documentation>Titel: beendigungaufgrund
+Beschriftung: Beendigung aufgrund
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:union>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Kündigung des Arbeitgebers">
+              <xs:annotation>
+                <xs:documentation>Kündigung des Arbeitgebers</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Ablauf eines Zeitvertrages">
+              <xs:annotation>
+                <xs:documentation>Ablauf eines Zeitvertrages</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Aufgabe der Selbstständigkeit">
+              <xs:annotation>
+                <xs:documentation>Aufgabe der Selbstständigkeit</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="eigener Kündigung">
+              <xs:annotation>
+                <xs:documentation>eigener Kündigung</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:length value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="beendigunggruende" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: beendigunggruende
+Beschriftung: Gründe für die Beendigung (wie Betriebsaufgabe oder Betriebsverkleinerung)
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="arbeitslos" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: arbeitslos
+Beschriftung: arbeitslos
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="arbeitslosseit" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: arbeitslosseit
+Beschriftung: seit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="arbeitsunfaehigerkrankt" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: arbeitsunfaehigerkrankt
+Beschriftung: arbeitsunfähig erkrankt
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="arbeitsunfaehigerkranktseit" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: arbeitsunfaehigerkranktseit
+Beschriftung: seit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="erwerbsunfaehig" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: erwerbsunfaehig
+Beschriftung: erwerbsunfähig
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="erwerbsunfaehigseit" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: erwerbsunfaehigseit
+Beschriftung: seit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="andererelternteil3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="bezugalg"/>
+        <xs:element minOccurs="0" ref="algleistungsstelle"/>
+        <xs:element minOccurs="0" ref="alghoehe"/>
+        <xs:element minOccurs="0" ref="bezugalgii"/>
+        <xs:element minOccurs="0" ref="algiileistungsstelle"/>
+        <xs:element minOccurs="0" ref="algiihoehe"/>
+        <xs:element minOccurs="0" ref="bezugkrankengeld"/>
+        <xs:element minOccurs="0" ref="krankengeldleistungsstelle"/>
+        <xs:element minOccurs="0" ref="krankengeldhoehe"/>
+        <xs:element minOccurs="0" ref="bezugrente"/>
+        <xs:element minOccurs="0" ref="renteleistungsstelle"/>
+        <xs:element minOccurs="0" ref="rentehoehe"/>
+        <xs:element minOccurs="0" ref="bezugsozialhilfe"/>
+        <xs:element minOccurs="0" ref="sozialhilfeleistungsstelle"/>
+        <xs:element minOccurs="0" ref="sozialhilfehoehe"/>
+        <xs:element ref="krankenkasse"/>
+        <xs:element ref="rentenversicherungstraeger"/>
+        <xs:element ref="sonstigesozialversicherung"/>
+        <xs:element minOccurs="0" ref="einkommenausnebentaetigkeit"/>
+        <xs:element minOccurs="0" ref="einkommennebentaetigkeithoehe"/>
+        <xs:element minOccurs="0" ref="einkommenausvermietung"/>
+        <xs:element minOccurs="0" ref="einkommenvermietunghoehe"/>
+        <xs:element minOccurs="0" ref="sonstigeeinkommensumme"/>
+        <xs:element ref="sonstigeseinkommenerlaeuterung"/>
+        <xs:element minOccurs="0" ref="grundbesitz"/>
+        <xs:element minOccurs="0" ref="grundbesitzstrasse"/>
+        <xs:element minOccurs="0" ref="grundbesitzhausnummer"/>
+        <xs:element minOccurs="0" ref="grundbesitzpostleitzahl"/>
+        <xs:element minOccurs="0" ref="grundbesitzort"/>
+        <xs:element minOccurs="0" ref="grundbesitzland"/>
+        <xs:element minOccurs="0" ref="kapitallebensversicherung"/>
+        <xs:element minOccurs="0" ref="kapitallebensversicherungbei"/>
+        <xs:element minOccurs="0" ref="sparguthaben"/>
+        <xs:element minOccurs="0" ref="sparguthabenbei"/>
+        <xs:element minOccurs="0" ref="wertpapiere"/>
+        <xs:element minOccurs="0" ref="wertpapierebei"/>
+        <xs:element minOccurs="0" ref="girokonto"/>
+        <xs:element minOccurs="0" ref="girokontobei"/>
+        <xs:element minOccurs="0" name="F00000106" type="assistants-text">
+          <xs:annotation>
+            <xs:documentation>Titel: girokontoiban
+Beschriftung: &lt;span lang="en"&gt;&lt;abbr title="International Bank Account Number"&gt;IBAN&lt;/abbr&gt;&lt;/span&gt;
+Prüfausdruck: (/^\s*$/.test(value))||(isValidIBAN(value))
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" ref="pkw"/>
+        <xs:element minOccurs="0" ref="pkwmarke"/>
+        <xs:element minOccurs="0" ref="pkwkennzeichen"/>
+        <xs:element minOccurs="0" ref="pkwwert"/>
+        <xs:element minOccurs="0" ref="vermoegensonstiges"/>
+        <xs:element minOccurs="0" ref="vermoegensonstigeserlaeuterung"/>
+        <xs:element minOccurs="0" ref="schwerbehinderung"/>
+        <xs:element minOccurs="0" ref="behinderungsgrad"/>
+        <xs:element minOccurs="0" ref="behinderungbekannt"/>
+        <xs:element minOccurs="0" ref="behinderungsonstiges"/>
+        <xs:element minOccurs="0" ref="behinderungsonstigesausfuehrung"/>
+        <xs:element minOccurs="0" ref="weitere_unterhaltsverpflichtungen"/>
+        <xs:element minOccurs="0" ref="schulden"/>
+        <xs:element minOccurs="0" ref="schuldenbei"/>
+        <xs:element minOccurs="0" ref="schuldenhoehe"/>
+        <xs:element minOccurs="0" ref="insolvenzverfahren"/>
+        <xs:element minOccurs="0" ref="schuldnerberatung"/>
+        <xs:element minOccurs="0" ref="vermoegensauskunft"/>
+        <xs:element minOccurs="0" ref="vermoegensauskunfterlaeuterung"/>
+        <xs:element minOccurs="0" ref="keineangaben"/>
+        <xs:element minOccurs="0" ref="keineangabenweil"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bezugalg" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: bezugalg
+Beschriftung: Bezug von Arbeitslosengeld
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="algleistungsstelle" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: algleistungsstelle
+Beschriftung: Leistungsstelle
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="alghoehe" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: alghoehe
+Beschriftung: Höhe des Arbeitslosengeldes monatlich ca.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bezugalgii" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: bezugalgii
+Beschriftung: Bezug von Arbeitslosengeld II
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="algiileistungsstelle" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: algiileistungsstelle
+Beschriftung: Leistungsstelle
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="algiihoehe" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: algiihoehe
+Beschriftung: Höhe des Arbeitslosengeldes II monatlich ca.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bezugkrankengeld" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: bezugkrankengeld
+Beschriftung: Krankengeld
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="krankengeldleistungsstelle" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: krankengeldleistungsstelle
+Beschriftung: Leistungsstelle
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="krankengeldhoehe" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: krankengeldhoehe
+Beschriftung: Höhe des Krankengeldes monatlich ca.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bezugrente" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: bezugrente
+Beschriftung: Rente
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="renteleistungsstelle" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: renteleistungsstelle
+Beschriftung: Leistungsstelle
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="rentehoehe" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: rentehoehe
+Beschriftung: Höhe der Rente monatlich ca.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bezugsozialhilfe" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: bezugsozialhilfe
+Beschriftung: Sozialhilfe
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="sozialhilfeleistungsstelle" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: sozialhilfeleistungsstelle
+Beschriftung: Leistungsstelle
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="sozialhilfehoehe" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: sozialhilfehoehe
+Beschriftung: Höhe der Sozialhilfe monatlich ca.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="krankenkasse" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: krankenkasse
+Beschriftung: Krankenkasse
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="rentenversicherungstraeger" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: rentenversicherungsträger
+Beschriftung: Rentenversicherungsträger
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="sonstigesozialversicherung" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: sonstigesozialversicherung
+Beschriftung: Sonstige Sozialversicherung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="einkommenausnebentaetigkeit" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: einkommenausnebentaetigkeit
+Beschriftung: Einkommen aus Nebentätigkeit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="einkommennebentaetigkeithoehe" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: einkommennebentaetigkeithoehe
+Beschriftung: Nettoeinkommen monatlich ca.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="einkommenausvermietung" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: einkommenausvermietung
+Beschriftung: Einkommen aus Vermietung / Verpachtung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="einkommenvermietunghoehe" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: einkommenvermietunghoehe
+Beschriftung: Nettoeinkommen monatlich ca.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="sonstigeeinkommensumme" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: sonstigeeinkommensumme
+Beschriftung: Summe der sonstigen Einkommen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="sonstigeseinkommenerlaeuterung" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: sonstigeseinkommenerlaeuterung
+Beschriftung: Erläuterungen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="grundbesitz" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: grundbesitz
+Beschriftung: Grundbesitz (Haus / Eigentumswohnung / unbebautes Grundstück - auch im Ausland)
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="grundbesitzstrasse" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: grundbesitzstrasse
+Beschriftung: Straße
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="grundbesitzhausnummer" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: grundbesitzhausnummer
+Beschriftung: Hausnummer
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="grundbesitzpostleitzahl" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: grundbesitzpostleitzahl
+Beschriftung: Postleitzahl
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="grundbesitzort" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: grundbesitzort
+Beschriftung: Ort
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="grundbesitzland">
+    <xs:annotation>
+      <xs:documentation>Titel: grundbesitzland
+Beschriftung: Land
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:union memberTypes="assistants-text">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:length value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="kapitallebensversicherung" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: kapitallebensversicherung
+Beschriftung: Kapitallebensversicherung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="kapitallebensversicherungbei" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: kapitallebensversicherungbei
+Beschriftung: bei
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="sparguthaben" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: sparguthaben
+Beschriftung: Sparguthaben
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="sparguthabenbei" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: sparguthabenbei
+Beschriftung: bei
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="wertpapiere" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: wertpapiere
+Beschriftung: Wertpapiere (Aktien / Fondsanteile)
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="wertpapierebei" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: wertpapierebei
+Beschriftung: bei
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="girokonto" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: girokonto
+Beschriftung: Girokonto
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="girokontobei" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: girokontobei
+Beschriftung: bei
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="pkw" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: pkw
+Beschriftung: PKW
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="pkwmarke" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: pkwmarke
+Beschriftung: Marke
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="pkwkennzeichen" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: pkwkennzeichen
+Beschriftung: Kennzeichen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="pkwwert" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: pkwwert
+Beschriftung: Wert ca.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vermoegensonstiges" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: vermoegensonstiges
+Beschriftung: Sonstiges
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vermoegensonstigeserlaeuterung" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: vermoegensonstigeserlaeuterung
+Beschriftung: Erläuterungen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schwerbehinderung" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: schwerbehinderung
+Beschriftung: Schwerbehinderung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="behinderungsgrad" type="optional-assistants-number">
+    <xs:annotation>
+      <xs:documentation>Titel: behinderungsgrad
+Beschriftung: %
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="behinderungbekannt" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: behinderungbekannt
+Beschriftung: keine bekannt
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="behinderungsonstiges" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: behinderungsonstiges
+Beschriftung: Sonstiges (wie Art der gesundheitlichen Beeinträchtigung)
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="behinderungsonstigesausfuehrung" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: behinderungsonstigesausfuehrung
+Beschriftung: Erläuterungen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="weitere_unterhaltsverpflichtungen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="weitere_unterhaltsverpflichtungen-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="weitere_unterhaltsverpflichtungen-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="berechtigtername"/>
+        <xs:element ref="berechtigtervorname"/>
+        <xs:element ref="berechtigtergeburtsdatum"/>
+        <xs:element ref="berechtigterunterhalt"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="berechtigtername" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: berechtigtername
+Beschriftung: Name
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="berechtigtervorname" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: berechtigtervorname
+Beschriftung: Vorname(n)
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="berechtigtergeburtsdatum" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: berechtigtergeburtsdatum
+Beschriftung: Geburtsdatum
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="berechtigterunterhalt" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: berechtigterunterhalt
+Beschriftung: Höhe des Unterhalts
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schulden" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: schulden
+Beschriftung: Schulden
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schuldenbei" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: schuldenbei
+Beschriftung: bei
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schuldenhoehe" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: schuldenhoehe
+Beschriftung: Höhe ca.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="insolvenzverfahren" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: insolvenzverfahren
+Beschriftung: Insolvenzverfahren eröffnet/beantragt
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schuldnerberatung" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: schuldnerberatung
+Beschriftung: z. B. Schuldnerberatung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vermoegensauskunft" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: vermoegensauskunft
+Beschriftung: Vermögensauskunft (früher: eidesstattliche Versicherung) wurde bereits abgegeben
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vermoegensauskunfterlaeuterung" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: vermoegensauskunfterlaeuterung
+Beschriftung: Erläuterungen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="keineangaben" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: keineangaben
+Beschriftung: Ich kann keine Angaben machen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="keineangabenweil" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: keineangabenweil
+Beschriftung: weil
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="betreuung">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="lebtinmeinemhaushaltseit"/>
+        <xs:element ref="betreuungkind"/>
+        <xs:element minOccurs="0" ref="verinbarungumgangsrecht"/>
+        <xs:element minOccurs="0" ref="vereinbarunggilt"/>
+        <xs:element minOccurs="0" ref="vereinbarungumgangsrechtsonstige"/>
+        <xs:element minOccurs="0" ref="betreuungszeiten_des_anderen_elternteiles"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lebtinmeinemhaushaltseit" type="assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: lebtinmeinemhaushaltseit
+Beschriftung: Das Kind lebt in meinem Haushalt seit dem
+Prüfausdruck: value &lt; new Date()
+Prüfmeldung: Das Datum muss in der Vergangenheit liegen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="betreuungkind">
+    <xs:annotation>
+      <xs:documentation>Titel: betreuungkind
+Beschriftung: Bitte machen Sie Angaben zur Versorgung und Betreuung Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="alleine">
+          <xs:annotation>
+            <xs:documentation>Ich versorge und betreue mein Kind alleine. Es hat seinen Lebensmittelpunkt bei mir.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="geteilt">
+          <xs:annotation>
+            <xs:documentation>Ich teile mir die Versorgung und Betreuung meines Kindes mit dem anderen Elternteil.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="verinbarungumgangsrecht">
+    <xs:annotation>
+      <xs:documentation>Titel: verinbarungumgangsrecht
+Beschriftung: Geben Sie bitte die Vereinbarungsart an, welche für das Umgangsrecht getroffen wurde
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="Es gibt eine gerichtlichtliche Vereinbarung bezüglich des Umgangsrechtes.">
+          <xs:annotation>
+            <xs:documentation>Es gibt eine gerichtlichtliche Vereinbarung bezüglich des Umgangsrechtes.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Das Umgangsrecht wurde unter den Eltern vereinbart.">
+          <xs:annotation>
+            <xs:documentation>Das Umgangsrecht wurde unter den Eltern vereinbart.</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Sonstige Vereinbarung (zum Beispiel über Rechtsanwälte)">
+          <xs:annotation>
+            <xs:documentation>Sonstige Vereinbarung (zum Beispiel über Rechtsanwälte)</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="vereinbarunggilt">
+    <xs:annotation>
+      <xs:documentation>Titel: vereinbarunggilt
+Beschriftung: Die Regelung gilt
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="">
+          <xs:annotation>
+            <xs:documentation/>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="wöchentlich">
+          <xs:annotation>
+            <xs:documentation>wöchentlich</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="14-täglich">
+          <xs:annotation>
+            <xs:documentation>14-täglich</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="davon abweichende Regelung">
+          <xs:annotation>
+            <xs:documentation>davon abweichende Regelung</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="vereinbarungumgangsrechtsonstige" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: vereinbarungumgangsrechtsonstige
+Beschriftung: Bitte beschreiben Sie die Regelung
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="betreuungszeiten_des_anderen_elternteiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="betreuungszeiten_des_anderen_elternteiles-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="betreuungszeiten_des_anderen_elternteiles-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="tag"/>
+        <xs:element minOccurs="0" ref="ganztags"/>
+        <xs:element ref="inderzeitvon"/>
+        <xs:element ref="inderzeitbis"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tag">
+    <xs:annotation>
+      <xs:documentation>Titel: tag
+Beschriftung: Wochentag
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:union>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="--- bitte auswählen ---">
+              <xs:annotation>
+                <xs:documentation>--- bitte auswählen ---</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Montag">
+              <xs:annotation>
+                <xs:documentation>Montag</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Dienstag">
+              <xs:annotation>
+                <xs:documentation>Dienstag</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Mittwoch">
+              <xs:annotation>
+                <xs:documentation>Mittwoch</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Donnerstag">
+              <xs:annotation>
+                <xs:documentation>Donnerstag</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Freitag">
+              <xs:annotation>
+                <xs:documentation>Freitag</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Samstag">
+              <xs:annotation>
+                <xs:documentation>Samstag</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Sonntag">
+              <xs:annotation>
+                <xs:documentation>Sonntag</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:length value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="ganztags" type="optional-assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: ganztags
+Beschriftung: ganztags
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="inderzeitvon" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: inderzeitvon
+Beschriftung: in der Zeit von
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="inderzeitbis" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: inderzeitbis
+Beschriftung: bis
+Prüfmeldung: Bitte geben Sie die Uhrzeit im Format hh:mm an
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="unterhalt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="unterhaltsfestsetzung"/>
+        <xs:element minOccurs="0" ref="unterhaltsfestsetzungbehoerde"/>
+        <xs:element minOccurs="0" ref="verpflichtungunterhaltmonatlich"/>
+        <xs:element minOccurs="0" ref="antragunterhaltsfestsetzungam"/>
+        <xs:element minOccurs="0" ref="antragunterhaltsfestsetzungamtsgericht"/>
+        <xs:element minOccurs="0" ref="antragunterhaltsfestsetzunggeschzeich"/>
+        <xs:element minOccurs="0" ref="keinantragunterhaltsfestsetzungweil"/>
+        <xs:element minOccurs="0" ref="keinantragunterhaltsfestsetzunganderergrund"/>
+        <xs:element ref="unterhaltszahlungandereret"/>
+        <xs:element minOccurs="0" ref="keinenunterhalt_seit"/>
+        <xs:element minOccurs="0" ref="letztezahlungam"/>
+        <xs:element minOccurs="0" ref="unterhaltinhoehevon"/>
+        <xs:element minOccurs="0" ref="geringererunterhaltinhoehevon"/>
+        <xs:element minOccurs="0" ref="geringererunterhaltseit"/>
+        <xs:element ref="vorauszahlung"/>
+        <xs:element minOccurs="0" ref="vorauszahlungmonate"/>
+        <xs:element minOccurs="0" ref="vorauszahlunginhoehevon"/>
+        <xs:element ref="zahlungunterhaltsrelevanteleistungen"/>
+        <xs:element minOccurs="0" ref="unterhaltsrelevanteleistung"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="unterhaltsfestsetzung">
+    <xs:annotation>
+      <xs:documentation>Titel: unterhaltsfestsetzung
+Beschriftung: Bitte wählen Sie den zutreffenden Punkt bezüglich der Unterhaltsfestsetzung aus
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="Eine Unterhaltsfestsetzung ist bereits erfolgt">
+          <xs:annotation>
+            <xs:documentation>Eine Unterhaltsfestsetzung ist bereits erfolgt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Eine Unterhaltsfestsetzung erfolgte bisher nicht">
+          <xs:annotation>
+            <xs:documentation>Eine Unterhaltsfestsetzung erfolgte bisher nicht</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Ein Antrag auf Unterhaltsfestsetzung wurde bereits gestellt">
+          <xs:annotation>
+            <xs:documentation>Ein Antrag auf Unterhaltsfestsetzung wurde bereits gestellt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="Es ist kein Antrag auf Unterhaltsfestsetzung gestellt worden">
+          <xs:annotation>
+            <xs:documentation>Es ist kein Antrag auf Unterhaltsfestsetzung gestellt worden</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="unterhaltsfestsetzungbehoerde" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: unterhaltsfestsetzungbehoerde
+Beschriftung: Welche Behörde hat die Unterhaltsfestsetzung beschlossen?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="verpflichtungunterhaltmonatlich" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: verpflichtungunterhaltmonatlich
+Beschriftung: Nach der Unterhaltsfestsetzung besteht die Verpflichtung, für das Kind monatlich folgenden Unterhalt zu zahlen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="antragunterhaltsfestsetzungam" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: antragunterhaltsfestsetzungam
+Beschriftung: Ein Antrag auf Unterhaltsfestsetzung ist am
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="antragunterhaltsfestsetzungamtsgericht" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: antragunterhaltsfestsetzungamtsgericht
+Beschriftung: gestellt worden beim
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="antragunterhaltsfestsetzunggeschzeich" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: antragunterhaltsfestsetzunggeschzeich
+Beschriftung: Geschäftszeichen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="keinantragunterhaltsfestsetzungweil">
+    <xs:annotation>
+      <xs:documentation>Titel: keinantragunterhaltsfestsetzungweil
+Beschriftung: weil
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="der Kindesvater unbekannt ist">
+          <xs:annotation>
+            <xs:documentation>der Kindesvater unbekannt ist</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="der andere Elternteil ausschließlich ALG-II Leistungen bezieht/ Rentner ist">
+          <xs:annotation>
+            <xs:documentation>der andere Elternteil ausschließlich ALG-II Leistungen bezieht/ Rentner ist</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="die Trennung gerade erst erfolgt ist">
+          <xs:annotation>
+            <xs:documentation>die Trennung gerade erst erfolgt ist</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="ein anderer Grund vorliegt">
+          <xs:annotation>
+            <xs:documentation>ein anderer Grund vorliegt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="keinantragunterhaltsfestsetzunganderergrund" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: keinantragunterhaltsfestsetzunganderergrund
+Beschriftung: Es ist kein Antrag auf Unterhaltsfestsetzung gestellt worden, weil
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="unterhaltszahlungandereret">
+    <xs:annotation>
+      <xs:documentation>Titel: unterhaltszahlungandereret
+Beschriftung: Der andere Elternteil zahlt
+</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="keinen Unterhalt">
+          <xs:annotation>
+            <xs:documentation>keinen Unterhalt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="nur noch geringeren Unterhalt">
+          <xs:annotation>
+            <xs:documentation>nur noch geringeren Unterhalt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="keinenunterhalt_seit" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: keinenunterhalt seit
+Beschriftung: seit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="letztezahlungam" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: letztezahlungam
+Beschriftung: letzte Zahlung am
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="unterhaltinhoehevon" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: unterhaltinhoehevon
+Beschriftung: in Höhe von
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="geringererunterhaltinhoehevon" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: geringererunterhaltinhoehevon
+Beschriftung: in Höhe von
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="geringererunterhaltseit" type="optional-assistants-date">
+    <xs:annotation>
+      <xs:documentation>Titel: geringererunterhaltseit
+Beschriftung: seit
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vorauszahlung" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: vorauszahlung
+Beschriftung: Erfolgte eine Vorauszahlung?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vorauszahlungmonate" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: vorauszahlungmonate
+Beschriftung: Es erfolgte eine Vorauszahlung für die Monate
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vorauszahlunginhoehevon" type="optional-assistants-currency">
+    <xs:annotation>
+      <xs:documentation>Titel: vorauszahlunginhoehevon
+Beschriftung: in Höhe von
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="zahlungunterhaltsrelevanteleistungen" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: zahlungunterhaltsrelevanteleistungen
+Beschriftung: Zahlt der andere Elternteil unterhaltsrelevante Leistungen an mich?
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="unterhaltsrelevanteleistung" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: unterhaltsrelevanteleistung
+Beschriftung: Der andere Elternteil zahlt an mich folgende unterhaltsrelevante Leistungen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="weiterekinder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="weitere_gemeinsame_kinder"/>
+        <xs:element ref="bemerkungen"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="weitere_gemeinsame_kinder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="weitere_gemeinsame_kinder-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="weitere_gemeinsame_kinder-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="assistants-text">
+          <xs:annotation>
+            <xs:documentation>Titel: name
+Beschriftung: Name
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vorname" type="assistants-text">
+          <xs:annotation>
+            <xs:documentation>Titel: vorname
+Beschriftung: Vorname(n)
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="geburtsdatum" type="optional-assistants-date">
+          <xs:annotation>
+            <xs:documentation>Titel: geburtsdatum
+Beschriftung: Geburtsdatum
+Prüfausdruck: (/^\s*$/.test(value))||(value &lt; new Date())
+Prüfmeldung: Das Datum muss in der Vergangenheit liegen
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="lebtbei"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lebtbei" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: lebtbei
+Beschriftung: lebt bei
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bemerkungen" type="assistants-text">
+    <xs:annotation>
+      <xs:documentation>Titel: bemerkungen
+Beschriftung: Bemerkungen
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="einwilligungdatenaustausch" type="assistants-boolean">
+    <xs:annotation>
+      <xs:documentation>Titel: einwilligungdatenaustausch
+Beschriftung: Ich bin damit einverstanden, dass die notwendigen Daten zur Durchführung des &lt;abbr title="Unterhaltsvorschussgesetz"&gt;UVG&lt;/abbr&gt; mit dem Beistand, dem (Amts-)Pfleger oder dem Vormund ausgetauscht werden können. Die erteilte Einwilligung ist freiwillig und kann jederzeit widerrufen werden. Bis zum Widerruf bleibt die Rechtmäßigkeit der Verarbeitung auf der Grundlage der Einwilligung unberührt.
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_orgname1" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_orgName1
+Beschriftung: bda_xfall_app_orgName1:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_orgname2" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_orgname2
+Beschriftung: bda_xfall_app_orgname2:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_bezirknr" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_bezirkNr
+Beschriftung: bda_xfall_app_bezirkNr:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_email" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_eMail
+Beschriftung: bda_xfall_app_eMail:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_faxno" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_faxNo
+Beschriftung: bda_xfall_app_faxNo:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_bezirk" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_bezirk
+Beschriftung: bda_xfall_app_bezirk:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_mobileno" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_mobileNo
+Beschriftung: bda_xfall_app_mobileNo:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_houseno" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_houseNo
+Beschriftung: bda_xfall_app_houseNo:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_postalcode" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_postalCode
+Beschriftung: bda_xfall_app_postalCode:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_city" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_city
+Beschriftung: bda_xfall_app_city:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_country" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_country
+Beschriftung: bda_xfall_app_country:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_telno" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_telNo
+Beschriftung: bda_xfall_app_telNo:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_academictitle" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_academicTitle
+Beschriftung: bda_xfall_app_academicTitle:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_formofaddress" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_formOfAddress
+Beschriftung: bda_xfall_app_formOfAddress:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_postofficebox" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_postOfficeBox
+Beschriftung: bda_xfall_app_postOfficeBox:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_identitynamespace" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_identityNamespace
+Beschriftung: bda_xfall_app_identityNamespace:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_partnertype" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_partnerType
+Beschriftung: bda_xfall_app_partnerType:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_street" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_street
+Beschriftung: bda_xfall_app_street:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_firstname" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_firstName
+Beschriftung: bda_xfall_app_firstName:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_lastname" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_lastName
+Beschriftung: bda_xfall_app_lastName:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_app_nationality" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_app_nationality
+Beschriftung: bda_xfall_app_nationality:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_partnertype" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_partnerType
+Beschriftung: bda_xfall_aut_partnerType:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_country" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_country
+Beschriftung: bda_xfall_aut_country:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_email" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_eMail
+Beschriftung: bda_xfall_aut_eMail:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_faxno" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_faxNo
+Beschriftung: bda_xfall_aut_faxNo:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_mobileno" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_mobileNo
+Beschriftung: bda_xfall_aut_mobileNo:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_telno" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_telNo
+Beschriftung: bda_xfall_aut_telNo:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_orgname1" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_orgName1
+Beschriftung: bda_xfall_aut_orgName1:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_postalcode" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_postalCode
+Beschriftung: bda_xfall_aut_postalCode:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_street" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_street
+Beschriftung: bda_xfall_aut_street:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_houseno" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_houseNo
+Beschriftung: bda_xfall_aut_houseNo:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_nationality" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_nationality
+Beschriftung: bda_xfall_aut_nationality:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_bezirknr" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_bezirkNr
+Beschriftung: bda_xfall_aut_bezirkNr:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_postofficebox" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_postOfficeBox
+Beschriftung: bda_xfall_aut_postOfficeBox:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_identitynamespace" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_identityNamespace
+Beschriftung: bda_xfall_aut_identityNamespace:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bda_xfall_aut_city" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Titel: bda_xfall_aut_city
+Beschriftung: bda_xfall_aut_city:
+</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="dateien">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="scheidungsurteil"/>
+        <xs:element minOccurs="0" ref="aufhebungsurkunde"/>
+        <xs:element minOccurs="0" ref="sterbeurkunde"/>
+        <xs:element minOccurs="0" ref="getrenntweilnachweis"/>
+        <xs:element minOccurs="0" ref="aufenthaltstitel"/>
+        <xs:element minOccurs="0" ref="nachweiseuebereinkommenundkrankenkasse"/>
+        <xs:element minOccurs="0" ref="geburtsurkunde"/>
+        <xs:element minOccurs="0" ref="vaterschaftsanerkennungsurkunde"/>
+        <xs:element minOccurs="0" ref="leistungsbezugbescheid"/>
+        <xs:element minOccurs="0" ref="bewilligungsbescheid"/>
+        <xs:element minOccurs="0" ref="antragsbestaetigungwaisenbezuege"/>
+        <xs:element minOccurs="0" ref="hilfelebensunterhaltbescheid"/>
+        <xs:element minOccurs="0" ref="anlagevereinbarung"/>
+        <xs:element minOccurs="0" ref="monatlicheauflistung"/>
+        <xs:element minOccurs="0" ref="bescheidjobcenter"/>
+        <xs:element minOccurs="0" ref="bescheidkinderwohngeld"/>
+        <xs:element minOccurs="0" ref="schulbescheinigung"/>
+        <xs:element minOccurs="0" ref="ausbildungsnachweis"/>
+        <xs:element minOccurs="0" ref="nachweishalbwaisenrente"/>
+        <xs:element minOccurs="0" ref="nachweisschadensersatzleistungen"/>
+        <xs:element minOccurs="0" ref="nachweisnichtselbststaendigearbeit"/>
+        <xs:element minOccurs="0" ref="nachweisselbststaendigearbeit"/>
+        <xs:element minOccurs="0" ref="nachweiskapitalvermoegen"/>
+        <xs:element minOccurs="0" ref="privatrechtlichevereinbarung"/>
+        <xs:element minOccurs="0" ref="unterhaltsrelevanteleistungnachweis"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="scheidungsurteil">
+    <xs:annotation>
+      <xs:documentation>Titel: scheidungsurteil
+Beschriftung: Scheidungsurteil
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="scheidungsurteil-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="scheidungsurteil-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aufhebungsurkunde">
+    <xs:annotation>
+      <xs:documentation>Titel: aufhebungsurkunde
+Beschriftung: Aufhebungsurkunde Ihrer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="aufhebungsurkunde-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aufhebungsurkunde-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sterbeurkunde">
+    <xs:annotation>
+      <xs:documentation>Titel: sterbeurkunde
+Beschriftung: Sterbeurkunde des Ehegatten/der Ehegattin
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="sterbeurkunde-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sterbeurkunde-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getrenntweilnachweis">
+    <xs:annotation>
+      <xs:documentation>Titel: getrenntweilnachweis
+Beschriftung: Nachweis der gerichtlichen Anordnung (z. B. Haft/ Krankheit/ Behinderung)
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="getrenntweilnachweis-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getrenntweilnachweis-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aufenthaltstitel">
+    <xs:annotation>
+      <xs:documentation>Titel: aufenthaltstitel
+Beschriftung: Aufenthaltstitel Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="aufenthaltstitel-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aufenthaltstitel-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweiseuebereinkommenundkrankenkasse">
+    <xs:annotation>
+      <xs:documentation>Titel: nachweiseuebereinkommenundkrankenkasse
+Beschriftung: Nachweise über Einkommen und Krankenkasse Ihres Kindes bei Daueraufenthaltsrecht nach § 4a FreizügG/EU (für EU/EWR/Schweiz) Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="nachweiseuebereinkommenundkrankenkasse-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweiseuebereinkommenundkrankenkasse-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="geburtsurkunde">
+    <xs:annotation>
+      <xs:documentation>Titel: geburtsurkunde
+Beschriftung: Geburtsurkunde Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="geburtsurkunde-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="geburtsurkunde-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vaterschaftsanerkennungsurkunde">
+    <xs:annotation>
+      <xs:documentation>Titel: vaterschaftsanerkennungsurkunde
+Beschriftung: Vaterschaftsanerkennungsurkunde, falls die hochgeladene Geburtsurkunde den Vater nicht ausweist
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vaterschaftsanerkennungsurkunde-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vaterschaftsanerkennungsurkunde-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="leistungsbezugbescheid">
+    <xs:annotation>
+      <xs:documentation>Titel: leistungsbezugbescheid
+Beschriftung: Bescheid des Leistungsbezugs Ihres Kindes nach UVG
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="leistungsbezugbescheid-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="leistungsbezugbescheid-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bewilligungsbescheid">
+    <xs:annotation>
+      <xs:documentation>Titel: bewilligungsbescheid
+Beschriftung: Bewilligungsbescheid der Waisenbezüge oder Schadensersatzleistungen für Ihr Kind
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="bewilligungsbescheid-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bewilligungsbescheid-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="antragsbestaetigungwaisenbezuege">
+    <xs:annotation>
+      <xs:documentation>Titel: antragsbestaetigungwaisenbezuege
+Beschriftung: Nachweis der Beantragung auf Waisenbezüge für Ihr Kind
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="antragsbestaetigungwaisenbezuege-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="antragsbestaetigungwaisenbezuege-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hilfelebensunterhaltbescheid">
+    <xs:annotation>
+      <xs:documentation>Titel: hilfelebensunterhaltbescheid
+Beschriftung: Bescheid über Ihre Hilfen zur Sicherung des Lebensunterhalts
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hilfelebensunterhaltbescheid-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hilfelebensunterhaltbescheid-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="anlagevereinbarung">
+    <xs:annotation>
+      <xs:documentation>Titel: anlagevereinbarung
+Beschriftung: Schriftliche Vereinbarung zur Betreuung Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="anlagevereinbarung-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="anlagevereinbarung-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="monatlicheauflistung">
+    <xs:annotation>
+      <xs:documentation>Titel: monatlicheauflistung
+Beschriftung: Monatliche Auflistung der Betreuung
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="monatlicheauflistung-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="monatlicheauflistung-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bescheidjobcenter">
+    <xs:annotation>
+      <xs:documentation>Titel: bescheidjobcenter
+Beschriftung: Bescheid über Leistungen vom Jobcenter für {myForm.monat}
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="bescheidjobcenter-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bescheidjobcenter-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bescheidkinderwohngeld">
+    <xs:annotation>
+      <xs:documentation>Titel: bescheidkinderwohngeld
+Beschriftung: Bescheid über die Beziehung von Kinderwohngeld
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="bescheidkinderwohngeld-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bescheidkinderwohngeld-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="schulbescheinigung">
+    <xs:annotation>
+      <xs:documentation>Titel: schulbescheinigung
+Beschriftung: Schulbescheinigung Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="schulbescheinigung-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="schulbescheinigung-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ausbildungsnachweis">
+    <xs:annotation>
+      <xs:documentation>Titel: ausbildungsnachweis
+Beschriftung: Ausbildungs- bzw. Arbeitsvertrag und entsprechende Nachweise über das erzielte Einkommen (z. B. Lohn- und Gehaltsbescheinigungen) Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ausbildungsnachweis-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ausbildungsnachweis-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweishalbwaisenrente">
+    <xs:annotation>
+      <xs:documentation>Titel: nachweishalbwaisenrente
+Beschriftung: Nachweis über die Halbwaisenrente Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="nachweishalbwaisenrente-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweishalbwaisenrente-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweisschadensersatzleistungen">
+    <xs:annotation>
+      <xs:documentation>Titel: nachweisschadensersatzleistungen
+Beschriftung: Nachweis über den Bezug Ihres Kindes von Schadensersatzleistungen
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="nachweisschadensersatzleistungen-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweisschadensersatzleistungen-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweisnichtselbststaendigearbeit">
+    <xs:annotation>
+      <xs:documentation>Titel: nachweisnichtselbststaendigearbeit
+Beschriftung: Nachweis über Einkünfte aus nichtselbstständiger Arbeit, Ausbildung, Freiwilligendienst Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="nachweisnichtselbststaendigearbeit-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweisnichtselbststaendigearbeit-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweisselbststaendigearbeit">
+    <xs:annotation>
+      <xs:documentation>Titel: nachweisselbststaendigearbeit
+Beschriftung: Nachweise über Einkünfte aus Land- oder Forstwirtschaft, Gewerbebetrieb oder selbstständiger Tätigkeit Ihres Kindes
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="nachweisselbststaendigearbeit-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweisselbststaendigearbeit-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweiskapitalvermoegen">
+    <xs:annotation>
+      <xs:documentation>Titel: nachweiskapitalvermoegen
+Beschriftung: Nachweis über Einkünfte Ihres Kindes aus Kapitalvermögen, Vermietung oder Verpachtung
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="nachweiskapitalvermoegen-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nachweiskapitalvermoegen-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="privatrechtlichevereinbarung">
+    <xs:annotation>
+      <xs:documentation>Titel: privatrechtlichevereinbarung
+Beschriftung: Unterhaltstitel oder die privatrechtliche Vereinbarung zum Unterhalt
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="privatrechtlichevereinbarung-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="privatrechtlichevereinbarung-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="unterhaltsrelevanteleistungnachweis">
+    <xs:annotation>
+      <xs:documentation>Titel: unterhaltsrelevanteleistungnachweis
+Beschriftung: Nachweis über unterhaltsrelevante Leistungen
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="unterhaltsrelevanteleistungnachweis-item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="unterhaltsrelevanteleistungnachweis-item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="intelliform-attributes">
+    <xs:anyAttribute namespace="http://xmlns.cit.de/intelliform/transaction http://xmlns.cit.de/intelliform/user" processContents="skip"/>
+  </xs:attributeGroup>
+  <xs:simpleType name="assistants-boolean">
+    <xs:restriction base="xs:boolean">
+      <xs:pattern value="true|false"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="assistants-date">
+    <xs:restriction base="xs:date">
+      <xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="assistants-number">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:complexType name="assistants-currency">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute name="currency" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[A-Z]{3}"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="assistants-number-unit">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="assistants-number-unit">
+    <xs:attribute name="unit" use="required"/>
+  </xs:attributeGroup>
+  <xs:simpleType name="assistants-text">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="file">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="id" use="required"/>
+          <xs:attribute name="length" type="xs:long"/>
+          <xs:attribute name="content-type"/>
+          <xs:attribute name="description"/>
+          <xs:attribute name="pdf-page-count" type="xs:nonNegativeInteger"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="optional-assistants-boolean">
+    <xs:union memberTypes="assistants-boolean empty-string"/>
+  </xs:simpleType>
+  <xs:simpleType name="optional-assistants-date">
+    <xs:union memberTypes="assistants-date empty-string"/>
+  </xs:simpleType>
+  <xs:simpleType name="optional-assistants-number">
+    <xs:union memberTypes="assistants-number empty-string"/>
+  </xs:simpleType>
+  <xs:simpleType name="optional-assistants-number-unit">
+    <xs:union memberTypes="xs:decimal empty-string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="optional-assistants-number-unit">
+    <xs:attribute name="unit" use="required"/>
+  </xs:attributeGroup>
+  <xs:complexType name="optional-assistants-currency">
+    <xs:simpleContent>
+      <xs:restriction base="xs:anyType">
+        <xs:simpleType>
+          <xs:union memberTypes="xs:decimal empty-string"/>
+        </xs:simpleType>
+        <xs:attribute name="currency" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[A-Z]{3}"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="optional-assistants-text">
+    <xs:restriction base="assistants-text"/>
+  </xs:simpleType>
+  <xs:group name="optional-assistants-file">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="file"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="optional-assistants-file-multi">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="file"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:simpleType name="empty-string">
+    <xs:restriction base="xs:string">
+      <xs:length value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="EIdPersonalDataType">
+    <xs:sequence minOccurs="0">
+      <xs:element minOccurs="0" ref="AcademicTitle"/>
+      <xs:element minOccurs="0" ref="AgeVerificationResult"/>
+      <xs:element minOccurs="0" ref="ArtisticName"/>
+      <xs:element ref="AuthenticationType"/>
+      <xs:element minOccurs="0" ref="CommunityIdVerificationResult"/>
+      <xs:element minOccurs="0" ref="DateOfBirth"/>
+      <xs:element minOccurs="0" ref="DocumentType"/>
+      <xs:element minOccurs="0" ref="DocumentValidityReferenceDate"/>
+      <xs:element minOccurs="0" ref="DocumentValidityStatus"/>
+      <xs:element minOccurs="0" ref="FamilyNames"/>
+      <xs:element minOccurs="0" ref="BirthName"/>
+      <xs:element minOccurs="0" ref="GivenNames"/>
+      <xs:element minOccurs="0" ref="IssuingState"/>
+      <xs:element minOccurs="0" ref="PlaceOfBirth"/>
+      <xs:element minOccurs="0" ref="PlaceOfResidence"/>
+      <xs:element minOccurs="0" ref="RestrictedID"/>
+      <xs:element minOccurs="0" ref="TransactionAttachmentReference"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AcademicTitle" type="assistants-text"/>
+  <xs:element name="AgeVerificationResult">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="assistants-boolean">
+          <xs:attribute name="value" use="required" type="xs:positiveInteger"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ArtisticName" type="assistants-text"/>
+  <xs:element name="AuthenticationType" type="assistants-text"/>
+  <xs:element name="CommunityIdVerificationResult">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="assistants-boolean">
+          <xs:attribute name="value" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DateOfBirth" type="assistants-date"/>
+  <xs:element name="DocumentType" type="EIdDocumentType"/>
+  <xs:element name="DocumentValidityReferenceDate" type="assistants-date"/>
+  <xs:element name="DocumentValidityStatus" type="EIdDocumentValidityStatusType"/>
+  <xs:element name="FamilyNames" type="assistants-text"/>
+  <xs:element name="BirthName" type="assistants-text"/>
+  <xs:element name="GivenNames" type="assistants-text"/>
+  <xs:element name="IssuingState" type="EIdIcaoCountryType"/>
+  <xs:element name="PlaceOfBirth">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="FreetextPlace"/>
+        <xs:group ref="EIdPlaceType"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreetextPlace" type="assistants-text"/>
+  <xs:element name="PlaceOfResidence">
+    <xs:complexType>
+      <xs:group ref="EIdPlaceType"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestrictedID" type="EIdRestrictedIdType"/>
+  <xs:element name="TransactionAttachmentReference" type="assistants-text"/>
+  <xs:group name="EIdPlaceType">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="City"/>
+      <xs:element minOccurs="0" ref="Country"/>
+      <xs:element minOccurs="0" ref="State"/>
+      <xs:element minOccurs="0" ref="Street"/>
+      <xs:element minOccurs="0" ref="Street_Name"/>
+      <xs:element minOccurs="0" ref="Street_Number"/>
+      <xs:element minOccurs="0" ref="Street_NumberSuffix"/>
+      <xs:element minOccurs="0" ref="ZipCode"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="City" type="assistants-text"/>
+  <xs:element name="Country" type="EIdIcaoCountryType"/>
+  <xs:element name="State" type="assistants-text"/>
+  <xs:element name="Street" type="assistants-text"/>
+  <xs:element name="Street_Name" type="assistants-text"/>
+  <xs:element name="Street_Number" type="assistants-text"/>
+  <xs:element name="Street_NumberSuffix" type="assistants-text"/>
+  <xs:element name="ZipCode" type="assistants-text"/>
+  <xs:simpleType name="EIdIcaoCountryType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z ]{1,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EIdDocumentType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z ]{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EIdRestrictedIdType">
+    <xs:restriction base="xs:hexBinary"/>
+  </xs:simpleType>
+  <xs:simpleType name="EIdDocumentValidityStatusType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="EeIdValid"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,2012 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dialog name="unterhaltsvorschuss" generate-roadmap="true">
+  <options>
+    <option name="readyingSubforms">false</option>
+  </options>
+  <page name="Datenschutzhinweis" path="datenschutzhinweis" id="datenschutzhinweis" model-src="Datenschutzhinweis.858">
+    <title>Datenschutzhinweis</title>
+    <field name="monat" id="monat" type="computed" required="false" aux="true" read-only="false" value-expression="currentMonthAndYear()">
+      <label label-style="prefix">monat:</label>
+      <title>monat</title>
+    </field>
+    <infobox name="Infokasten">
+      <display-text><![CDATA[<p>Zur Bearbeitung Ihres Anliegens benötigen wir personenbezogene Daten.</p><p>Der Digitale Antrag ist ein Dienst der Senatsverwaltung für Inneres und Sport (Dienstanbieter) und der jeweiligen Fachverwaltung. Ihre Daten werden im Sinne der Datenschutzgrundverordnung gemeinsam von den beteiligten Verwaltungen des Landes Berlin verarbeitet.</p><p>Die Verarbeitung der personenbezogenen Daten aus den Eingabemasken dient uns allein zur Bearbeitung der Antragsstellung.</p><p>Sonstige, während des Absendevorgangs verarbeitete, personenbezogene Daten dienen dazu, einen Missbrauch zu verhindern und die Sicherheit unserer informationstechnischen Systeme sicherzustellen.</p><p>Mit Ihrer Einwilligung in die Datenverarbeitung dürfen wir personenbezogene Daten für den Zweck der Bearbeitung des Antrags verarbeiten, das heißt: erheben, speichern und abfragen.</p><p>Für nähere Informationen beachten Sie bitte auch unsere <a title="Es öffnet sich ein neuer Browsertab." target="blank" href="https://service.berlin.de/digitaler-antrag/datenschutz/unterhaltsvorschussgesetz-1010249.php">Datenschutzerklärung</a>. Hier können Sie insbesondere einsehen, <a title="Es öffnet sich ein neuer Browsertab." target="blank" href="https://service.berlin.de/digitaler-antrag/datenschutz/erhobene-daten-881689.php#unterhalt">welche Daten für Ihren Antrag erhoben und verarbeitet werden</a> und wer die beteiligten Verwaltungen sind.</p><p>Sie haben das Recht, jederzeit der Verarbeitung Ihrer personenbezogenen Daten zu widersprechen. Hierzu wenden Sie sich bitte an die <a target="blank" title="Es öffnet sich ein neuer Browser-Tab" href="https://service.berlin.de/digitaler-antrag/datenschutz/unterhaltsvorschussgesetz-1010249.php#verantwortung">in der Datenschutzerklärung genannte, verantwortliche Stelle</a>.</p>]]></display-text>
+    </infobox>
+    <field name="ja_nein_feld" id="ja_nein_feld" type="boolean" required="false" read-only="false" validation-expression="(/^\s*$/.test(value))||(value==true)" style-class="leftalign" control-style="checkbox">
+      <label label-style="suffix">Ich bin damit einverstanden, dass die von mir eingegebenen Daten weiterverarbeitet werden dürfen.</label>
+      <title>Einwilligung</title>
+      <intro><![CDATA[<p>Einwilligung</p>]]></intro>
+      <validation-message>Zur Antragstellung ist die Einwilligung zur Weiterverarbeitung Ihrer Eingabedaten erforderlich.</validation-message>
+    </field>
+  </page>
+  <page name="Einreichen des Antrags" path="einreichen-des-antrags" id="einreichen-des-antrags" model-src="Einreichen des Antrags.2896">
+    <title>Einreichen des Antrags</title>
+    <infobox name="Infokasten">
+      <title>Wichtiger Hinweis zum Einreichen des Antrags</title>
+      <display-text><![CDATA[<p>Sie können den Antrag vollständig digital einreichen, sollten Sie einen neuen Personalausweis (nPA) besitzen mit eID-Freischaltung.<br/>Sollten Sie über keinen Personalausweis mit den entsprechenden Funktionen verfügen, können Sie den Antrag zwar ebenfalls online einreichen, jedoch müssen Sie am Ende des Antrags eine PDF ausdrucken und diese zusätzlich an die zuständige Behörde postalisch senden.</p>]]></display-text>
+    </infobox>
+    <field name="eid" id="eid" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+      <label label-style="question">Möchten Sie die eID Ihres nPA nutzen?</label>
+      <title>eid</title>
+    </field>
+    <field name="id_feld" id="id_feld" type="id" required="false" read-only="false" condition="myForm.eid == true">
+      <label label-style="prefix">ID-Feld:</label>
+      <title>ID-Feld</title>
+      <requests/>
+    </field>
+  </page>
+  <flow scope="antragsteller">
+    <page name="Angaben zum Antragstellenden als gesetzliche Vertretung des Kindes" path="angaben-zum-antragstellenden-als-gesetzliche-vertretung-des-kindes" id="angaben-zum-antragstellenden-als-gesetzliche-vertretung-des-kindes" model-src="Angaben zum Antragstellenden als gesetzliche Vertretung des Kindes.863">
+      <title>Angaben zum Antragstellenden als gesetzliche Vertretung des Kindes</title>
+      <resource id="C00000002" location="/WEB-INF/data/staatsangehoerigkeit_2019-04-01.xml"/>
+      <infobox name="Infokasten">
+        <title>Hinweis</title>
+        <display-text><![CDATA[<p>Wurden Ihr Geburtstag und -monat jeweils mit den Angaben 00 erfasst geben sie diese bitte als 01. Im Antrag an. Beispielsweise: „00.00.1996“ bitte als „01.01.1996“ angeben.</p>]]></display-text>
+      </infobox>
+      <group>
+        <title>Persönliche Angaben</title>
+        <documentation><![CDATA[<p>G00000188</p>]]></documentation>
+        <tooltip><![CDATA[<p>G00000188</p>]]></tooltip>
+        <resource id="C00000001" location="/WEB-INF/data/Geschlecht.xml"/>
+        <resource id="C00000002" location="/WEB-INF/data/staatsangehoerigkeit_2019-04-01.xml"/>
+        <resource id="C00000006" location="/WEB-INF/data/codelist_Familienstand_2.xml"/>
+        <resource id="C000aufenhalt" location="/WEB-INF/data/aufenthaltsstatus.xml"/>
+        <infobox name="Infokasten" condition="ro()">
+          <display-text><![CDATA[<p>{{getpersondata()}}</p>]]></display-text>
+        </infobox>
+        <field name="F00000013_h" id="antragsteller.f00000013_h" type="text" required="true" aux="true" read-only="false" condition="!ro()" default-value-expression="getSKBLastname()">
+          <label label-style="prefix">Familienname</label>
+          <title>Familienname</title>
+        </field>
+        <field name="F00000045_h" id="antragsteller.f00000045_h" type="text" required="true" aux="true" read-only="false" condition="!ro()" default-value-expression="getSKBFirstname()">
+          <label label-style="prefix">Vorname</label>
+          <title>Vorname</title>
+        </field>
+        <field name="F00000014_h" id="antragsteller.f00000014_h" type="text" required="false" aux="true" read-only="false" condition="!ro()">
+          <label label-style="prefix">Geburtsname</label>
+          <title>Geburtsname</title>
+        </field>
+        <field name="F00000066_h" id="antragsteller.f00000066_h" type="date" required="true" aux="true" read-only="false" condition="!ro()" default-value-expression="(myForm.user) ? (myForm.user.dateofbirth) ? getSKBDate(myForm.user.dateofbirth) : &quot;&quot; : &quot;&quot;">
+          <label label-style="prefix">Geburtsdatum</label>
+          <title>Geburtsdatum</title>
+        </field>
+        <field name="myage" id="antragsteller.myage" type="computed" required="false" read-only="false" value-expression="calcAge()">
+          <label label-style="prefix">myage:</label>
+          <title>myage</title>
+        </field>
+        <field name="f00000043" id="antragsteller.f00000043" type="computed" required="false" read-only="false" value-expression="(ro()) ? geteIDAcademicTitle() : myForm.F00000043_h">
+          <label label-style="prefix">F00000043:</label>
+          <title>F00000043</title>
+        </field>
+        <field name="f00000013" id="antragsteller.f00000013" type="computed" required="false" read-only="false" value-expression="(ro()) ? geteIDFamilyNames() : myForm.F00000013_h">
+          <label label-style="prefix">F00000013:</label>
+          <title>F00000013</title>
+        </field>
+        <field name="f00000045" id="antragsteller.f00000045" type="computed" required="false" read-only="false" value-expression="(ro()) ? geteIDGivenNames() : myForm.F00000045_h">
+          <label label-style="prefix">F00000045:</label>
+          <title>F00000045</title>
+        </field>
+        <field name="f00000014" id="antragsteller.f00000014" type="computed" required="false" read-only="false" value-expression="(ro()) ? geteIDBirthName() : myForm.F00000014_h">
+          <label label-style="prefix">F00000014:</label>
+          <title>F00000014</title>
+        </field>
+        <field name="f00000066" id="antragsteller.f00000066" type="computed" required="false" read-only="false" value-expression="(ro()) ? geteIDDateOfBirth() : myForm.F00000066_h">
+          <label label-style="prefix">F00000066:</label>
+          <title>F00000066</title>
+        </field>
+        <field name="f00000067" id="antragsteller.f00000067" type="computed" required="false" read-only="false" value-expression="(ro()) ? geteIDPlaceOfBirth() : myForm.F00000067_h">
+          <label label-style="prefix">F00000067:</label>
+          <title>F00000067</title>
+        </field>
+      </group>
+      <field name="geschlecht" id="antragsteller.geschlecht" type="choice" required="true" read-only="false" repeated="false" control-style="radiobutton">
+        <label label-style="prefix">Geschlecht</label>
+        <title>geschlecht</title>
+        <option>männlich</option>
+        <option>weiblich</option>
+        <option>divers</option>
+        <option>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</option>
+      </field>
+      <field name="beruf" id="antragsteller.beruf" type="text" required="false" read-only="false">
+        <label label-style="prefix">Beruf</label>
+        <title>beruf</title>
+      </field>
+      <field name="arbeitgeber" id="antragsteller.arbeitgeber" type="text" required="false" read-only="false">
+        <label label-style="prefix">Arbeitgeber</label>
+        <title>arbeitgeber</title>
+      </field>
+      <field name="geburtsort" id="antragsteller.geburtsort" type="text" required="false" read-only="false">
+        <label label-style="prefix">Geburtsort</label>
+        <title>geburtsort</title>
+      </field>
+      <field name="staatsangehoerigkeit" id="antragsteller.staatsangehoerigkeit" type="choice" required="true" read-only="false" repeated="false" control-style="combobox" default-value="deutsch">
+        <label>Staatsangehörigkeit</label>
+        <title>staatsangehoerigkeit</title>
+        <option value="">--- bitte wählen Sie aus ---</option>
+        <options src="urn:xmlid:C00000002" xpath-select="/*/SimpleCodeList/Row/Value[@ColumnRef=&quot;Staatsangehoerigkeit&quot;]" xpath-text="SimpleValue"/>
+      </field>
+      <field name="wohnhaftinberlin" id="antragsteller.wohnhaftinberlin" type="boolean" required="true" read-only="false" control-style="radiobutton" default-value="true" live="true">
+        <label label-style="question">Wohnen Sie aktuell in Berlin?</label>
+        <title>wohnhaftinberlin</title>
+      </field>
+      <infobox name="Infokasten">
+        <title>Bitte geben Sie hier Ihre aktuelle Wohnanschrift an</title>
+      </infobox>
+      <group condition="myForm.wohnhaftinberlin == false">
+        <title>Anschrift außerhalb Berlins</title>
+        <field name="strassenichtberlin" id="antragsteller.strassenichtberlin" type="text" required="false" read-only="false" default-value-expression="(ifReadSKB()) ? &quot;&quot; : getSKBStreet()">
+          <label label-style="prefix">Straße</label>
+          <title>strassenichtberlin</title>
+        </field>
+        <field name="hausnummernichtberlin" id="antragsteller.hausnummernichtberlin" type="text" required="false" read-only="false" style-class="width-xs" default-value-expression="(ifReadSKB()) ? &quot;&quot; : getSKBStreetNr() + getSKBStreetExt()">
+          <label label-style="prefix">Hausnummer</label>
+          <title>hausnummernichtberlin</title>
+        </field>
+        <field name="postleitzahlnichtberlin" id="antragsteller.postleitzahlnichtberlin" type="text" required="false" read-only="false" style-class="width-xs" default-value-expression="(ifReadSKB()) ? &quot;&quot; : getSKBPLZ()">
+          <label label-style="prefix">Postleitzahl</label>
+          <title>postleitzahlnichtberlin</title>
+        </field>
+        <field name="ortnichtberlin" id="antragsteller.ortnichtberlin" type="text" required="false" read-only="false" default-value-expression="(ifReadSKB()) ? &quot;&quot; : getSKBCity()">
+          <label label-style="prefix">Ort</label>
+          <title>ortnichtberlin</title>
+        </field>
+      </group>
+      <infobox name="Infokasten" condition="myForm.wohnhaftinberlin == false">
+        <title>Bitte geben Sie hier Ihre letzte Wohnanschrift in Berlin an</title>
+        <display-text><![CDATA[<p>Ihre letzte Wohnanschrift in Berlin wird benötigt, um das zuständige Amt für Ihren Antrag auf Unterhaltsvorschuss zu ermitteln.</p>]]></display-text>
+      </infobox>
+      <group condition="myForm.wohnhaftinberlin == false || myForm.wohnhaftinberlin == true" style-class="rbs">
+        <title>Anschrift Berlin</title>
+        <resource id="C00000009" location="/WEB-INF/data/staat_2019-04-01.xml"/>
+        <field name="f00000053" id="antragsteller.f00000053" type="computed" required="false" read-only="false" value-expression="myForm.F00000053h">
+          <label label-style="prefix">F00000053:</label>
+          <title>F00000053</title>
+        </field>
+        <infobox name="Infokasten" condition="ro()">
+          <display-text><![CDATA[<p>{{getaddressdata()}}</p>]]></display-text>
+        </infobox>
+        <field name="onlyberlin" id="antragsteller.onlyberlin" type="text" required="false" aux="true" read-only="false" style-class="2_hide" default-value-expression="onlyBerlin()">
+          <label label-style="prefix">onlyberlin:</label>
+          <title>onlyberlin</title>
+        </field>
+        <field name="beznrh" id="antragsteller.beznrh" type="text" required="false" aux="true" read-only="false" style-class="2_hide">
+          <label label-style="question">beznrh:</label>
+          <title>beznrh</title>
+        </field>
+        <field name="objtype" id="antragsteller.objtype" type="choice" required="false" read-only="false" repeated="false" style-class="2_hide" control-style="combobox" default-value="'*STRASSE*" live="true">
+          <label>Objekttyp</label>
+          <title>objtype</title>
+          <option>*STRASSE*</option>
+          <option>AUTOBAHN</option>
+          <option>AUTOBAHNABSCHNITT</option>
+          <option>BAHNHOF</option>
+          <option>BRUECKE</option>
+          <option>BRUECKE_IN_PARK</option>
+          <option>FLUGHAFEN</option>
+          <option>FORST</option>
+          <option>FORSTAMT</option>
+          <option>FUSS-/RADWEG</option>
+          <option>FUSSGAENGERBRUECKE</option>
+          <option>GEWAESSER</option>
+          <option>GRUENANLAGE</option>
+          <option>HALBINSEL</option>
+          <option>INSEL</option>
+          <option>KLEINGARTENANLAGE</option>
+          <option>OBJEKT</option>
+          <option>OERTL.BEGRIFF</option>
+          <option>PARK</option>
+          <option>PARKPLATZ</option>
+          <option>PLATZ</option>
+          <option>PLATZ_IN_FORST</option>
+          <option>PRIVATSTRASSE</option>
+          <option>SCHLEUSE</option>
+          <option>SIEDLUNG</option>
+          <option>SPORTSTAETTE</option>
+          <option>STADTBAHNBOGEN</option>
+          <option>STRASSE</option>
+          <option>STRASSE_IN_FORST</option>
+          <option>STRASSE_IN_KGA</option>
+          <option>STRASSE_IN_PARK</option>
+          <option>TUNNEL</option>
+          <option>VERWALTUNGSWEG</option>
+          <option>WALDWEG</option>
+          <option>WASSERWERK</option>
+          <option>WOHNSCHIFF</option>
+          <option>ZUFAHRT</option>
+        </field>
+        <field name="F00000053h" id="antragsteller.f00000053h" type="text" required="true" aux="true" read-only="false" condition="!ro()" default-value-expression="(ifReadSKB()) ? getSKBStreet() : &quot;&quot;">
+          <label label-style="question">Straße</label>
+          <title>strname</title>
+        </field>
+        <field name="F00000016h" id="antragsteller.f00000016h" type="text" required="false" aux="true" read-only="false" style-class="2_hide" default-value-expression="(ifReadSKB()) ? getSKBStreetNr() : &quot;&quot;">
+          <label label-style="question">hausnr:</label>
+          <title>hausnr</title>
+        </field>
+        <field name="f00000016" id="antragsteller.f00000016" type="computed" required="false" read-only="false" value-expression="myForm.F00000016h">
+          <label label-style="prefix">F00000016:</label>
+          <title>F00000016</title>
+        </field>
+        <field name="F00000084h" id="antragsteller.f00000084h" type="text" required="false" aux="true" read-only="false" style-class="2_hide" default-value-expression="(ifReadSKB()) ? getSKBStreetExt() : &quot;&quot;">
+          <label label-style="question">hausnrz:</label>
+          <title>hausnrz</title>
+        </field>
+        <field name="f00000084" id="antragsteller.f00000084" type="computed" required="false" read-only="false" value-expression="myForm.F00000084h">
+          <label label-style="prefix">F00000084:</label>
+          <title>F00000084</title>
+        </field>
+        <field name="hnrh" id="antragsteller.hnrh" type="text" required="false" aux="true" read-only="false" validation-expression="(/^\s*$/.test(value))||(myForm.objtype.includes(&quot;STRASSE&quot;) == true &amp;&amp; value.length == 0 ? false : true)" style-class="width-xs" condition="!ro()" default-value-expression="(ifReadSKB()) ? getSKBStreetNr() + getSKBStreetExt() : &quot;&quot;">
+          <label label-style="question">Hausnummer (von)</label>
+          <title>hnrh</title>
+          <validation-message>Bitte wählen Sie ein Hausnummer aus!</validation-message>
+        </field>
+        <field name="hnr" id="antragsteller.hnr" type="computed" required="false" read-only="false" value-expression="myForm.hnrh">
+          <label label-style="prefix">hnr:</label>
+          <title>hnr</title>
+        </field>
+        <field name="F00000054h" id="antragsteller.f00000054h" type="text" required="true" aux="true" read-only="false" style-class="width-xs" condition="!ro()" default-value-expression="(ifReadSKB()) ? getSKBPLZ() : &quot;&quot;">
+          <label label-style="question">Postleitzahl</label>
+          <title>plz</title>
+        </field>
+        <field name="f00000054" id="antragsteller.f00000054" type="computed" required="false" read-only="false" value-expression="myForm.F00000054h">
+          <label label-style="prefix">F00000054:</label>
+          <title>F00000054</title>
+        </field>
+        <field name="otname" id="antragsteller.otname" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="prefix">Ortsteil</label>
+          <title>otname</title>
+        </field>
+        <field name="bzrname" id="antragsteller.bzrname" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="question">Bezirk</label>
+          <title>bzrname</title>
+        </field>
+        <field name="otnr" id="antragsteller.otnr" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="prefix">otnr:</label>
+          <title>otnr</title>
+        </field>
+        <field name="bzrnr" id="antragsteller.bzrnr" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="prefix">bzrnr:</label>
+          <title>bzrnr</title>
+        </field>
+        <field name="F00000035h" id="antragsteller.f00000035h" type="text" required="true" aux="true" read-only="false" condition="!ro()" default-value-expression="(ifReadSKB()) ? getSKBCity() : &quot;&quot;">
+          <label label-style="question">Ort</label>
+          <title>Ort</title>
+        </field>
+        <field name="strnr" id="antragsteller.strnr" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="question">strnr:</label>
+          <title>strnr</title>
+        </field>
+        <field name="f00000035" id="antragsteller.f00000035" type="computed" required="false" read-only="false" value-expression="myForm.F00000035h">
+          <label label-style="prefix">F00000035:</label>
+          <title>F00000035</title>
+        </field>
+        <field name="landh" id="antragsteller.landh" type="choice" required="false" aux="true" read-only="false" repeated="false" style-class="2_ro" condition="!ro()" default-value-expression="getSKBLand()">
+          <label label-style="question">Land</label>
+          <title>land</title>
+          <option value="">---bitte auswählen---</option>
+          <options src="urn:xmlid:C00000009" xpath-select="/*/SimpleCodeList/Row" xpath-text="Value[@ColumnRef=&quot;Staatsname_kurz&quot;]/SimpleValue" xpath-value="Value[@ColumnRef=&quot;DESTATIS_Schluessel_Staat&quot;]/SimpleValue"/>
+        </field>
+        <field name="land" id="antragsteller.land" type="computed" required="false" read-only="false" value-expression="checkSelectedLand()">
+          <label label-style="prefix">land:</label>
+          <title>land</title>
+        </field>
+        <field name="k1000" id="antragsteller.k1000" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="prefix">k1000:</label>
+          <title>k1000</title>
+        </field>
+        <field name="k5000" id="antragsteller.k5000" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="prefix">k5000:</label>
+          <title>k5000</title>
+        </field>
+        <field name="xstat" id="antragsteller.xstat" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="prefix">xstat:</label>
+          <title>xstat</title>
+        </field>
+        <field name="ystat" id="antragsteller.ystat" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="prefix">ystat:</label>
+          <title>ystat</title>
+        </field>
+        <field name="etrs89_x" id="antragsteller.etrs89_x" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="prefix">etrs89_x:</label>
+          <title>etrs89_x</title>
+        </field>
+        <field name="etrs89_y" id="antragsteller.etrs89_y" type="text" required="false" read-only="false" style-class="2_hide">
+          <label label-style="prefix">etrs89_y:</label>
+          <title>etrs89_y</title>
+        </field>
+        <field name="rbs_valid" id="antragsteller.rbs_valid" type="computed" required="false" read-only="false" value-expression="validateAddress()">
+          <label label-style="prefix">rbs_valid:</label>
+          <title>rbs_valid</title>
+        </field>
+      </group>
+      <field name="dortwohnhaftseit" id="antragsteller.dortwohnhaftseit" type="date" required="false" read-only="false" validation-expression="(/^\s*$/.test(value))||(value &lt; new Date())" condition="myForm.wohnhaftinberlin == false || myForm.wohnhaftinberlin == true">
+        <label label-style="prefix">dort wohnhaft seit</label>
+        <title>dortwohnhaftseit</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        <validation-message>Das Datum muss in der Vergangenheit liegen</validation-message>
+      </field>
+      <field name="telefon" id="antragsteller.telefon" type="text" required="false" read-only="false" validation-pattern="/(^\s*$)|(^(^([0(+][0-9\.-\/\+ ()]{7,})$)$)/" condition="myForm.wohnhaftinberlin == false || myForm.wohnhaftinberlin == true">
+        <label label-style="prefix">Telefon</label>
+        <title>telefon</title>
+        <validation-message>Bitte geben Sie eine gültige Telefonnummer an.</validation-message>
+      </field>
+      <group condition="myForm.eid == false">
+        <title>Ausgewiesen durch...</title>
+        <field name="ausweisung" id="antragsteller.ausweisung" type="choice" required="true" read-only="false" repeated="false" control-style="textbox" live="true">
+          <label label-style="prefix">Bitte geben Sie die Art an, wie Sie sich ausweisen wollen</label>
+          <title>ausweisung</title>
+          <option></option>
+          <option>Personalausweis</option>
+          <option>Reisepass</option>
+        </field>
+        <field name="ausweisnr" id="antragsteller.ausweisnr" type="text" required="true" read-only="false" condition="myForm.ausweisung == &quot;Personalausweis&quot; || myForm.ausweisung == &quot;Reisepass&quot;">
+          <label label-style="prefix">{myForm.ausweisung}nummer</label>
+          <title>ausweisnr</title>
+        </field>
+        <field name="gueltigbis" id="antragsteller.gueltigbis" type="date" required="true" read-only="false" condition="myForm.ausweisung == &quot;Personalausweis&quot; || myForm.ausweisung == &quot;Reisepass&quot;">
+          <label label-style="prefix">gültig bis</label>
+          <title>gueltigbis</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+          <validation-message>Das Datum muss in der Zukunft liegen</validation-message>
+        </field>
+      </group>
+      <group>
+        <title>Bankdaten Antragsteller/in</title>
+        <documentation><![CDATA[<p>Test</p>]]></documentation>
+        <tooltip><![CDATA[<p>Test</p>]]></tooltip>
+        <field name="kontovorhanden" id="antragsteller.kontovorhanden" type="boolean" required="true" read-only="false" control-style="radiobutton" default-value="true" live="true">
+          <label label-style="prefix">Verfügen Sie über ein eigenes Bankkonto?</label>
+          <title>kontovorhanden</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.antragsteller.kontovorhanden == false">
+          <display-text><![CDATA[<p>Bitte geben Sie den Kontoinhaber/die Kontoinhaberin und die Kontodaten des Kontos an, welches bei Zahlungen herangezogen werden soll</p>]]></display-text>
+        </infobox>
+        <infobox name="Infokasten" condition="myForm.antragsteller.kontovorhanden == false">
+          <title>&lt;STRONG&gt;Wichtiger Hinweis:&lt;/STRONG&gt;</title>
+          <display-text><![CDATA[<p>Sofern Sie die Zahlung der Leistung auf ein anderes als Ihr eigenes Konto wünschen oder ein fremdes Konto angeben, kann die tatsächliche und rechtzeitige Auszahlung an Sie nicht garantiert werden. Das Risiko der Überweisung auf Fremdkonten tragen Sie allein!</p><br/><br/>]]></display-text>
+        </infobox>
+        <field name="bankname" id="antragsteller.bankname" type="text" required="true" read-only="false" condition="myForm.kontovorhanden == true || myForm.kontovorhanden == false">
+          <label label-style="prefix">Name der Bank</label>
+          <title>bankname</title>
+        </field>
+        <field name="kontoinhaber" id="antragsteller.kontoinhaber" type="text" required="true" read-only="false" condition="myForm.antragsteller.kontovorhanden == false">
+          <label label-style="prefix">Kontoinhaber/in</label>
+          <title>kontoinhaber</title>
+        </field>
+        <field name="F00000106" id="antragsteller.f00000106" type="text" required="true" read-only="false" validation-expression="isValidIBAN(value)" condition="myForm.kontovorhanden == true || myForm.kontovorhanden == false">
+          <label label-style="prefix"><![CDATA[<span lang="en"><abbr title="International Bank Account Number">IBAN</abbr></span>]]></label>
+          <title>iban</title>
+        </field>
+      </group>
+      <rule validation-expression="validateAddress()" validation-mode="loose" name="rbsrule.3203">
+        <validation-message><![CDATA[Die von Ihnen angegebene Adresse ist in unserem System nicht hinterlegt und kann nicht gefunden werden.<br/>]]></validation-message>
+      </rule>
+    </page>
+    <flow condition="myForm.rbs_valid != true">
+      <page name="rbs_bez" path="rbs_bez" id="rbs_bez" model-src="rbs_bez.3253!Bezirk.858">
+        <title>Anschrift Berlin</title>
+        <resource id="bezirke" location="/WEB-INF/data/rbs-bez-liste-xml.xml"/>
+        <field name="beznum" id="antragsteller.beznum" type="choice" required="true" aux="true" read-only="false" repeated="false" live="true">
+          <label>Bezirk</label>
+          <title>beznum</title>
+          <option value="">---wählen Sie einen Bezirk aus ---</option>
+          <options src="urn:xmlid:bezirke" xpath-select="/*/rbs-bez" xpath-text="bezname" xpath-value="@beznr">
+            <sort>bezname</sort>
+          </options>
+        </field>
+        <field name="otnum" id="antragsteller.otnum" type="choice" required="false" aux="true" read-only="false" repeated="false" live="true">
+          <label>Ortsteil</label>
+          <title>otnum</title>
+          <option value="">---wählen Sie einen Ortsteil aus ---</option>
+          <options src="urn:xmlid:bezirke" xpath-select="//rbs-bez[@beznr=$selectedBezirk]/rbs-ot" xpath-text="otname" xpath-value="@otnr">
+            <param name="selectedBezirk">myForm.beznum</param>
+            <sort>otname</sort>
+          </options>
+        </field>
+        <field name="selectdistrict" id="antragsteller.selectdistrict" type="computed" required="false" read-only="false" value-expression="selectDistrict()">
+          <label label-style="prefix">selectDistrict:</label>
+          <title>selectDistrict</title>
+        </field>
+      </page>
+    </flow>
+  </flow>
+  <flow scope="antragstellerweitere">
+    <page name="Weitere Angaben zum Antragsteller/zur Antragstellerin" path="weitere-angaben-zum-antragsteller-zur-antragstellerin" id="weitere-angaben-zum-antragsteller-zur-antragstellerin" model-src="Weitere Angaben zum Antragsteller/zur Antragstellerin.2463">
+      <title>Weitere Angaben zum Antragsteller/zur Antragstellerin</title>
+      <resource id="C00000009" location="/WEB-INF/data/staat_2019-04-01.xml"/>
+      <group>
+        <title>Familienstand</title>
+        <field name="familienstand" id="antragstellerweitere.familienstand" type="choice" required="true" read-only="false" repeated="false" control-style="radiobutton" live="true">
+          <label label-style="question"><![CDATA[<p/>]]></label>
+          <title>familienstand</title>
+          <option value="verheiratet">Ich bin verheiratet</option>
+          <option value="lebenspartnerschaft">Ich lebe in einer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft</option>
+          <option value="ledig">Ich bin ledig</option>
+          <option value="geschieden">Ich bin rechtskräftig geschieden</option>
+          <option value="nicht mehr lebenspartnerschaft">Ich lebe nicht mehr in einer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft</option>
+          <option value="verwitwet">Ich bin verwitwet</option>
+          <option value="getrennt">Ich lebe vom Ehegatten/Lebenspartner/der Ehegattin/Lebenspartnerin getrennt</option>
+        </field>
+        <field name="vomanderenelternteilgetrennt" id="antragstellerweitere.vomanderenelternteilgetrennt" type="choice" required="true" read-only="false" repeated="false" control-style="radiobutton" condition="myForm.familienstand == &quot;ledig&quot;" live="true">
+          <label label-style="question">Bitte wählen Sie den zutreffenden Punkt aus</label>
+          <title>vomanderenelternteilgetrennt</title>
+          <option>Ich lebe vom anderen Elternteil getrennt</option>
+          <option>Ich habe noch nie mit dem anderen Elternteil meines Kindes zusammengelebt</option>
+        </field>
+        <field name="geschiedenseit" id="antragstellerweitere.geschiedenseit" type="date" required="true" read-only="false" validation-expression="value &lt; new Date()" condition="myForm.familienstand === &quot;geschieden&quot;">
+          <label label-style="question">Ich bin rechtskräftig geschieden seit dem</label>
+          <title>geschiedenseit</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <infobox name="Infokasten" condition="myForm.familienstand === &quot;geschieden&quot;">
+          <display-text><![CDATA[<p><br/><br/>Das Scheidungsurteil können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="nichtmehringleichgeschlechtlicherlebenspartnerschaftseit" id="antragstellerweitere.nichtmehringleichgeschlechtlicherlebenspartnerschaftseit" type="date" required="true" read-only="false" validation-expression="value &lt; new Date()" condition="myForm.familienstand === &quot;nicht mehr lebenspartnerschaft&quot;">
+          <label label-style="question">Ich lebe nicht mehr in einer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft seit dem</label>
+          <title>nichtmehringleichgeschlechtlicherlebenspartnerschaftseit</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <infobox name="Infokasten" condition="myForm.familienstand === &quot;nicht mehr lebenspartnerschaft&quot;">
+          <display-text><![CDATA[<p><br/><br/>Die Aufhebungsurkunde können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="verwitwetseit" id="antragstellerweitere.verwitwetseit" type="date" required="true" read-only="false" validation-expression="value &lt; new Date()" condition="myForm.familienstand === &quot;verwitwet&quot;">
+          <label label-style="question">Ich bin verwitwet seit dem</label>
+          <title>verwitwetseit</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <infobox name="Infokasten" condition="myForm.familienstand === &quot;verwitwet&quot;">
+          <display-text><![CDATA[<p><br/><br/>Die Sterbeurkunde können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="vonelternteilgetrenntseit" id="antragstellerweitere.vonelternteilgetrenntseit" type="date" required="true" read-only="false" validation-expression="value &lt; new Date()" condition="myForm.vomanderenelternteilgetrennt === &quot;Ich lebe vom anderen Elternteil getrennt&quot;">
+          <label label-style="question">Ich lebe vom anderen Elternteil getrennt seit dem</label>
+          <title>vonelternteilgetrenntseit</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="vomehegattenehegattingetrenntseit" id="antragstellerweitere.vomehegattenehegattingetrenntseit" type="date" required="true" read-only="false" validation-expression="value &lt; new Date()" condition="myForm.familienstand === &quot;getrennt&quot;">
+          <label label-style="question">Ich lebe vom Ehegatten/Lebenspartner/der Ehegattin/Lebenspartnerin getrennt seit dem</label>
+          <title>vomehegattenehegattingetrenntseit</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="vonehepartnergetrenntweil" id="antragstellerweitere.vonehepartnergetrenntweil" type="choice" required="true" read-only="false" repeated="false" control-style="radiobutton" condition="myForm.familienstand === &quot;getrennt&quot;" live="true">
+          <label label-style="question">Begründung</label>
+          <title>vonehepartnergetrenntweil</title>
+          <option>Weil mindestens einer von uns die Ehe/Lebenspartnerschaft nicht mehr fortführen möchte</option>
+          <option>Weil die Ehe im Ausland geschlossen wurde und/oder mein Ehegatte/meine Ehegattin noch nicht einreisen konnte</option>
+          <option>Weil mein Ehegatte/Lebenspartner/meine Ehegattin/Lebenspartnerin voraussichtlich wenigstens sechs Monate wegen einer gerichtlichen Anordnung (wie Haft, Krankheit, Behinderung) in einer Anstalt lebt</option>
+        </field>
+        <infobox name="Infokasten" condition="myForm.vonehepartnergetrenntweil == &quot;Weil mein Ehegatte/Lebenspartner/meine Ehegattin/Lebenspartnerin voraussichtlich wenigstens sechs Monate wegen einer gerichtlichen Anordnung (wie Haft, Krankheit, Behinderung) in einer Anstalt lebt&quot;">
+          <display-text><![CDATA[<p><br/><br/>Den Nachweis der gerichtlichen Anordnung (z. B. Haft/ Krankheit/ Behinderung) können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/></p>]]></display-text>
+        </infobox>
+      </group>
+      <group condition="myForm.familienstand == &quot;getrennt&quot;">
+        <title>Daten zum Ehegatten/Lebenspartner/zur Ehegattin/Lebenspartnerin</title>
+        <infobox name="Infokasten">
+          <display-text><![CDATA[<p>Bitte geben Sie hier die Daten des Ehegatten/Lebenspartners/der Ehegattin/Lebenspartnerin an<br/><br/><br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="geschlecht" id="antragstellerweitere.geschlecht" type="choice" required="false" read-only="false" repeated="false" control-style="radiobutton">
+          <label label-style="prefix">Geschlecht</label>
+          <title>geschlecht</title>
+          <option>männlich</option>
+          <option>weiblich</option>
+          <option>divers</option>
+          <option>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</option>
+        </field>
+        <field name="name" id="antragstellerweitere.name" type="text" required="false" read-only="false">
+          <label label-style="prefix">Name</label>
+          <title>name</title>
+        </field>
+        <field name="vorname" id="antragstellerweitere.vorname" type="text" required="false" read-only="false">
+          <label label-style="prefix">Vorname</label>
+          <title>vorname</title>
+        </field>
+        <field name="geburtsdatum" id="antragstellerweitere.geburtsdatum" type="date" required="false" read-only="false" validation-expression="(/^\s*$/.test(value))||(value &lt; new Date())">
+          <label label-style="prefix">Geburtsdatum</label>
+          <title>geburtsdatum</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+      </group>
+      <group condition="myForm.familienstand == &quot;getrennt&quot;">
+        <title>Anschrift</title>
+        <field name="strasse" id="antragstellerweitere.strasse" type="text" required="false" read-only="false">
+          <label label-style="prefix">Straße</label>
+          <title>strasse</title>
+        </field>
+        <field name="hausnummer" id="antragstellerweitere.hausnummer" type="text" required="false" read-only="false" style-class="width-xs">
+          <label label-style="prefix">Hausnummer</label>
+          <title>hausnummer</title>
+        </field>
+        <field name="postleitzahl" id="antragstellerweitere.postleitzahl" type="text" required="false" read-only="false" style-class="width-xs">
+          <label label-style="prefix">Postleitzahl</label>
+          <title>postleitzahl</title>
+        </field>
+        <field name="ort" id="antragstellerweitere.ort" type="text" required="false" read-only="false">
+          <label label-style="prefix">Ort</label>
+          <title>ort</title>
+        </field>
+        <field name="land" id="antragstellerweitere.land" type="choice" required="false" read-only="false" repeated="false" control-style="combobox" default-value="Deutschland">
+          <label>Land</label>
+          <title>land</title>
+          <option value="">--- bitte auswählen ---</option>
+          <options src="urn:xmlid:C00000009" xpath-select="/*/SimpleCodeList/Row/Value[@ColumnRef=&quot;Staatsname_kurz&quot;]" xpath-text="SimpleValue" xpath-value="SimpleValue">
+            <sort data-type="text" order="ascending" lang="de" case-order="upper-first">SimpleValue</sort>
+          </options>
+        </field>
+      </group>
+    </page>
+  </flow>
+  <flow scope="kind">
+    <page name="Angaben zum Kind, für das die Leistung beantragt wird" path="angaben-zum-kind-fuer-das-die-leistung-beantragt-wird" id="angaben-zum-kind-fuer-das-die-leistung-beantragt-wird" model-src="Angaben zum Kind, für das die Leistung beantragt wird.1098">
+      <title>Angaben zum Kind, für das die Leistung beantragt wird</title>
+      <field name="geschlecht" id="kind.geschlecht" type="choice" required="true" read-only="false" repeated="false" control-style="radiobutton">
+        <label label-style="prefix">Geschlecht</label>
+        <title>geschlecht</title>
+        <option>männlich</option>
+        <option>weiblich</option>
+        <option>divers</option>
+        <option>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</option>
+      </field>
+      <field name="name" id="kind.name" type="text" required="true" read-only="false">
+        <label label-style="prefix">Name</label>
+        <title>name</title>
+      </field>
+      <field name="vorname" id="kind.vorname" type="text" required="true" read-only="false">
+        <label label-style="prefix">Vorname</label>
+        <title>vorname</title>
+      </field>
+      <field name="geburtsdatum" id="kind.geburtsdatum" type="date" required="true" read-only="false" validation-expression="value &gt; myForm.antragsteller.F00000066_h &amp;&amp; value &lt; new Date()">
+        <label label-style="prefix">Geburtsdatum</label>
+        <title>geburtsdatum</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        <validation-message>Das Geburtsdatum liegt vor Ihrem eigenen Geburtsdatum oder in der Zukunft</validation-message>
+        <rule validation-expression="getAge(value) &lt; 18" name="Regel.2821">
+          <validation-message>Das Kind darf das 18. Lebensjahr noch nicht vollendet haben.</validation-message>
+        </rule>
+      </field>
+      <field name="geburtsort" id="kind.geburtsort" type="text" required="false" read-only="false">
+        <label label-style="prefix">Geburtsort</label>
+        <title>geburtsort</title>
+      </field>
+      <field name="staatsangehoerigkeit" id="kind.staatsangehoerigkeit" type="choice" required="true" read-only="false" repeated="false" control-style="combobox" default-value="deutsch" live="true">
+        <label>Staatsangehörigkeit</label>
+        <title>staatsangehoerigkeit</title>
+        <options src="urn:xmlid:C00000002" xpath-select="/*/SimpleCodeList/Row/Value[@ColumnRef=&quot;Staatsangehoerigkeit&quot;]" xpath-text="SimpleValue"/>
+      </field>
+      <field name="aufenthaltstitelgueltigbis" id="kind.aufenthaltstitelgueltigbis" type="date" required="true" read-only="false" validation-expression="value &gt; new Date()" condition="myForm.staatsangehoerigkeit != &quot;deutsch&quot;">
+        <label label-style="prefix">Aufenthaltstitel gültig bis</label>
+        <title>aufenthaltstitelgueltigbis</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        <validation-message>Das Datum muss in der Zukunft liegen</validation-message>
+      </field>
+      <infobox name="Infokasten" condition="myForm.staatsangehoerigkeit != &quot;deutsch&quot;">
+        <display-text><![CDATA[<p>Den Aufenthaltstitel des Kindes können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/> Bei Daueraufenthaltsrecht nach § 4a FreizügG/EU (für EU/EWR/Schweiz) können Sie die Nachweise über Einkommen und Krankenkasse ebenfalls am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+      <infobox name="Infokasten">
+        <display-text><![CDATA[<p>Die Geburtsurkunde des Kindes können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+      <field name="leistungsbezugnachuvg" id="kind.leistungsbezugnachuvg" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+        <label label-style="question"><![CDATA[Für mein Kind wurden bereits Leistungen nach dem <abbr title="Unterhaltsvorschuss">UVG</abbr> bezogen]]></label>
+        <title>leistungsbezugnachuvg</title>
+      </field>
+      <field name="leistungsbezugbehoerde" id="kind.leistungsbezugbehoerde" type="text" required="false" read-only="false" condition="myForm.leistungsbezugnachuvg === true">
+        <label label-style="question"><![CDATA[Bei welcher Behörde wurden bereits Leistungen nach dem <abbr title="Unterhaltsvorschuss">UVG</abbr> bezogen?]]></label>
+        <title>leistungsbezugbehoerde</title>
+        <outro><![CDATA[<p>Bezeichnung der Behörde/Jugendamt</p>]]></outro>
+      </field>
+      <field name="leistungsbezugvon" id="kind.leistungsbezugvon" type="date" required="false" read-only="false" condition="myForm.leistungsbezugnachuvg === true">
+        <label label-style="prefix">Zeitraum von</label>
+        <title>leistungsbezugvon</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+      </field>
+      <field name="leistungsbezugbis" id="kind.leistungsbezugbis" type="date" required="false" read-only="false" condition="myForm.leistungsbezugnachuvg === true">
+        <label label-style="prefix">bis</label>
+        <title>leistungsbezugbis</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+      </field>
+      <infobox name="Infokasten" condition="myForm.leistungsbezugnachuvg === true">
+        <display-text><![CDATA[<p>Den Bescheid des Leistungsbezugs Ihres Kindes nach UVG können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+      <field name="waisenrente" id="kind.waisenrente" type="choice" required="true" read-only="false" repeated="false" live="true">
+        <label label-style="question">Bitte machen Sie eine Angabe zu den Waisenbezügen oder Schadenersatzleitungen Ihres Kindes</label>
+        <title>waisenrente</title>
+        <option>Ich erhalte für mein Kind keine Waisenbezüge oder Schadenersatzleistungen</option>
+        <option>Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen</option>
+        <option>Ich habe für mein Kind einen Antrag auf Waisenbezüge gestellt</option>
+      </field>
+      <field name="waisenrentehoehe" id="kind.waisenrentehoehe" type="currency" required="false" read-only="false" condition="myForm.waisenrente === &quot;Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen&quot;">
+        <label label-style="question">Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen in Höhe von monatlich</label>
+        <title>waisenrentehöhe</title>
+      </field>
+      <field name="waisenrenteleistungsstelle" id="kind.waisenrenteleistungsstelle" type="text" required="false" read-only="false" condition="myForm.waisenrente === &quot;Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen&quot;">
+        <label label-style="question">Bei welcher Leistungsstelle wurden bereits Waisenbezüge oder Schadenersatzleistungen bezogen?</label>
+        <title>waisenrenteleistungsstelle</title>
+        <outro><![CDATA[<p>Bezeichnung der Leistungsstelle (Rententräger/Versicherung).</p>]]></outro>
+      </field>
+      <infobox name="Infokasten" condition="myForm.waisenrente === &quot;Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen&quot;">
+        <display-text><![CDATA[<p>Den Bewilligungsbescheid der Waisenbezüge oder Schadensersatzleistungen für Ihr Kind können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+      <field name="antragwaisenbezuegegestelltam" id="kind.antragwaisenbezuegegestelltam" type="date" required="false" read-only="false" condition="myForm.waisenrente === &quot;Ich habe für mein Kind einen Antrag auf Waisenbezüge gestellt&quot;">
+        <label label-style="question">Wann haben Sie einen Antrag auf Waisenbezüge für Ihr Kind gestellt?</label>
+        <title>antragwaisenbezuegegestelltam</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+      </field>
+      <field name="waisenbezuegebehoerde" id="kind.waisenbezuegebehoerde" type="text" required="false" read-only="false" condition="myForm.waisenrente === &quot;Ich habe für mein Kind einen Antrag auf Waisenbezüge gestellt&quot;">
+        <label label-style="question">Bei welcher Behörde wurde ein Antrag auf Waisenbezüge gestellt?</label>
+        <title>waisenbezuegebehoerde</title>
+        <outro><![CDATA[<p>Bezeichnung der Behörde</p>]]></outro>
+      </field>
+      <field name="waisenbezuegeaktenzeichen" id="kind.waisenbezuegeaktenzeichen" type="text" required="false" read-only="false" condition="myForm.waisenrente === &quot;Ich habe für mein Kind einen Antrag auf Waisenbezüge gestellt&quot;">
+        <label label-style="question">Aktenzeichen</label>
+        <title>waisenbezuegeaktenzeichen</title>
+      </field>
+      <infobox name="Infokasten" condition="myForm.waisenrente === &quot;Ich habe für mein Kind einen Antrag auf Waisenbezüge gestellt&quot;">
+        <display-text><![CDATA[<p>Den Nachweis der Beantragung auf Waisenbezüge für Ihr Kind können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+      <field name="hilfelebensunterhalt" id="kind.hilfelebensunterhalt" type="choice" required="true" read-only="false" repeated="false" control-style="radiobutton" live="true">
+        <label label-style="question">Erhalten Sie bisher Hilfen zur Sicherung des Lebensunterhalts vom JobCenter/Sozialamt?</label>
+        <title>hilfelebensunterhalt</title>
+        <option value="keine hilfe">Nein</option>
+        <option value="hilfe">Ja</option>
+        <option value="demnächst hilfen">Ich werde demnächst Hilfen beantragen müssen</option>
+      </field>
+      <field name="hilfelebensunterhaltnr" id="kind.hilfelebensunterhaltnr" type="text" required="false" read-only="false" condition="myForm.hilfelebensunterhalt == &quot;hilfe&quot;">
+        <label label-style="question">Aktenzeichen oder Bedarfsgemeinschaftsnummer</label>
+        <title>hilfelebensunterhaltnr</title>
+      </field>
+      <infobox name="Infokasten" condition="myForm.hilfelebensunterhalt === &quot;hilfe&quot;">
+        <display-text><![CDATA[<p>Den Bescheid über die Hilfen zur Sicherung des Lebensunterhalts können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+      <field name="hilfelebensunterhaltbegruendung" id="kind.hilfelebensunterhaltbegruendung" type="textarea" required="false" read-only="false" maxlength="400" condition="myForm.hilfelebensunterhalt === &quot;demnächst hilfen&quot;">
+        <label label-style="question">Begründung</label>
+        <title>hilfelebensunterhaltbegruendung</title>
+      </field>
+    </page>
+  </flow>
+  <flow scope="kindueber12" condition="getAge(myForm.kind.geburtsdatum) &gt;= 12 || ( getAge(myForm.kind.geburtsdatum) &gt;= 11 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) )">
+    <page name="demnächst vollenden werden" path="demnaechst-vollenden-werden" id="demnaechst-vollenden-werden" model-src="Ergänzende Angaben für Kinder, die das 12. Lebensjahr vollendet haben, bzw. demnächst vollenden werden.2018">
+      <title>Ergänzende Angaben für Kinder, die das 12. Lebensjahr vollendet haben, bzw. demnächst vollenden werden</title>
+      <intro><![CDATA[<p>zum Antrag auf Leistungen nach dem Unterhaltsvorschussgesetz (UVG) in der jeweils geltenden Fassung</p>]]></intro>
+      <infobox name="Infokasten">
+        <title>Hinweis:</title>
+        <display-text><![CDATA[<p>Bei Beantragung werden die nachfolgenden Angaben und Nachweise für den <strong>Monat</strong> benötigt, in dem Unterhaltsvorschuss beantragt wird.<br/><br/></p>]]></display-text>
+      </infobox>
+      <infobox name="Infokasten">
+        <display-text><![CDATA[<p><strong>Vollendung des 12. Lebensjahres</strong></p><p><strong/></p><p/><p>Ab Vollendung des 12. Lebensjahres des Kindes besteht nur dann ein Anspruch auf die Unterhaltsvorschussleistung, wenn</p><p/><p/><ul class="noindent"><li>Ihr Kind keine Leistungen nach dem <abbr title="Sozialgesetzbuch">SGB</abbr> II erhält <u>oder</u></li></ul><p/><ul class="noindent"><li>für Ihr Kind durch die Unterhaltsvorschussleistung keine Leistungen nach dem <abbr title="Sozialgesetzbuch">SGB</abbr> II mehr erforderlich sind <u>oder</u></li></ul><p/><ul class="noindent"><li>der alleinerziehende Elternteil mit Ausnahme des Kindergeldes über Einkommen im Sinne des § 11 Absatz 1 Satz 1 <abbr title="Sozialgesetzbuch">SGB</abbr> II in Höhe von mindestens 600 Euro brutto monatlich verfügt.</li></ul><p>Für den Fall, dass Sie neben Ihrem Einkommen Leistungen nach dem <abbr title="Sozialgesetzbuch">SGB</abbr> II/<abbr title="Arbeitslosengeld">ALG</abbr> II beziehen, sind hierfür die entsprechenden Angaben des Jobcenters erforderlich und zuvor einzuholen, soweit diese nicht bereits einem dem Antrag beigefügten Bescheid des Jobcenters zu entnehmen sind.</p><p><strong>Zum Einkommen zählen insbesondere das Erwerbseinkommen und im Regelfall auch Sozialleistungen.</strong></p>]]></display-text>
+      </infobox>
+      <infobox name="Infokasten">
+        <title>Ergänzende Angaben zum Kind</title>
+        <display-text><![CDATA[<p><strong>Das Kind {myForm.kind.vorname} {myForm.kind.name}, geboren am {myForm.kind.geburtsdatum}, hat im {myForm.monat}</strong></p>]]></display-text>
+      </infobox>
+      <field name="leistungenjobcenter" id="kindueber12.leistungenjobcenter" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+        <label label-style="question"><![CDATA[Leistungen vom Jobcenter nach dem <abbr title="Sozialgesetzbuch">SGB</abbr> II ("Hartz IV") beantragt/erhalten]]></label>
+        <title>leistungenjobcenter</title>
+      </field>
+      <infobox name="Infokasten" condition="myForm.leistungenjobcenter == true">
+        <display-text><![CDATA[<p>Den Bescheid über die Leistungen vom Jobcenter für {myForm.monat} können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+      <field name="kinderwohngeld" id="kindueber12.kinderwohngeld" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+        <label label-style="question">Kinderwohngeld beantragt/erhalten</label>
+        <title>kinderwohngeld</title>
+      </field>
+      <infobox name="Infokasten" condition="myForm.kinderwohngeld == true">
+        <display-text><![CDATA[<p>Den Bescheid über die Beziehung von Kinderwohngeld können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+      <field name="erzielungbruttoeinkommen" id="kindueber12.erzielungbruttoeinkommen" type="boolean" required="true" read-only="false" control-style="radiobutton">
+        <label label-style="question">Der Elternteil, bei dem das Kind lebt, hat im maßgeblichen Monat Bruttoeinkommen in Höhe von mindestens 600 Euro erzielt</label>
+        <title>Einkommen des Elternteils, bei dem das Kind lebt</title>
+      </field>
+      <infobox name="Infokasten">
+        <display-text><![CDATA[<p><br/><br/></p>]]></display-text>
+      </infobox>
+      <group condition="getAge(myForm.kind.geburtsdatum) &gt;= 15 || ( getAge(myForm.kind.geburtsdatum) &gt;= 14 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) )">
+        <title>Zusätzliche Angaben für den Fall, dass das Kind 15, 16 oder 17 Jahre alt ist</title>
+        <infobox name="Infokasten">
+          <display-text><![CDATA[<p><strong>Allgemeinbildende Schulen in Berlin</strong></p><p><br/><br/> Hierzu zählen unabhängig von der Trägerschaft: Grundschulen, integrierte Sekundarschulen, Gymnasien, Schulen mit sonderpädagogischem Förderschwerpunkt (Sonderschulen), Gemeinschaftsschulen und Einrichtungen des Zweiten Bildungsweges zum nachträglichen Erwerb allgemein bildender Abschlüsse <br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="kindschule" id="kindueber12.kindschule" type="text" required="false" read-only="false">
+          <label label-style="prefix">Das Kind geht/ging in folgende Schule</label>
+          <title>kindschule</title>
+        </field>
+        <field name="schulebeendet" id="kindueber12.schulebeendet" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+          <label label-style="question">Hat das Kind die Schule beendet?</label>
+          <title>schulebeendet</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.schulebeendet == false">
+          <display-text><![CDATA[<p><br/><br/>Die Schulbescheinigung Ihres Kindes können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="schulevoraussichtlichesende" id="kindueber12.schulevoraussichtlichesende" type="date" required="false" read-only="false" condition="myForm.schulebeendet == false">
+          <label label-style="prefix">voraussichtliches Ende</label>
+          <title>schulevoraussichtlichesende</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="schulebeendetseit" id="kindueber12.schulebeendetseit" type="date" required="false" read-only="false" validation-expression="(/^\s*$/.test(value))||(value &lt; new Date())" condition="myForm.schulebeendet == true">
+          <label label-style="prefix">beendet seit</label>
+          <title>schulebeendetseit</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+          <validation-message>Das Datum muss in der Vergangenheit liegen</validation-message>
+        </field>
+        <field name="kindabschluss" id="kindueber12.kindabschluss" type="text" required="false" read-only="false" condition="myForm.schulebeendet == true || myForm.schulebeendet == false">
+          <label label-style="prefix">angestrebter oder erreichter Abschluss</label>
+          <title>kindabschluss</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.schulebeendet == true">
+          <title>Ausbildung des Kindes</title>
+        </infobox>
+        <field name="ausbildungsbeginn" id="kindueber12.ausbildungsbeginn" type="date" required="false" read-only="false" condition="myForm.schulebeendet == true">
+          <label label-style="prefix">Das Kind hat eine Ausbildung begonnen am</label>
+          <title>ausbildungsbeginn</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="ausbildungals" id="kindueber12.ausbildungals" type="text" required="false" read-only="false" condition="myForm.schulebeendet == true">
+          <label label-style="prefix">als</label>
+          <title>ausbildungals</title>
+        </field>
+        <field name="ausbildungvoraussichtlichesende" id="kindueber12.ausbildungvoraussichtlichesende" type="date" required="false" read-only="false" condition="myForm.schulebeendet == true">
+          <label label-style="prefix">voraussichtliches Ende</label>
+          <title>ausbildungvoraussichtlichesende</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="ausbildungsverguetung" id="kindueber12.ausbildungsverguetung" type="currency" required="false" read-only="false" condition="myForm.schulebeendet == true">
+          <label label-style="prefix">Ausbildungsvergütung netto</label>
+          <title>ausbildungsverguetung</title>
+        </field>
+        <field name="ausbildungunterkunft" id="kindueber12.ausbildungunterkunft" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.schulebeendet == true">
+          <label label-style="question">Das Kind hat ausbildungsbedingt eine eigene Unterkunft außerhalb des elterlichen Haushalts</label>
+          <title>ausbildungunterkunft</title>
+        </field>
+        <field name="kinderwerbstaetigkeit" id="kindueber12.kinderwerbstaetigkeit" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+          <label label-style="question">Das Kind hat statt einer Ausbildung eine Erwerbstätigkeit aufgenommen</label>
+          <title>kinderwerbstaetigkeit</title>
+        </field>
+        <field name="verguetungerwerbstaetigkeit" id="kindueber12.verguetungerwerbstaetigkeit" type="currency" required="false" read-only="false" condition="myForm.kinderwerbstaetigkeit == true">
+          <label label-style="prefix">Monatliche Vergütung netto</label>
+          <title>verguetungerwerbstaetigkeit</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.schulebeendet == true">
+          <display-text><![CDATA[<p><br/><br/>Den Ausbildungs- bzw. Arbeitsvertrag und entsprechende Nachweise über das erzielte Einkommen (z. B. Lohn- und Gehaltsbescheinigungen) können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+        </infobox>
+      </group>
+      <group>
+        <title>Sonstiges Einkommen des Kindes</title>
+        <field name="kindeinkuenfte" id="kindueber12.kindeinkuenfte" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+          <label label-style="question">Das Kind bezieht Einkünfte</label>
+          <title>kindeinkuenfte</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.kindeinkuenfte == true">
+          <display-text><![CDATA[<p><br/><br/><strong>Das Kind bezieht folgende Einkünfte</strong><br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="kindhalbwaisenrente" id="kindueber12.kindhalbwaisenrente" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.kindeinkuenfte == true" live="true">
+          <label label-style="question">Halbwaisenrente</label>
+          <title>kindhalbwaisenrente</title>
+        </field>
+        <field name="halbwaisenrentehoehe" id="kindueber12.halbwaisenrentehoehe" type="currency" required="true" read-only="false" condition="myForm.kindhalbwaisenrente == true">
+          <label label-style="question">Halbwaisenrente in Höhe von monatlich</label>
+          <title>halbwaisenrentehoehe</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.kindhalbwaisenrente == true">
+          <display-text><![CDATA[<p><br/><br/>Den Nachweis über die Halbwaisenrente des Kindes können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="schadensersatzleistungen" id="kindueber12.schadensersatzleistungen" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.kindeinkuenfte == true" live="true">
+          <label label-style="question">Schadenersatzleistungen, die wegen des Todes des anderen Elternteils oder eines Stiefelternteils gezahlt werden</label>
+          <title>schadensersatzleistungen</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.schadensersatzleistungen == true">
+          <display-text><![CDATA[<p><br/><br/>Den Nachweis über die Schadensersatzleistungen können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="nichtselbststaendigearbeit" id="kindueber12.nichtselbststaendigearbeit" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.kindeinkuenfte == true" live="true">
+          <label label-style="question">Einkünfte aus nichtselbstständiger Arbeit, Ausbildung, Freiwilligendienst</label>
+          <title>nichtselbststaendigearbeit</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.nichtselbststaendigearbeit == true">
+          <display-text><![CDATA[<p><br/><br/>Den Nachweis über Einkünfte aus nichtselbstständiger Arbeit, Ausbildung, Freiwilligendienst können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="selbststaendigearbeit" id="kindueber12.selbststaendigearbeit" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.kindeinkuenfte == true" live="true">
+          <label label-style="question">Einkünfte aus Land- oder Forstwirtschaft, Gewerbebetrieb oder selbstständiger Tätigkeit</label>
+          <title>selbststaendigearbeit</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.selbststaendigearbeit == true">
+          <display-text><![CDATA[<p><br/><br/>Den Nachweise über Einkünfte aus Land- oder Forstwirtschaft, Gewerbebetrieb oder selbstständiger Tätigkeit können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="kapitalvermoegen" id="kindueber12.kapitalvermoegen" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.kindeinkuenfte == true" live="true">
+          <label label-style="question">Einkünfte aus Kapitalvermögen, Vermietung oder Verpachtung</label>
+          <title>kapitalvermoegen</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.kapitalvermoegen == true">
+          <display-text><![CDATA[<p><br/><br/>Den Nachweis über Einkünfte aus Kapitalvermögen, Vermietung oder Verpachtung können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen<br/><br/></p>]]></display-text>
+        </infobox>
+      </group>
+      <infobox name="Infokasten">
+        <display-text><![CDATA[<p><br/><br/></p>]]></display-text>
+      </infobox>
+      <group>
+        <title>Einkommen des Elternteils, bei dem das Kind lebt</title>
+        <field name="erlernterberuf" id="kindueber12.erlernterberuf" type="text" required="false" read-only="false">
+          <label label-style="prefix">Erlernter Beruf</label>
+          <title>erlernterberuf</title>
+        </field>
+        <field name="ausgeuebtetaetigkeit" id="kindueber12.ausgeuebtetaetigkeit" type="text" required="false" read-only="false">
+          <label label-style="prefix">Derzeit ausgeübte Tätigkeit</label>
+          <title>ausgeuebtetaetigkeit</title>
+        </field>
+        <field name="monatlichesnettoeinkommen" id="kindueber12.monatlichesnettoeinkommen" type="currency" required="false" read-only="false">
+          <label label-style="prefix">Monatliches Nettoeinkommen</label>
+          <title>monatlichesnettoeinkommen</title>
+        </field>
+        <field name="steuerklasse" id="kindueber12.steuerklasse" type="choice" required="false" read-only="false" repeated="true" choice-multiple="true" control-style="combobox">
+          <label label-style="question">Steuerklasse</label>
+          <title>steuerklasse</title>
+          <option value="I">I</option>
+          <option value="II">II</option>
+          <option value="III">III</option>
+          <option value="IV">IV</option>
+          <option value="IV_Faktor">IV Faktor</option>
+          <option value="V">V</option>
+          <option value="VI">VI</option>
+        </field>
+        <field name="kinderfreibetrag" id="kindueber12.kinderfreibetrag" type="currency" required="false" read-only="false">
+          <label label-style="prefix">Kinderfreibetrag</label>
+          <title>kinderfreibetrag</title>
+        </field>
+      </group>
+      <infobox name="Infokasten">
+        <display-text><![CDATA[<p><br/><br/></p>]]></display-text>
+      </infobox>
+    </page>
+  </flow>
+  <flow scope="vormundschaft">
+    <page name="Angaben zur Vormundschaft, Beistandschaft und zum Rechtsbeistand" path="angaben-zur-vormundschaft-beistandschaft-und-zum-rechtsbeistand" id="angaben-zur-vormundschaft-beistandschaft-und-zum-rechtsbeistand" model-src="Angaben zur Vormundschaft, Beistandschaft und zum Rechtsbeistand.1261">
+      <title>Angaben zur Vormundschaft, Beistandschaft und zum Rechtsbeistand</title>
+      <field name="beistandschaft" id="vormundschaft.beistandschaft" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+        <label label-style="question"><![CDATA[Für mein Kind wird zum Zweck der Unterhaltsregelung und/oder Vaterschaftsfeststellung eine Beistandschaft oder Vormundschaft bei einem Jugendamt oder der <abbr title="Arbeiterwohlfahrt">AWO</abbr> geführt]]></label>
+        <title>beistandschaft</title>
+      </field>
+      <field name="beistandschaftseit" id="vormundschaft.beistandschaftseit" type="date" required="false" read-only="false" condition="myForm.beistandschaft == true">
+        <label label-style="prefix">seit</label>
+        <title>beistandschaftseit</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+      </field>
+      <field name="beistandschaftbeantragtam" id="vormundschaft.beistandschaftbeantragtam" type="date" required="false" read-only="false" condition="myForm.beistandschaft == true">
+        <label label-style="prefix">bzw. wurde beantragt am</label>
+        <title>beistandschaftbeantragtam</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+      </field>
+      <field name="beistandschaftbehoerde" id="vormundschaft.beistandschaftbehoerde" type="text" required="false" read-only="false" condition="myForm.beistandschaft == true">
+        <label label-style="prefix">beim</label>
+        <title>beistandschaftbehoerde</title>
+        <outro><![CDATA[<p>Behörde/Jugendamt</p>]]></outro>
+      </field>
+      <field name="beistandschaftgeschzeichen" id="vormundschaft.beistandschaftgeschzeichen" type="text" required="false" read-only="false" condition="myForm.beistandschaft == true">
+        <label label-style="prefix">Geschäftszeichen</label>
+        <title>beistandschaftgeschzeichen</title>
+      </field>
+      <field name="beistandauskunftserteilung" id="vormundschaft.beistandauskunftserteilung" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.beistandschaft == true">
+        <label label-style="question">Mit der Auskunftserteilung des Beistandes an die Unterhaltsvorschussstelle bin ich einverstanden</label>
+        <title>beistandauskunftserteilung</title>
+      </field>
+      <field name="beauftragungrechtsanwaltsbuero" id="vormundschaft.beauftragungrechtsanwaltsbuero" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+        <label label-style="question">Ich habe ein Rechtsanwaltsbüro beauftragt</label>
+        <title>beauftragungrechtsanwaltsbuero</title>
+      </field>
+      <group condition="myForm.beauftragungrechtsanwaltsbuero == true">
+        <title>Angaben zum Rechtsanwaltsbüro</title>
+        <field name="name" id="vormundschaft.name" type="text" required="false" read-only="false">
+          <label label-style="prefix">Name des Rechtsanwaltsbüros</label>
+          <title>name</title>
+        </field>
+        <field name="strasse" id="vormundschaft.strasse" type="text" required="false" read-only="false">
+          <label label-style="prefix">Straße</label>
+          <title>strasse</title>
+        </field>
+        <field name="hausnummer" id="vormundschaft.hausnummer" type="text" required="false" read-only="false" style-class="width-xs">
+          <label label-style="prefix">Hausnummer</label>
+          <title>hausnummer</title>
+        </field>
+        <field name="postleitzahl" id="vormundschaft.postleitzahl" type="number" required="false" read-only="false">
+          <label label-style="prefix">Postleitzahl</label>
+          <title>postleitzahl</title>
+        </field>
+        <field name="ort" id="vormundschaft.ort" type="text" required="false" read-only="false">
+          <label label-style="prefix">Ort</label>
+          <title>ort</title>
+        </field>
+        <field name="aktenzeichen" id="vormundschaft.aktenzeichen" type="text" required="false" read-only="false">
+          <label label-style="prefix">Aktenzeichen</label>
+          <title>aktenzeichen</title>
+        </field>
+        <field name="beauftragtmit" id="vormundschaft.beauftragtmit" type="choice" required="false" read-only="false" repeated="true" control-style="combobox" choice-multiple="true">
+          <label label-style="question">beauftragt mit</label>
+          <title>beauftragtmit</title>
+          <option value="Scheidung">der Scheidung</option>
+          <option value="Unterhaltsregelung">der Unterhaltsregelung</option>
+        </field>
+      </group>
+    </page>
+  </flow>
+  <flow scope="andererelternteil1">
+    <page name="Angaben zum anderen Elternteil (1/3)" path="angaben-zum-anderen-elternteil-1-3" id="angaben-zum-anderen-elternteil-1-3" model-src="Angaben zum anderen Elternteil (1/3).1312">
+      <title>Angaben zum anderen Elternteil (1/3)</title>
+      <group>
+        <title>Angaben zur Vaterschaft</title>
+        <field name="kindehelich" id="andererelternteil1.kindehelich" type="choice" required="true" read-only="false" repeated="false" live="true">
+          <label label-style="question">Bitte wählen Sie den zutreffenden Punkt aus</label>
+          <title>kindehelich</title>
+          <option value="vaterschaft nicht feststellbar">Die Vaterschaft ist nicht feststellbar</option>
+          <option value="nicht ehelich">Das Kind ist nicht ehelich geboren</option>
+          <option value="ehelich">Das Kind ist ehelich geboren</option>
+        </field>
+        <field name="vaterschaftnichtfeststellbarweil" id="andererelternteil1.vaterschaftnichtfeststellbarweil" type="textarea" required="false" read-only="false" maxlength="400" condition="myForm.kindehelich == &quot;vaterschaft nicht feststellbar&quot;">
+          <label label-style="question">Begründung</label>
+          <title>vaterschaftnichtfeststellbarweil</title>
+        </field>
+        <field name="vaterschaftanerkannt" id="andererelternteil1.vaterschaftanerkannt" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.kindehelich == &quot;nicht ehelich&quot;" live="true">
+          <label label-style="question">Ist die Vaterschaft anerkannt?</label>
+          <title>vaterschaftanerkannt</title>
+        </field>
+        <infobox name="Infokasten" condition="myForm.vaterschaftanerkannt == true">
+          <display-text><![CDATA[<p><br/><br/>Sofern in der Geburtsurkunde der Vater ausgewiesen wird, werden an dieser Stelle keine weiteren Nachweise erforderlich. Wird der Vater nicht in der Geburtsurkunde ausgewiesen, können Sie am Ende des Antrags eine Vaterschaftsanerkennungsurkunde hochladen.<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="antragauffeststellungvaterschaft" id="andererelternteil1.antragauffeststellungvaterschaft" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.vaterschaftanerkannt == false" live="true">
+          <label label-style="question">Wurde ein Antrag auf Feststellung der Vaterschaft gestellt?</label>
+          <title>antragauffeststellungvaterschaft</title>
+        </field>
+        <field name="vaterschaftsfeststellungsverfahrenbei" id="andererelternteil1.vaterschaftsfeststellungsverfahrenbei" type="text" required="false" read-only="false" condition="myForm.antragauffeststellungvaterschaft == true">
+          <label label-style="question">Ein Vaterschaftsfeststellungsverfahren ist bereits eingeleitet durch/bei</label>
+          <title>vaterschaftsfeststellungsverfahrenbei</title>
+        </field>
+        <field name="vaterschaftnochnichtfestgestelltweil" id="andererelternteil1.vaterschaftnochnichtfestgestelltweil" type="textarea" required="false" read-only="false" maxlength="400" condition="myForm.antragauffeststellungvaterschaft == false">
+          <label label-style="question">Die Vaterschaft ist noch nicht festgestellt, weil</label>
+          <title>vaterschaftnochnichtfestgestelltweil</title>
+        </field>
+        <field name="ehemannvater" id="andererelternteil1.ehemannvater" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.kindehelich === &quot;ehelich&quot;" live="true">
+          <label label-style="question">Der Ehemann ist der Vater des Kindes</label>
+          <title>ehemannvater</title>
+        </field>
+        <field name="vaterschaftsanfechtungsklage" id="andererelternteil1.vaterschaftsanfechtungsklage" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.ehemannvater == false" live="true">
+          <label label-style="question">Ist eine Vaterschaftsanfechtungsklage anhängig?</label>
+          <title>vaterschaftsanfechtungsklage</title>
+        </field>
+        <field name="vaterschaftsanfechtungsklageamtsgericht" id="andererelternteil1.vaterschaftsanfechtungsklageamtsgericht" type="text" required="false" read-only="false" condition="myForm.vaterschaftsanfechtungsklage === true">
+          <label label-style="question">Eine Vaterschaftsanfechtungsklage ist bereits anhängig bei</label>
+          <title>vaterschaftsanfechtungsklageamtsgericht</title>
+          <outro><![CDATA[<p>Bitte Amtsgericht angeben.</p>]]></outro>
+        </field>
+      </group>
+      <group condition="myForm.ehemannvater == true || myForm.vaterschaftanerkannt == true">
+        <title>Angaben zum anderen Elternteil</title>
+        <field name="geschlecht" id="andererelternteil1.geschlecht" type="choice" required="false" read-only="false" repeated="false" control-style="radiobutton">
+          <label label-style="prefix">Geschlecht</label>
+          <title>geschlecht</title>
+          <option>männlich</option>
+          <option>weiblich</option>
+          <option>divers</option>
+          <option>ohne Angabe (gemäß § 45 b Personenstandsgesetz)</option>
+        </field>
+        <field name="name" id="andererelternteil1.name" type="text" required="false" read-only="false">
+          <label label-style="prefix">Name</label>
+          <title>name</title>
+        </field>
+        <field name="vorname" id="andererelternteil1.vorname" type="text" required="false" read-only="false">
+          <label label-style="prefix">Vorname</label>
+          <title>vorname</title>
+        </field>
+        <field name="strasse" id="andererelternteil1.strasse" type="text" required="false" read-only="false">
+          <label label-style="prefix">Straße</label>
+          <title>strasse</title>
+        </field>
+        <field name="hausnummer" id="andererelternteil1.hausnummer" type="text" required="false" read-only="false" style-class="width-xs">
+          <label label-style="prefix">Hausnummer</label>
+          <title>hausnummer</title>
+        </field>
+        <field name="postleitzahl" id="andererelternteil1.postleitzahl" type="text" required="false" read-only="false" style-class="width-xs">
+          <label label-style="prefix">Postleitzahl</label>
+          <title>postleitzahl</title>
+        </field>
+        <field name="ort" id="andererelternteil1.ort" type="text" required="false" read-only="false">
+          <label label-style="prefix">Ort</label>
+          <title>ort</title>
+        </field>
+        <field name="land" id="andererelternteil1.land" type="choice" required="false" read-only="false" repeated="false" control-style="combobox">
+          <label>Land</label>
+          <title>land</title>
+          <option value="">--- bitte auswählen ---</option>
+          <options src="urn:xmlid:C00000009" xpath-select="/*/SimpleCodeList/Row/Value[@ColumnRef=&quot;Staatsname_kurz&quot;]" xpath-text="SimpleValue" xpath-value="SimpleValue">
+            <sort data-type="text" order="ascending" lang="de" case-order="upper-first">SimpleValue</sort>
+          </options>
+        </field>
+        <field name="geburtsdatum" id="andererelternteil1.geburtsdatum" type="date" required="false" read-only="false">
+          <label label-style="prefix">Geburtsdatum</label>
+          <title>geburtsdatum</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="familienstand" id="andererelternteil1.familienstand" type="choice" required="false" read-only="false" repeated="false">
+          <label>Familienstand</label>
+          <title>familienstand</title>
+          <option></option>
+          <option>ledig</option>
+          <option>verheiratet</option>
+          <option>verwitwet</option>
+          <option>geschieden</option>
+          <option>Ehe aufgehoben</option>
+          <option>in eingetragener Lebenspartnerschaft</option>
+          <option>durch Tod aufgelöste Lebenspartnerschaft</option>
+          <option>aufgehobene Lebenspartnerschaft</option>
+          <option>durch Todeserklärung aufgelöste Lebenspartnerschaft</option>
+          <option>nicht bekannt</option>
+        </field>
+        <field name="staatsangehoerigkeit" id="andererelternteil1.staatsangehoerigkeit" type="choice" required="false" read-only="false" repeated="false" control-style="combobox">
+          <label>Staatsangehörigkeit</label>
+          <title>staatsangehoerigkeit</title>
+          <option>--- bitte auswählen ---</option>
+          <options src="urn:xmlid:C00000002" xpath-select="/*/SimpleCodeList/Row/Value[@ColumnRef=&quot;Staatsangehoerigkeit&quot;]" xpath-text="SimpleValue"/>
+        </field>
+        <field name="geburtsort" id="andererelternteil1.geburtsort" type="text" required="false" read-only="false">
+          <label label-style="prefix">Geburtsort</label>
+          <title>geburtsort</title>
+        </field>
+        <field name="geburtsland" id="andererelternteil1.geburtsland" type="choice" required="false" read-only="false" repeated="false" control-style="combobox">
+          <label>Geburtsland</label>
+          <title>geburtsland</title>
+          <option value="">--- bitte auswählen ---</option>
+          <options src="urn:xmlid:C00000009" xpath-select="/*/SimpleCodeList/Row/Value[@ColumnRef=&quot;Staatsname_kurz&quot;]" xpath-text="SimpleValue" xpath-value="SimpleValue">
+            <sort data-type="text" order="ascending" lang="de" case-order="upper-first">SimpleValue</sort>
+          </options>
+        </field>
+        <field name="telefon" id="andererelternteil1.telefon" type="text" required="false" read-only="false" validation-pattern="/(^\s*$)|(^(^([0(+][0-9\.-\/\+ ()]{7,})$)$)/">
+          <label label-style="prefix">Telefon</label>
+          <title>telefon</title>
+          <validation-message>Bitte geben Sie eine gültige Telefonnummer an.</validation-message>
+        </field>
+      </group>
+    </page>
+  </flow>
+  <flow scope="andererelternteil2" condition="myForm.andererelternteil1.ehemannvater == true || myForm.andererelternteil1.vaterschaftanerkannt == true">
+    <page name="Angaben zum anderen Elternteil (2/3)" path="angaben-zum-anderen-elternteil-2-3" id="angaben-zum-anderen-elternteil-2-3" model-src="Angaben zum anderen Elternteil (2/3).2239">
+      <title>Angaben zum anderen Elternteil (2/3)</title>
+      <group>
+        <title>Angaben zu Ausbildung und Beruf</title>
+        <infobox name="Infokasten">
+          <title>Hinweis:</title>
+          <display-text><![CDATA[<p>Der andere Elternteil ist unterhaltsrechtlich zu überprüfen. Dafür sind die folgenden Angaben von Ihnen notwendig. Beantworten Sie die Frage bitte nach bestem Wissen und Gewissen.<br/><br/><br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="schulabschluss" id="andererelternteil2.schulabschluss" type="choice" required="true" read-only="false" repeated="false" control-style="radiobutton">
+          <label label-style="question">Schulabschluss</label>
+          <title>schulabschluss</title>
+          <option>kein Schulabschluss</option>
+          <option>Schulart nicht bekannt</option>
+          <option>Gymnasium</option>
+          <option>Realschule/Polytechnische Oberschule</option>
+          <option>Gesamtschule</option>
+          <option>Hauptschule</option>
+          <option>Sonderschule</option>
+        </field>
+        <infobox name="Infokasten">
+          <display-text><![CDATA[<p><br/><br/><strong>Berufsausbildung</strong><br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="berufsausbildungkeine" id="andererelternteil2.berufsausbildungkeine" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox">
+          <label label-style="suffix">keine</label>
+          <title>berufsausbildungkeine</title>
+        </field>
+        <field name="berufsausbildungnichtbekannt" id="andererelternteil2.berufsausbildungnichtbekannt" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox">
+          <label label-style="suffix">nicht bekannt</label>
+          <title>berufsausbildungnichtbekannt</title>
+        </field>
+        <field name="lehre" id="andererelternteil2.lehre" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Lehre</label>
+          <title>lehre</title>
+        </field>
+        <field name="lehreals" id="andererelternteil2.lehreals" type="text" required="false" read-only="false" condition="myForm.lehre == true">
+          <label label-style="question">Lehre als</label>
+          <title>lehreals</title>
+        </field>
+        <field name="lehreabgebrochen" id="andererelternteil2.lehreabgebrochen" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" condition="myForm.lehre == true">
+          <label label-style="suffix">abgebrochen</label>
+          <title>lehreabgebrochen</title>
+        </field>
+        <field name="fachschulausbildung" id="andererelternteil2.fachschulausbildung" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Fachschulausbildung</label>
+          <title>fachschulausbildung</title>
+        </field>
+        <field name="fachschulausbildungals" id="andererelternteil2.fachschulausbildungals" type="text" required="false" read-only="false" condition="myForm.fachschulausbildung == true">
+          <label label-style="question">Fachschulausbildung als</label>
+          <title>fachschulausbildungals</title>
+        </field>
+        <field name="fachschulausbildungabgebrochen" id="andererelternteil2.fachschulausbildungabgebrochen" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" condition="myForm.fachschulausbildung == true">
+          <label label-style="suffix">abgebrochen</label>
+          <title>fachschulausbildungabgebrochen</title>
+        </field>
+        <field name="studium" id="andererelternteil2.studium" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Studium</label>
+          <title>studium</title>
+        </field>
+        <field name="studiumals" id="andererelternteil2.studiumals" type="text" required="false" read-only="false" condition="myForm.studium == true">
+          <label label-style="question">Studium mit Fachrichtung</label>
+          <title>studiumals</title>
+        </field>
+        <field name="studiumabgebrochen" id="andererelternteil2.studiumabgebrochen" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" condition="myForm.studium == true">
+          <label label-style="suffix">abgebrochen</label>
+          <title>studiumabgebrochen</title>
+        </field>
+        <field name="ausbildungstudiumanerkanntindtl" id="andererelternteil2.ausbildungstudiumanerkanntindtl" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.lehre == true | myForm.fachschulausbildung == true || myForm.studium == true" live="true">
+          <label label-style="question">Ausbildung/Studium anerkannt in Deutschland</label>
+          <title>ausbildungstudiumanerkanntindtl</title>
+        </field>
+        <field name="ausbildungstudiumanerkanntin" id="andererelternteil2.ausbildungstudiumanerkanntin" type="choice" required="false" read-only="false" repeated="false" control-style="combobox" condition="myForm.ausbildungstudiumanerkanntindtl == false">
+          <label>Ausbildung/Studium anerkannt in</label>
+          <title>ausbildungstudiumanerkanntin</title>
+          <option value="">--- bitte auswählen ---</option>
+          <options src="urn:xmlid:C00000009" xpath-select="/*/SimpleCodeList/Row/Value[@ColumnRef=&quot;Staatsname_kurz&quot;]" xpath-text="SimpleValue" xpath-value="SimpleValue">
+            <sort data-type="text" order="ascending" lang="de" case-order="upper-first">SimpleValue</sort>
+          </options>
+        </field>
+        <field name="ausbildungstudiumdauertnochan" id="andererelternteil2.ausbildungstudiumdauertnochan" type="boolean" required="true" read-only="false" control-style="radiobutton" condition="myForm.lehre == true | myForm.fachschulausbildung == true || myForm.studium == true" live="true">
+          <label label-style="question">Ausbildung/Studium dauert noch an</label>
+          <title>ausbildungstudiumdauertnochan</title>
+        </field>
+        <field name="ausbildungstudiumbis" id="andererelternteil2.ausbildungstudiumbis" type="date" required="false" read-only="false" condition="myForm.ausbildungstudiumdauertnochan == true">
+          <label label-style="prefix">bis</label>
+          <title>ausbildungstudiumbis</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+      </group>
+      <group>
+        <title>Berufliche Tätigkeiten</title>
+        <field name="aktuelleberuflichetaetigkeit" id="andererelternteil2.aktuelleberuflichetaetigkeit" type="text" required="false" read-only="false">
+          <label label-style="prefix">Aktuelle oder letzte berufliche Tätigkeit</label>
+          <title>aktuelleberuflichetaetigkeit</title>
+        </field>
+        <field name="beruflichetaetigkeitseit" id="andererelternteil2.beruflichetaetigkeitseit" type="date" required="false" read-only="false">
+          <label label-style="prefix">seit</label>
+          <title>beruflichetaetigkeitseit</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="beruflichetaetigkeitbis" id="andererelternteil2.beruflichetaetigkeitbis" type="date" required="false" read-only="false">
+          <label label-style="prefix">bis</label>
+          <title>beruflichetaetigkeitbis</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="arbeitgeber" id="andererelternteil2.arbeitgeber" type="text" required="false" read-only="false">
+          <label label-style="prefix">Arbeitgeber</label>
+          <title>arbeitgeber</title>
+        </field>
+        <field name="aktuellesnettoeinkommen" id="andererelternteil2.aktuellesnettoeinkommen" type="currency" required="false" read-only="false">
+          <label label-style="prefix">Aktuelles oder zuletzt bezogenes Nettoeinkommen monatlich etwa</label>
+          <title>aktuellesnettoeinkommen</title>
+        </field>
+        <field name="taetigkeitbeendet" id="andererelternteil2.taetigkeitbeendet" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Tätigkeit beendet/abgebrochen</label>
+          <title>taetigkeitbeendet</title>
+        </field>
+        <field name="beendigungaufgrund" id="andererelternteil2.beendigungaufgrund" type="choice" required="false" read-only="false" repeated="false" control-style="radiobutton" condition="myForm.taetigkeitbeendet == true">
+          <label>Beendigung aufgrund</label>
+          <title>beendigungaufgrund</title>
+          <option>Kündigung des Arbeitgebers</option>
+          <option>Ablauf eines Zeitvertrages</option>
+          <option>Aufgabe der Selbstständigkeit</option>
+          <option>eigener Kündigung</option>
+        </field>
+        <field name="beendigunggruende" id="andererelternteil2.beendigunggruende" type="textarea" required="false" read-only="false" maxlength="400" condition="myForm.taetigkeitbeendet == true">
+          <label label-style="question">Gründe für die Beendigung (wie Betriebsaufgabe oder Betriebsverkleinerung)</label>
+          <title>beendigunggruende</title>
+        </field>
+        <infobox name="Infokasten">
+          <display-text><![CDATA[<br/><br/><p><strong>Bitte wählen Sie zutreffende Punkte aus</strong></p><br/><br/>]]></display-text>
+        </infobox>
+        <field name="arbeitslos" id="andererelternteil2.arbeitslos" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">arbeitslos</label>
+          <title>arbeitslos</title>
+        </field>
+        <field name="arbeitslosseit" id="andererelternteil2.arbeitslosseit" type="date" required="false" read-only="false" condition="myForm.arbeitslos == true">
+          <label label-style="prefix">seit</label>
+          <title>arbeitslosseit</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="arbeitsunfaehigerkrankt" id="andererelternteil2.arbeitsunfaehigerkrankt" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">arbeitsunfähig erkrankt</label>
+          <title>arbeitsunfaehigerkrankt</title>
+        </field>
+        <field name="arbeitsunfaehigerkranktseit" id="andererelternteil2.arbeitsunfaehigerkranktseit" type="date" required="false" read-only="false" condition="myForm.arbeitsunfaehigerkrankt == true">
+          <label label-style="prefix">seit</label>
+          <title>arbeitsunfaehigerkranktseit</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="erwerbsunfaehig" id="andererelternteil2.erwerbsunfaehig" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">erwerbsunfähig</label>
+          <title>erwerbsunfaehig</title>
+        </field>
+        <field name="erwerbsunfaehigseit" id="andererelternteil2.erwerbsunfaehigseit" type="date" required="false" read-only="false" condition="myForm.erwerbsunfaehig == true">
+          <label label-style="prefix">seit</label>
+          <title>erwerbsunfaehigseit</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+      </group>
+    </page>
+  </flow>
+  <flow scope="andererelternteil3" condition="myForm.andererelternteil1.ehemannvater == true || myForm.andererelternteil1.vaterschaftanerkannt == true">
+    <page name="Angaben zum anderen Elternteil (3/3)" path="angaben-zum-anderen-elternteil-3-3" id="angaben-zum-anderen-elternteil-3-3" model-src="Angaben zum anderen Elternteil (3/3).2628">
+      <title>Angaben zum anderen Elternteil (3/3)</title>
+      <group>
+        <title>Bezüge</title>
+        <infobox name="Infokasten">
+          <display-text><![CDATA[<p>Bitte geben Sie die Bezüge an<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="bezugalg" id="andererelternteil3.bezugalg" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Bezug von Arbeitslosengeld</label>
+          <title>bezugalg</title>
+        </field>
+        <field name="algleistungsstelle" id="andererelternteil3.algleistungsstelle" type="text" required="false" read-only="false" condition="myForm.bezugalg == true">
+          <label label-style="question">Leistungsstelle</label>
+          <title>algleistungsstelle</title>
+          <outro><![CDATA[<p>(Agentur für Arbeit)</p>]]></outro>
+        </field>
+        <field name="alghoehe" id="andererelternteil3.alghoehe" type="currency" required="false" read-only="false" condition="myForm.bezugalg == true">
+          <label label-style="prefix">Höhe des Arbeitslosengeldes monatlich ca.</label>
+          <title>alghoehe</title>
+        </field>
+        <field name="bezugalgii" id="andererelternteil3.bezugalgii" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Bezug von Arbeitslosengeld II</label>
+          <title>bezugalgii</title>
+        </field>
+        <field name="algiileistungsstelle" id="andererelternteil3.algiileistungsstelle" type="text" required="false" read-only="false" condition="myForm.bezugalgii == true">
+          <label label-style="question">Leistungsstelle</label>
+          <title>algiileistungsstelle</title>
+          <outro><![CDATA[<p>(z. B. Jobcenter)</p>]]></outro>
+        </field>
+        <field name="algiihoehe" id="andererelternteil3.algiihoehe" type="currency" required="false" read-only="false" condition="myForm.bezugalgii == true">
+          <label label-style="prefix">Höhe des Arbeitslosengeldes II monatlich ca.</label>
+          <title>algiihoehe</title>
+        </field>
+        <field name="bezugkrankengeld" id="andererelternteil3.bezugkrankengeld" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Krankengeld</label>
+          <title>bezugkrankengeld</title>
+        </field>
+        <field name="krankengeldleistungsstelle" id="andererelternteil3.krankengeldleistungsstelle" type="text" required="false" read-only="false" condition="myForm.bezugkrankengeld == true">
+          <label label-style="question">Leistungsstelle</label>
+          <title>krankengeldleistungsstelle</title>
+          <outro><![CDATA[<p>(z. B. Krankenkasse)</p>]]></outro>
+        </field>
+        <field name="krankengeldhoehe" id="andererelternteil3.krankengeldhoehe" type="currency" required="false" read-only="false" condition="myForm.bezugkrankengeld == true">
+          <label label-style="prefix">Höhe des Krankengeldes monatlich ca.</label>
+          <title>krankengeldhoehe</title>
+        </field>
+        <field name="bezugrente" id="andererelternteil3.bezugrente" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Rente</label>
+          <title>bezugrente</title>
+        </field>
+        <field name="renteleistungsstelle" id="andererelternteil3.renteleistungsstelle" type="text" required="false" read-only="false" condition="myForm.bezugrente == true">
+          <label label-style="question">Leistungsstelle</label>
+          <title>renteleistungsstelle</title>
+          <outro><![CDATA[<p>(z. B. Rententräger)</p>]]></outro>
+        </field>
+        <field name="rentehoehe" id="andererelternteil3.rentehoehe" type="currency" required="false" read-only="false" condition="myForm.bezugrente == true">
+          <label label-style="prefix">Höhe der Rente monatlich ca.</label>
+          <title>rentehoehe</title>
+        </field>
+        <field name="bezugsozialhilfe" id="andererelternteil3.bezugsozialhilfe" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Sozialhilfe</label>
+          <title>bezugsozialhilfe</title>
+        </field>
+        <field name="sozialhilfeleistungsstelle" id="andererelternteil3.sozialhilfeleistungsstelle" type="text" required="false" read-only="false" condition="myForm.bezugsozialhilfe == true">
+          <label label-style="question">Leistungsstelle</label>
+          <title>sozialhilfeleistungsstelle</title>
+          <outro><![CDATA[<p>(z. B. Sozialamt)</p>]]></outro>
+        </field>
+        <field name="sozialhilfehoehe" id="andererelternteil3.sozialhilfehoehe" type="currency" required="false" read-only="false" condition="myForm.bezugsozialhilfe == true">
+          <label label-style="prefix">Höhe der Sozialhilfe monatlich ca.</label>
+          <title>sozialhilfehoehe</title>
+        </field>
+      </group>
+      <group>
+        <title>Sozialversicherung</title>
+        <field name="krankenkasse" id="andererelternteil3.krankenkasse" type="text" required="false" read-only="false">
+          <label label-style="question">Krankenkasse</label>
+          <title>krankenkasse</title>
+        </field>
+        <field name="rentenversicherungstraeger" id="andererelternteil3.rentenversicherungstraeger" type="text" required="false" read-only="false">
+          <label label-style="question">Rentenversicherungsträger</label>
+          <title>rentenversicherungsträger</title>
+        </field>
+        <field name="sonstigesozialversicherung" id="andererelternteil3.sonstigesozialversicherung" type="text" required="false" read-only="false">
+          <label label-style="question">Sonstige Sozialversicherung</label>
+          <title>sonstigesozialversicherung</title>
+        </field>
+      </group>
+      <group>
+        <title>Sonstiges Einkommen</title>
+        <field name="einkommenausnebentaetigkeit" id="andererelternteil3.einkommenausnebentaetigkeit" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Einkommen aus Nebentätigkeit</label>
+          <title>einkommenausnebentaetigkeit</title>
+        </field>
+        <field name="einkommennebentaetigkeithoehe" id="andererelternteil3.einkommennebentaetigkeithoehe" type="currency" required="false" read-only="false" condition="myForm.einkommenausnebentaetigkeit == true">
+          <label label-style="prefix">Nettoeinkommen monatlich ca.</label>
+          <title>einkommennebentaetigkeithoehe</title>
+        </field>
+        <field name="einkommenausvermietung" id="andererelternteil3.einkommenausvermietung" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Einkommen aus Vermietung / Verpachtung</label>
+          <title>einkommenausvermietung</title>
+        </field>
+        <field name="einkommenvermietunghoehe" id="andererelternteil3.einkommenvermietunghoehe" type="currency" required="false" read-only="false" condition="myForm.einkommenausvermietung == true">
+          <label label-style="prefix">Nettoeinkommen monatlich ca.</label>
+          <title>einkommenvermietunghoehe</title>
+        </field>
+        <field name="sonstigeeinkommensumme" id="andererelternteil3.sonstigeeinkommensumme" type="computed" required="false" read-only="false" value-expression="myForm.einkommennebentaetigkeithoehe + myForm.einkommenvermietunghoehe">
+          <label>Summe der sonstigen Einkommen</label>
+          <title>sonstigeeinkommensumme</title>
+        </field>
+        <field name="sonstigeseinkommenerlaeuterung" id="andererelternteil3.sonstigeseinkommenerlaeuterung" type="textarea" required="false" read-only="false" maxlength="400">
+          <label label-style="question">Erläuterungen</label>
+          <title>sonstigeseinkommenerlaeuterung</title>
+        </field>
+      </group>
+      <group>
+        <title>Vermögen</title>
+        <infobox name="Infokasten">
+          <display-text><![CDATA[<p>Bitte geben Sie das Vermögen an, soweit bekannt<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="grundbesitz" id="andererelternteil3.grundbesitz" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Grundbesitz (Haus / Eigentumswohnung / unbebautes Grundstück - auch im Ausland)</label>
+          <title>grundbesitz</title>
+        </field>
+        <field name="grundbesitzstrasse" id="andererelternteil3.grundbesitzstrasse" type="text" required="false" read-only="false" condition="myForm.grundbesitz == true">
+          <label label-style="prefix">Straße</label>
+          <title>grundbesitzstrasse</title>
+        </field>
+        <field name="grundbesitzhausnummer" id="andererelternteil3.grundbesitzhausnummer" type="text" required="false" read-only="false" style-class="width-xs" condition="myForm.grundbesitz == true">
+          <label label-style="prefix">Hausnummer</label>
+          <title>grundbesitzhausnummer</title>
+        </field>
+        <field name="grundbesitzpostleitzahl" id="andererelternteil3.grundbesitzpostleitzahl" type="text" required="false" read-only="false" style-class="width-xs" condition="myForm.grundbesitz == true">
+          <label label-style="prefix">Postleitzahl</label>
+          <title>grundbesitzpostleitzahl</title>
+        </field>
+        <field name="grundbesitzort" id="andererelternteil3.grundbesitzort" type="text" required="false" read-only="false" condition="myForm.grundbesitz == true">
+          <label label-style="prefix">Ort</label>
+          <title>grundbesitzort</title>
+        </field>
+        <field name="grundbesitzland" id="andererelternteil3.grundbesitzland" type="choice" required="false" read-only="false" repeated="false" control-style="combobox" condition="myForm.grundbesitz == true">
+          <label>Land</label>
+          <title>grundbesitzland</title>
+          <option value="">--- bitte auswählen ---</option>
+          <options src="urn:xmlid:C00000009" xpath-select="/*/SimpleCodeList/Row/Value[@ColumnRef=&quot;Staatsname_kurz&quot;]" xpath-text="SimpleValue" xpath-value="SimpleValue">
+            <sort data-type="text" order="ascending" lang="de" case-order="upper-first">SimpleValue</sort>
+          </options>
+        </field>
+        <field name="kapitallebensversicherung" id="andererelternteil3.kapitallebensversicherung" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Kapitallebensversicherung</label>
+          <title>kapitallebensversicherung</title>
+        </field>
+        <field name="kapitallebensversicherungbei" id="andererelternteil3.kapitallebensversicherungbei" type="text" required="false" read-only="false" condition="myForm.kapitallebensversicherung == true">
+          <label label-style="question">bei</label>
+          <title>kapitallebensversicherungbei</title>
+        </field>
+        <field name="sparguthaben" id="andererelternteil3.sparguthaben" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Sparguthaben</label>
+          <title>sparguthaben</title>
+        </field>
+        <field name="sparguthabenbei" id="andererelternteil3.sparguthabenbei" type="text" required="false" read-only="false" condition="myForm.sparguthaben == true">
+          <label label-style="question">bei</label>
+          <title>sparguthabenbei</title>
+        </field>
+        <field name="wertpapiere" id="andererelternteil3.wertpapiere" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Wertpapiere (Aktien / Fondsanteile)</label>
+          <title>wertpapiere</title>
+        </field>
+        <field name="wertpapierebei" id="andererelternteil3.wertpapierebei" type="text" required="false" read-only="false" condition="myForm.wertpapiere == true">
+          <label label-style="question">bei</label>
+          <title>wertpapierebei</title>
+        </field>
+        <field name="girokonto" id="andererelternteil3.girokonto" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Girokonto</label>
+          <title>girokonto</title>
+        </field>
+        <field name="girokontobei" id="andererelternteil3.girokontobei" type="text" required="false" read-only="false" condition="myForm.girokonto === true">
+          <label label-style="question">bei</label>
+          <title>girokontobei</title>
+          <outro><![CDATA[<p>Name der Bank</p>]]></outro>
+        </field>
+        <field name="F00000106" id="andererelternteil3.f00000106" type="text" required="false" read-only="false" validation-expression="(/^\s*$/.test(value))||(isValidIBAN(value))" condition="myForm.girokonto === true">
+          <label label-style="question"><![CDATA[<span lang="en"><abbr title="International Bank Account Number">IBAN</abbr></span>]]></label>
+          <title>girokontoiban</title>
+          <outro><![CDATA[<p>(Bei deutschen Banken, einschließlich DE, immer 22 Stellen)</p>]]></outro>
+        </field>
+        <field name="pkw" id="andererelternteil3.pkw" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">PKW</label>
+          <title>pkw</title>
+        </field>
+        <field name="pkwmarke" id="andererelternteil3.pkwmarke" type="text" required="false" read-only="false" condition="myForm.pkw == true">
+          <label label-style="prefix">Marke</label>
+          <title>pkwmarke</title>
+        </field>
+        <field name="pkwkennzeichen" id="andererelternteil3.pkwkennzeichen" type="text" required="false" read-only="false" condition="myForm.pkw == true">
+          <label label-style="prefix">Kennzeichen</label>
+          <title>pkwkennzeichen</title>
+        </field>
+        <field name="pkwwert" id="andererelternteil3.pkwwert" type="currency" required="false" read-only="false" condition="myForm.pkw == true">
+          <label label-style="prefix">Wert ca.</label>
+          <title>pkwwert</title>
+        </field>
+        <field name="vermoegensonstiges" id="andererelternteil3.vermoegensonstiges" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Sonstiges</label>
+          <title>vermoegensonstiges</title>
+        </field>
+        <field name="vermoegensonstigeserlaeuterung" id="andererelternteil3.vermoegensonstigeserlaeuterung" type="textarea" required="false" read-only="false" maxlength="400" condition="myForm.vermoegensonstiges == true">
+          <label label-style="question">Erläuterungen</label>
+          <title>vermoegensonstigeserlaeuterung</title>
+        </field>
+      </group>
+      <group>
+        <title>Gesundheitliche Belastung</title>
+        <infobox name="Infokasten">
+          <display-text><![CDATA[<p>Bitte wählen Sie die zutreffenden Punkte aus<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="schwerbehinderung" id="andererelternteil3.schwerbehinderung" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Schwerbehinderung</label>
+          <title>schwerbehinderung</title>
+        </field>
+        <field name="behinderungsgrad" id="andererelternteil3.behinderungsgrad" type="number" required="false" read-only="false" style-class="leftalign" condition="myForm.schwerbehinderung == true">
+          <label label-style="suffix">%</label>
+          <title>behinderungsgrad</title>
+        </field>
+        <field name="behinderungbekannt" id="andererelternteil3.behinderungbekannt" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox">
+          <label label-style="suffix">keine bekannt</label>
+          <title>behinderungbekannt</title>
+        </field>
+        <field name="behinderungsonstiges" id="andererelternteil3.behinderungsonstiges" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Sonstiges (wie Art der gesundheitlichen Beeinträchtigung)</label>
+          <title>behinderungsonstiges</title>
+        </field>
+        <field name="behinderungsonstigesausfuehrung" id="andererelternteil3.behinderungsonstigesausfuehrung" type="textarea" required="false" read-only="false" maxlength="400" condition="myForm.behinderungsonstiges == true">
+          <label label-style="question">Erläuterungen</label>
+          <title>behinderungsonstigesausfuehrung</title>
+        </field>
+      </group>
+      <group scope="weitere_unterhaltsverpflichtungen" multiplicity="zero_or_more">
+        <title>Weitere Unterhaltsverpflichtungen</title>
+        <intro><![CDATA[<p>(<abbr title="zum Beispiel">z. B.</abbr> gegenüber anderen Kindern)</p>]]></intro>
+        <outro><![CDATA[<p>Bitte geben Sie jeweils die Daten der/des Berechtigten an indem Sie eine neue Zeile hinzufügen.</p>]]></outro>
+        <field name="berechtigtername" id="andererelternteil3.weitere_unterhaltsverpflichtungen.berechtigtername" type="text" required="false" read-only="false">
+          <label label-style="prefix">Name</label>
+          <title>berechtigtername</title>
+        </field>
+        <field name="berechtigtervorname" id="andererelternteil3.weitere_unterhaltsverpflichtungen.berechtigtervorname" type="text" required="false" read-only="false" style-class="width-xs">
+          <label label-style="prefix">Vorname(n)</label>
+          <title>berechtigtervorname</title>
+        </field>
+        <field name="berechtigtergeburtsdatum" id="andererelternteil3.weitere_unterhaltsverpflichtungen.berechtigtergeburtsdatum" type="date" required="false" read-only="false">
+          <label label-style="prefix">Geburtsdatum</label>
+          <title>berechtigtergeburtsdatum</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        </field>
+        <field name="berechtigterunterhalt" id="andererelternteil3.weitere_unterhaltsverpflichtungen.berechtigterunterhalt" type="currency" required="false" read-only="false">
+          <label label-style="prefix">Höhe des Unterhalts</label>
+          <title>berechtigterunterhalt</title>
+        </field>
+      </group>
+      <group>
+        <title>Sonstige Angaben</title>
+        <infobox name="Infokasten">
+          <display-text><![CDATA[<p>Bitte wählen Sie die zutreffenden Punkte aus<br/><br/></p>]]></display-text>
+        </infobox>
+        <field name="schulden" id="andererelternteil3.schulden" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Schulden</label>
+          <title>schulden</title>
+        </field>
+        <field name="schuldenbei" id="andererelternteil3.schuldenbei" type="text" required="false" read-only="false" condition="myForm.schulden == true">
+          <label label-style="question">bei</label>
+          <title>schuldenbei</title>
+        </field>
+        <field name="schuldenhoehe" id="andererelternteil3.schuldenhoehe" type="currency" required="false" read-only="false" condition="myForm.schulden == true">
+          <label label-style="question">Höhe ca.</label>
+          <title>schuldenhoehe</title>
+        </field>
+        <field name="insolvenzverfahren" id="andererelternteil3.insolvenzverfahren" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Insolvenzverfahren eröffnet/beantragt</label>
+          <title>insolvenzverfahren</title>
+        </field>
+        <field name="schuldnerberatung" id="andererelternteil3.schuldnerberatung" type="text" required="false" read-only="false" condition="myForm.insolvenzverfahren == true">
+          <label label-style="question">z. B. Schuldnerberatung</label>
+          <title>schuldnerberatung</title>
+        </field>
+        <field name="vermoegensauskunft" id="andererelternteil3.vermoegensauskunft" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Vermögensauskunft (früher: eidesstattliche Versicherung) wurde bereits abgegeben</label>
+          <title>vermoegensauskunft</title>
+        </field>
+        <field name="vermoegensauskunfterlaeuterung" id="andererelternteil3.vermoegensauskunfterlaeuterung" type="textarea" required="false" read-only="false" maxlength="400" condition="myForm.vermoegensauskunft == true">
+          <label label-style="question">Erläuterungen</label>
+          <title>vermoegensauskunfterlaeuterung</title>
+        </field>
+        <field name="keineangaben" id="andererelternteil3.keineangaben" type="boolean" required="false" read-only="false" style-class="leftalign" control-style="checkbox" live="true">
+          <label label-style="suffix">Ich kann keine Angaben machen</label>
+          <title>keineangaben</title>
+        </field>
+        <field name="keineangabenweil" id="andererelternteil3.keineangabenweil" type="textarea" required="false" read-only="false" maxlength="400" condition="myForm.keineangaben == true">
+          <label label-style="question">weil</label>
+          <title>keineangabenweil</title>
+        </field>
+      </group>
+    </page>
+  </flow>
+  <flow scope="betreuung" condition="myForm.andererelternteil1.ehemannvater == true || myForm.andererelternteil1.vaterschaftanerkannt == true">
+    <page name="Betreuung des anderen Elternteiles" path="betreuung-des-anderen-elternteiles" id="betreuung-des-anderen-elternteiles" model-src="Betreuung des anderen Elternteiles.2186">
+      <title>Betreuung des anderen Elternteiles</title>
+      <field name="lebtinmeinemhaushaltseit" id="betreuung.lebtinmeinemhaushaltseit" type="date" required="true" read-only="false" validation-expression="value &lt; new Date()">
+        <label label-style="prefix">Das Kind lebt in meinem Haushalt seit dem</label>
+        <title>lebtinmeinemhaushaltseit</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+        <validation-message>Das Datum muss in der Vergangenheit liegen</validation-message>
+      </field>
+      <field name="betreuungkind" id="betreuung.betreuungkind" type="choice" required="true" read-only="false" repeated="false" control-style="radiobutton" live="true">
+        <label label-style="question">Bitte machen Sie Angaben zur Versorgung und Betreuung Ihres Kindes</label>
+        <title>betreuungkind</title>
+        <option value="alleine">Ich versorge und betreue mein Kind alleine. Es hat seinen Lebensmittelpunkt bei mir.</option>
+        <option value="geteilt">Ich teile mir die Versorgung und Betreuung meines Kindes mit dem anderen Elternteil.</option>
+      </field>
+      <field name="verinbarungumgangsrecht" id="betreuung.verinbarungumgangsrecht" type="choice" required="true" read-only="false" repeated="false" condition="myForm.betreuungkind == &quot;geteilt&quot;">
+        <label label-style="question">Geben Sie bitte die Vereinbarungsart an, welche für das Umgangsrecht getroffen wurde</label>
+        <title>verinbarungumgangsrecht</title>
+        <option>Es gibt eine gerichtlichtliche Vereinbarung bezüglich des Umgangsrechtes.</option>
+        <option>Das Umgangsrecht wurde unter den Eltern vereinbart.</option>
+        <option>Sonstige Vereinbarung (zum Beispiel über Rechtsanwälte)</option>
+      </field>
+      <infobox name="Infokasten" condition="myForm.betreuungkind == &quot;geteilt&quot;">
+        <display-text><![CDATA[<p>Die schriftliche Vereinbarung zum Umgangsrecht können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+      <field name="vereinbarunggilt" id="betreuung.vereinbarunggilt" type="choice" required="true" read-only="false" repeated="false" condition="myForm.betreuungkind == &quot;geteilt&quot;" live="true">
+        <label>Die Regelung gilt</label>
+        <title>vereinbarunggilt</title>
+        <option></option>
+        <option>wöchentlich</option>
+        <option>14-täglich</option>
+        <option>davon abweichende Regelung</option>
+      </field>
+      <field name="vereinbarungumgangsrechtsonstige" id="betreuung.vereinbarungumgangsrechtsonstige" type="textarea" required="true" read-only="false" maxlength="400" condition="myForm.vereinbarunggilt === &quot;davon abweichende Regelung&quot;">
+        <label label-style="question">Bitte beschreiben Sie die Regelung</label>
+        <title>vereinbarungumgangsrechtsonstige</title>
+      </field>
+      <infobox name="Infokasten" condition="myForm.vereinbarunggilt === &quot;davon abweichende Regelung&quot;">
+        <display-text><![CDATA[<p>Die monatliche Auflistung der Betreuung können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+      <group scope="betreuungszeiten_des_anderen_elternteiles" condition="myForm.betreuungkind == &quot;geteilt&quot;" multiplicity="zero_or_more" max-count="7">
+        <title>Betreuungszeiten des anderen Elternteiles</title>
+        <intro><![CDATA[<p>Bitte geben Sie die Betreuungszeiten des anderen Elternteils an und legen Sie für jeden Wochentag eine neue Zeile an. Sollte die Betreuung an diesem Tag ganztags erfolgen, haken Sie bitte entsprechendes Feld an. Andernfalls geben Sie bitte die Betreuungszeiten im Format hh:mm an.</p>]]></intro>
+        <field name="tag" id="betreuung.betreuungszeiten_des_anderen_elternteiles.tag" type="choice" required="false" read-only="false" repeated="false">
+          <label>Wochentag</label>
+          <title>tag</title>
+          <option>--- bitte auswählen ---</option>
+          <option>Montag</option>
+          <option>Dienstag</option>
+          <option>Mittwoch</option>
+          <option>Donnerstag</option>
+          <option>Freitag</option>
+          <option>Samstag</option>
+          <option>Sonntag</option>
+        </field>
+        <field name="ganztags" id="betreuung.betreuungszeiten_des_anderen_elternteiles.ganztags" type="boolean" required="false" read-only="false" control-style="checkbox">
+          <label label-style="suffix">ganztags</label>
+          <title>ganztags</title>
+        </field>
+        <field name="inderzeitvon" id="betreuung.betreuungszeiten_des_anderen_elternteiles.inderzeitvon" type="text" required="false" read-only="false" style-class="html5-input-type-time">
+          <label>in der Zeit von</label>
+          <title>inderzeitvon</title>
+          <documentation><![CDATA[<p>Bitte geben Sie die Uhrzeit im Format hh:mm an</p>]]></documentation>
+          <tooltip><![CDATA[<p>Bitte geben Sie die Uhrzeit im Format hh:mm an</p>]]></tooltip>
+        </field>
+        <field name="inderzeitbis" id="betreuung.betreuungszeiten_des_anderen_elternteiles.inderzeitbis" type="text" required="false" read-only="false" style-class="html5-input-type-time" placeholder="hh:mm">
+          <label>bis</label>
+          <title>inderzeitbis</title>
+          <documentation><![CDATA[<p>Bitte geben Sie die Uhrzeit im Format hh:mm an</p>]]></documentation>
+          <tooltip><![CDATA[<p>Bitte geben Sie die Uhrzeit im Format hh:mm an</p>]]></tooltip>
+          <validation-message>Bitte geben Sie die Uhrzeit im Format hh:mm an</validation-message>
+        </field>
+      </group>
+    </page>
+  </flow>
+  <flow scope="unterhalt" condition="myForm.andererelternteil1.ehemannvater == true || myForm.andererelternteil1.vaterschaftanerkannt == true">
+    <page name="Angaben zum Unterhalt" path="angaben-zum-unterhalt" id="angaben-zum-unterhalt" model-src="Angaben zum Unterhalt.1413">
+      <title>Angaben zum Unterhalt</title>
+      <field name="unterhaltsfestsetzung" id="unterhalt.unterhaltsfestsetzung" type="choice" required="true" read-only="false" repeated="false" control-style="radiobutton" live="true">
+        <label label-style="question">Bitte wählen Sie den zutreffenden Punkt bezüglich der Unterhaltsfestsetzung aus</label>
+        <title>unterhaltsfestsetzung</title>
+        <option>Eine Unterhaltsfestsetzung ist bereits erfolgt</option>
+        <option>Eine Unterhaltsfestsetzung erfolgte bisher nicht</option>
+        <option>Ein Antrag auf Unterhaltsfestsetzung wurde bereits gestellt</option>
+        <option>Es ist kein Antrag auf Unterhaltsfestsetzung gestellt worden</option>
+      </field>
+      <field name="unterhaltsfestsetzungbehoerde" id="unterhalt.unterhaltsfestsetzungbehoerde" type="text" required="false" read-only="false" condition="myForm.unterhaltsfestsetzung == &quot;Eine Unterhaltsfestsetzung ist bereits erfolgt&quot;">
+        <label label-style="question">Welche Behörde hat die Unterhaltsfestsetzung beschlossen?</label>
+        <title>unterhaltsfestsetzungbehoerde</title>
+        <outro><![CDATA[<p>Behörde (Gericht oder Jugendamt) mit Geschäfts-/Registriernummer</p>]]></outro>
+      </field>
+      <infobox name="Infokasten" condition="myForm.unterhaltsfestsetzung == &quot;Eine Unterhaltsfestsetzung ist bereits erfolgt&quot;">
+        <display-text><![CDATA[<p>Wenn sich die Unterhaltsfestsetzung aus einer privatrechtliche Vereinbarung ergibt, können Sie diese am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen.</p>]]></display-text>
+      </infobox>
+      <field name="verpflichtungunterhaltmonatlich" id="unterhalt.verpflichtungunterhaltmonatlich" type="currency" required="false" read-only="false" condition="myForm.unterhaltsfestsetzung == &quot;Eine Unterhaltsfestsetzung ist bereits erfolgt&quot;">
+        <label label-style="question">Nach der Unterhaltsfestsetzung besteht die Verpflichtung, für das Kind monatlich folgenden Unterhalt zu zahlen</label>
+        <title>verpflichtungunterhaltmonatlich</title>
+      </field>
+      <field name="antragunterhaltsfestsetzungam" id="unterhalt.antragunterhaltsfestsetzungam" type="date" required="false" read-only="false" condition="myForm.unterhaltsfestsetzung == &quot;Ein Antrag auf Unterhaltsfestsetzung wurde bereits gestellt&quot;">
+        <label label-style="prefix">Ein Antrag auf Unterhaltsfestsetzung ist am</label>
+        <title>antragunterhaltsfestsetzungam</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+      </field>
+      <field name="antragunterhaltsfestsetzungamtsgericht" id="unterhalt.antragunterhaltsfestsetzungamtsgericht" type="text" required="false" read-only="false" condition="myForm.unterhaltsfestsetzung == &quot;Ein Antrag auf Unterhaltsfestsetzung wurde bereits gestellt&quot;">
+        <label label-style="prefix">gestellt worden beim</label>
+        <title>antragunterhaltsfestsetzungamtsgericht</title>
+        <outro><![CDATA[<p>Amtsgericht</p>]]></outro>
+      </field>
+      <field name="antragunterhaltsfestsetzunggeschzeich" id="unterhalt.antragunterhaltsfestsetzunggeschzeich" type="text" required="false" read-only="false" condition="myForm.unterhaltsfestsetzung == &quot;Ein Antrag auf Unterhaltsfestsetzung wurde bereits gestellt&quot;">
+        <label label-style="prefix">Geschäftszeichen</label>
+        <title>antragunterhaltsfestsetzunggeschzeich</title>
+      </field>
+      <field name="keinantragunterhaltsfestsetzungweil" id="unterhalt.keinantragunterhaltsfestsetzungweil" type="choice" required="true" read-only="false" repeated="false" control-style="radiobutton" condition="myForm.unterhaltsfestsetzung == &quot;Es ist kein Antrag auf Unterhaltsfestsetzung gestellt worden&quot;" live="true">
+        <label label-style="question">weil</label>
+        <title>keinantragunterhaltsfestsetzungweil</title>
+        <option>der Kindesvater unbekannt ist</option>
+        <option>der andere Elternteil ausschließlich ALG-II Leistungen bezieht/ Rentner ist</option>
+        <option>die Trennung gerade erst erfolgt ist</option>
+        <option>ein anderer Grund vorliegt</option>
+      </field>
+      <field name="keinantragunterhaltsfestsetzunganderergrund" id="unterhalt.keinantragunterhaltsfestsetzunganderergrund" type="textarea" required="false" read-only="false" maxlength="400" condition="myForm.keinantragunterhaltsfestsetzungweil == &quot;ein anderer Grund vorliegt&quot;">
+        <label label-style="question">Es ist kein Antrag auf Unterhaltsfestsetzung gestellt worden, weil</label>
+        <title>keinantragunterhaltsfestsetzunganderergrund</title>
+      </field>
+      <field name="unterhaltszahlungandereret" id="unterhalt.unterhaltszahlungandereret" type="choice" required="true" read-only="false" repeated="false" live="true">
+        <label label-style="question">Der andere Elternteil zahlt</label>
+        <title>unterhaltszahlungandereret</title>
+        <option>keinen Unterhalt</option>
+        <option>nur noch geringeren Unterhalt</option>
+      </field>
+      <field name="keinenunterhalt_seit" id="unterhalt.keinenunterhalt_seit" type="date" required="false" read-only="false" condition="myForm.unterhaltszahlungandereret == &quot;keinen Unterhalt&quot;">
+        <label label-style="prefix">seit</label>
+        <title>keinenunterhalt seit</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+      </field>
+      <field name="letztezahlungam" id="unterhalt.letztezahlungam" type="date" required="false" read-only="false" condition="myForm.unterhaltszahlungandereret == &quot;keinen Unterhalt&quot;">
+        <label label-style="prefix">letzte Zahlung am</label>
+        <title>letztezahlungam</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+      </field>
+      <field name="unterhaltinhoehevon" id="unterhalt.unterhaltinhoehevon" type="currency" required="false" read-only="false" condition="myForm.unterhaltszahlungandereret == &quot;keinen Unterhalt&quot;">
+        <label label-style="prefix">in Höhe von</label>
+        <title>unterhaltinhoehevon</title>
+      </field>
+      <field name="geringererunterhaltinhoehevon" id="unterhalt.geringererunterhaltinhoehevon" type="currency" required="false" read-only="false" condition="myForm.unterhaltszahlungandereret == &quot;nur noch geringeren Unterhalt&quot;">
+        <label label-style="prefix">in Höhe von</label>
+        <title>geringererunterhaltinhoehevon</title>
+      </field>
+      <field name="geringererunterhaltseit" id="unterhalt.geringererunterhaltseit" type="date" required="false" read-only="false" condition="myForm.unterhaltszahlungandereret == &quot;nur noch geringeren Unterhalt&quot;">
+        <label label-style="prefix">seit</label>
+        <title>geringererunterhaltseit</title>
+        <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+      </field>
+      <field name="vorauszahlung" id="unterhalt.vorauszahlung" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+        <label label-style="question">Erfolgte eine Vorauszahlung?</label>
+        <title>vorauszahlung</title>
+      </field>
+      <field name="vorauszahlungmonate" id="unterhalt.vorauszahlungmonate" type="text" required="false" read-only="false" condition="myForm.vorauszahlung == true">
+        <label label-style="question">Es erfolgte eine Vorauszahlung für die Monate</label>
+        <title>vorauszahlungmonate</title>
+      </field>
+      <field name="vorauszahlunginhoehevon" id="unterhalt.vorauszahlunginhoehevon" type="currency" required="false" read-only="false" condition="myForm.vorauszahlung == true">
+        <label label-style="prefix">in Höhe von</label>
+        <title>vorauszahlunginhoehevon</title>
+      </field>
+      <field name="zahlungunterhaltsrelevanteleistungen" id="unterhalt.zahlungunterhaltsrelevanteleistungen" type="boolean" required="true" read-only="false" control-style="radiobutton" live="true">
+        <label label-style="question">Zahlt der andere Elternteil unterhaltsrelevante Leistungen an mich?</label>
+        <title>zahlungunterhaltsrelevanteleistungen</title>
+      </field>
+      <field name="unterhaltsrelevanteleistung" id="unterhalt.unterhaltsrelevanteleistung" type="text" required="false" read-only="false" condition="myForm.zahlungunterhaltsrelevanteleistungen == true">
+        <label label-style="question">Der andere Elternteil zahlt an mich folgende unterhaltsrelevante Leistungen</label>
+        <title>unterhaltsrelevanteleistung</title>
+        <outro><![CDATA[<p>(wie Schulgeld, Hortgebühren)</p>]]></outro>
+      </field>
+      <infobox name="Infokasten" condition="myForm.zahlungunterhaltsrelevanteleistungen == true">
+        <display-text><![CDATA[<p>Den Nachweis über unterhaltsrelevante Leistungen können Sie am Ende der Antragstellung auf der letzten Antragsseite "Nachweise" hochladen</p>]]></display-text>
+      </infobox>
+    </page>
+  </flow>
+  <flow scope="weiterekinder">
+    <page name="Angaben zu weiteren (gemeinsamen) Kindern des Antragstellers / der Antragstellerin" path="angaben-zu-weiteren-gemeinsamen-kindern-des-antragstellers-der-antragstellerin" id="angaben-zu-weiteren-gemeinsamen-kindern-des-antragstellers-der-antragstellerin" model-src="Angaben zu weiteren (gemeinsamen) Kindern des Antragstellers / der Antragstellerin.1501">
+      <title>Angaben zu weiteren (gemeinsamen) Kindern des Antragstellers / der Antragstellerin</title>
+      <infobox name="Infokasten">
+        <display-text><![CDATA[<p>Wenn Sie weitere (gemeinsame) Kinder haben, geben Sie diese bitte an. Legen Sie für jedes Kind eine neue Zeile mit den entsprechenden Daten an.</p>]]></display-text>
+      </infobox>
+      <group scope="weitere_gemeinsame_kinder" multiplicity="zero_or_more">
+        <title>Weitere (gemeinsame) Kinder</title>
+        <field name="name" id="weiterekinder.weitere_gemeinsame_kinder.name" type="text" required="false" read-only="false">
+          <label>Name</label>
+          <title>name</title>
+        </field>
+        <field name="vorname" id="weiterekinder.weitere_gemeinsame_kinder.vorname" type="text" required="false" read-only="false">
+          <label>Vorname(n)</label>
+          <title>vorname</title>
+        </field>
+        <field name="geburtsdatum" id="weiterekinder.weitere_gemeinsame_kinder.geburtsdatum" type="date" required="false" read-only="false" validation-expression="(/^\s*$/.test(value))||(value &lt; new Date())">
+          <label label-style="prefix">Geburtsdatum</label>
+          <title>geburtsdatum</title>
+          <outro><![CDATA[<p>TT.MM.JJJJ</p>]]></outro>
+          <validation-message>Das Datum muss in der Vergangenheit liegen</validation-message>
+        </field>
+        <field name="lebtbei" id="weiterekinder.weitere_gemeinsame_kinder.lebtbei" type="text" required="false" read-only="false">
+          <label label-style="prefix">lebt bei</label>
+          <title>lebtbei</title>
+        </field>
+      </group>
+      <field name="bemerkungen" id="weiterekinder.bemerkungen" type="textarea" required="false" read-only="false" maxlength="400">
+        <label label-style="question">Bemerkungen</label>
+        <title>bemerkungen</title>
+      </field>
+    </page>
+  </flow>
+  <page name="Hinweise" path="hinweise" id="hinweise" model-src="Hinweise.2011">
+    <title>Hinweise</title>
+    <intro><![CDATA[<p>Bitte Folgendes besonders beachten:</p><p>Ab Antragstellung sind unverzüglich folgende Tatsachen <abbr title="beziehungsweise">bzw.</abbr> Veränderungen mitzuteilen:</p><ul><li><strong>jede Eheschließung, auch wenn der Ehegatte nicht der andere Elternteil ist</strong></li><li>jedes Eingehen einer häuslichen Gemeinschaft mit dem anderen Elternteil</li><li>jedes Ausscheiden des Kindes aus der bisherigen häuslichen Gemeinschaft</li><li>jeder Wohnungswechsel (auch in Berlin) und jede Kontoänderung</li><li>jede Änderung des Aufenthaltstitels / der Freizügigkeitsberechtigung</li><li>jede Unterhaltszahlung des anderen Elternteils oder der direkte Erhalt von unterhaltsrelevanten Leistungen (<abbr title="zum Beispiel">z. B.</abbr> Kitabeitrag)</li><li>jede Änderung der tatsächlichen Betreuung des Kindes</li><li>die Unterbringung des Kindes in einer Einrichtung der Kinder- und Jugendhilfe nach <abbr title="Sozialgesetzbuch">SGB</abbr> VIII</li><li>Wehrdienst des anderen Elternteils</li><li>der Aufenthalt des anderen Elternteils, wenn er zuvor nicht bekannt war oder wenn sich dessen Anschrift ändert</li><li>das Ableben des anderen Elternteils / Stiefelternteils</li><li>die Beantragung, Bewilligung oder Änderung von Halbwaisenrente für das Kind</li><li>die Erzielung von Einkünften des Vermögens und Erträgen aus zumutbarer Arbeit, wenn das Kind das 15. Lebensjahr vollendet hat und keine allgemeinbildende Schule mehr besucht</li></ul><p><br/><br/>Die Leistungen nach dem <abbr title="Unterhaltsvorschussgesetz">UVG</abbr> müssen eingestellt werden, wenn der andere Elternteil seine Unterhaltspflicht mindestens in Höhe der ungekürzten Unterhaltsvorschussleistungen nachkommt; dasselbe gilt bei der Zahlung von Waisenbezügen, Schadensersatzleistungen für das Kind oder Einkünften aus Vermögen und Erträgen aus zumutbarer Arbeit bei Kindern, die das 15. Lebensjahr vollendet haben <u>und</u> keine allgemeinbildende Schule mehr besuchen.<br/><br/><u>Über das Eintreffen derartiger Zahlungen werde ich die Unterhaltsvorschussstelle <strong>unverzüglich</strong> unterrichten.</u><br/><br/><strong>Zu Unrecht erbrachte Leistungen nach dem UVG sind zu ersetzen bzw. sind zurückzuzahlen, soweit ich gegen meine Mitteilungspflichten verstoßen habe.</strong> Daneben kann die Nichtbeachtung der Mitteilungspflichten als Ordnungswidrigkeit geahndet werden und die Zahlung eines Bußgeldes nach sich ziehen.</p>]]></intro>
+    <resource id="xzufi" location="/WEB-INF/data/xzufi_dienstleistung.xml"/>
+    <group>
+      <title>Erklärung</title>
+      <intro><![CDATA[<p>Ich versichere, dass ich die Angaben nach bestem Wissen und Gewissen ausgefüllt und alle Angaben vollständig gemacht habe. Für die Leistungen nach dem <abbr title="Unterhaltsvorschussgesetz">UVG</abbr> werden die angegebenen persönlichen Daten elektronisch gespeichert und verarbeitet. Eine Übermittlung der Angaben aus dem Antrag erfolgt nur an die Stellen, die sie zur Erfüllung ihrer Aufgaben benötigen und die zur Auskunft berechtigt sind.</p>]]></intro>
+      <field name="einwilligungdatenaustausch" id="einwilligungdatenaustausch" type="boolean" required="true" read-only="false" style-class="leftalign" control-style="radiobutton">
+        <label label-style="question"><![CDATA[Ich bin damit einverstanden, dass die notwendigen Daten zur Durchführung des <abbr title="Unterhaltsvorschussgesetz">UVG</abbr> mit dem Beistand, dem (Amts-)Pfleger oder dem Vormund ausgetauscht werden können. Die erteilte Einwilligung ist freiwillig und kann jederzeit widerrufen werden. Bis zum Widerruf bleibt die Rechtmäßigkeit der Verarbeitung auf der Grundlage der Einwilligung unberührt.]]></label>
+        <title>einwilligungdatenaustausch</title>
+      </field>
+    </group>
+    <field name="bda_xfall_app_orgname1" id="bda_xfall_app_orgname1" type="computed" required="false" read-only="false" value-expression="getOrgName1('applicant')">
+      <label label-style="prefix">bda_xfall_app_orgName1:</label>
+      <title>bda_xfall_app_orgName1</title>
+    </field>
+    <field name="bda_xfall_app_orgname2" id="bda_xfall_app_orgname2" type="computed" required="false" read-only="false" value-expression="getOrgName2('applicant')">
+      <label label-style="prefix">bda_xfall_app_orgname2:</label>
+      <title>bda_xfall_app_orgname2</title>
+    </field>
+    <field name="bda_xfall_app_bezirknr" id="bda_xfall_app_bezirknr" type="computed" required="false" read-only="false" value-expression="getBezirkNr('applicant')">
+      <label label-style="prefix">bda_xfall_app_bezirkNr:</label>
+      <title>bda_xfall_app_bezirkNr</title>
+    </field>
+    <field name="bda_xfall_app_email" id="bda_xfall_app_email" type="computed" required="false" read-only="false" value-expression="getEMail('applicant')">
+      <label label-style="prefix">bda_xfall_app_eMail:</label>
+      <title>bda_xfall_app_eMail</title>
+    </field>
+    <field name="bda_xfall_app_faxno" id="bda_xfall_app_faxno" type="computed" required="false" read-only="false" value-expression="getFaxNo('applicant')">
+      <label label-style="prefix">bda_xfall_app_faxNo:</label>
+      <title>bda_xfall_app_faxNo</title>
+    </field>
+    <field name="bda_xfall_app_bezirk" id="bda_xfall_app_bezirk" type="computed" required="false" read-only="false" value-expression="getBezirk('applicant')">
+      <label label-style="prefix">bda_xfall_app_bezirk:</label>
+      <title>bda_xfall_app_bezirk</title>
+    </field>
+    <field name="bda_xfall_app_mobileno" id="bda_xfall_app_mobileno" type="computed" required="false" read-only="false" value-expression="getMobileNo('applicant')">
+      <label label-style="prefix">bda_xfall_app_mobileNo:</label>
+      <title>bda_xfall_app_mobileNo</title>
+    </field>
+    <field name="bda_xfall_app_houseno" id="bda_xfall_app_houseno" type="computed" required="false" read-only="false" value-expression="getHouseNo('applicant')">
+      <label label-style="prefix">bda_xfall_app_houseNo:</label>
+      <title>bda_xfall_app_houseNo</title>
+    </field>
+    <field name="bda_xfall_app_postalcode" id="bda_xfall_app_postalcode" type="computed" required="false" read-only="false" value-expression="getPostalCode('applicant')">
+      <label label-style="prefix">bda_xfall_app_postalCode:</label>
+      <title>bda_xfall_app_postalCode</title>
+    </field>
+    <field name="bda_xfall_app_city" id="bda_xfall_app_city" type="computed" required="false" read-only="false" value-expression="getCity('applicant')">
+      <label label-style="prefix">bda_xfall_app_city:</label>
+      <title>bda_xfall_app_city</title>
+    </field>
+    <field name="bda_xfall_app_country" id="bda_xfall_app_country" type="computed" required="false" read-only="false" value-expression="'DE'">
+      <label label-style="prefix">bda_xfall_app_country:</label>
+      <title>bda_xfall_app_country</title>
+    </field>
+    <field name="bda_xfall_app_telno" id="bda_xfall_app_telno" type="computed" required="false" read-only="false" value-expression="getTelNo('applicant')">
+      <label label-style="prefix">bda_xfall_app_telNo:</label>
+      <title>bda_xfall_app_telNo</title>
+    </field>
+    <field name="bda_xfall_app_academictitle" id="bda_xfall_app_academictitle" type="computed" required="false" read-only="false" value-expression="getAcademicTitle('applicant')">
+      <label label-style="prefix">bda_xfall_app_academicTitle:</label>
+      <title>bda_xfall_app_academicTitle</title>
+    </field>
+    <field name="bda_xfall_app_formofaddress" id="bda_xfall_app_formofaddress" type="computed" required="false" read-only="false" value-expression="getFormOfAddress('applicant')">
+      <label label-style="prefix">bda_xfall_app_formOfAddress:</label>
+      <title>bda_xfall_app_formOfAddress</title>
+    </field>
+    <field name="bda_xfall_app_postofficebox" id="bda_xfall_app_postofficebox" type="computed" required="false" read-only="false" value-expression="getPostOfficeBox('applicant')">
+      <label label-style="prefix">bda_xfall_app_postOfficeBox:</label>
+      <title>bda_xfall_app_postOfficeBox</title>
+    </field>
+    <field name="bda_xfall_app_identitynamespace" id="bda_xfall_app_identitynamespace" type="computed" required="false" read-only="false" value-expression="getIdentityNamespace()">
+      <label label-style="prefix">bda_xfall_app_identityNamespace:</label>
+      <title>bda_xfall_app_identityNamespace</title>
+    </field>
+    <field name="bda_xfall_app_partnertype" id="bda_xfall_app_partnertype" type="computed" required="false" read-only="false" value-expression="getPartnerType('applicant')">
+      <label label-style="prefix">bda_xfall_app_partnerType:</label>
+      <title>bda_xfall_app_partnerType</title>
+    </field>
+    <field name="bda_xfall_app_street" id="bda_xfall_app_street" type="computed" required="false" read-only="false" value-expression="getStreet('applicant')">
+      <label label-style="prefix">bda_xfall_app_street:</label>
+      <title>bda_xfall_app_street</title>
+    </field>
+    <field name="bda_xfall_app_firstname" id="bda_xfall_app_firstname" type="computed" required="false" read-only="false" value-expression="getFirstName('applicant')">
+      <label label-style="prefix">bda_xfall_app_firstName:</label>
+      <title>bda_xfall_app_firstName</title>
+    </field>
+    <field name="bda_xfall_app_lastname" id="bda_xfall_app_lastname" type="computed" required="false" read-only="false" value-expression="getLastName('applicant')">
+      <label label-style="prefix">bda_xfall_app_lastName:</label>
+      <title>bda_xfall_app_lastName</title>
+    </field>
+    <field name="bda_xfall_app_nationality" id="bda_xfall_app_nationality" type="computed" required="false" read-only="false" value-expression="getNationality('applicant')">
+      <label label-style="prefix">bda_xfall_app_nationality:</label>
+      <title>bda_xfall_app_nationality</title>
+    </field>
+    <field name="bda_xfall_aut_partnertype" id="bda_xfall_aut_partnertype" type="computed" required="false" read-only="false" value-expression="'2'">
+      <label label-style="prefix">bda_xfall_aut_partnerType:</label>
+      <title>bda_xfall_aut_partnerType</title>
+    </field>
+    <field name="bda_xfall_aut_country" id="bda_xfall_aut_country" type="computed" required="false" read-only="false" value-expression="'DE'">
+      <label label-style="prefix">bda_xfall_aut_country:</label>
+      <title>bda_xfall_aut_country</title>
+    </field>
+    <field name="bda_xfall_aut_email" id="bda_xfall_aut_email" type="computed" required="false" read-only="false" value-expression="getEMail('authority')">
+      <label label-style="prefix">bda_xfall_aut_eMail:</label>
+      <title>bda_xfall_aut_eMail</title>
+    </field>
+    <field name="bda_xfall_aut_faxno" id="bda_xfall_aut_faxno" type="computed" required="false" read-only="false" value-expression="getFaxNo('authority')">
+      <label label-style="prefix">bda_xfall_aut_faxNo:</label>
+      <title>bda_xfall_aut_faxNo</title>
+    </field>
+    <field name="bda_xfall_aut_mobileno" id="bda_xfall_aut_mobileno" type="computed" required="false" read-only="false" value-expression="getMobileNo('authority')">
+      <label label-style="prefix">bda_xfall_aut_mobileNo:</label>
+      <title>bda_xfall_aut_mobileNo</title>
+    </field>
+    <field name="bda_xfall_aut_telno" id="bda_xfall_aut_telno" type="computed" required="false" read-only="false" value-expression="getTelNo('authority')">
+      <label label-style="prefix">bda_xfall_aut_telNo:</label>
+      <title>bda_xfall_aut_telNo</title>
+    </field>
+    <field name="bda_xfall_aut_orgname1" id="bda_xfall_aut_orgname1" type="computed" required="false" read-only="false" value-expression="getOrgName1('authority')">
+      <label label-style="prefix">bda_xfall_aut_orgName1:</label>
+      <title>bda_xfall_aut_orgName1</title>
+    </field>
+    <field name="bda_xfall_aut_postalcode" id="bda_xfall_aut_postalcode" type="computed" required="false" read-only="false" value-expression="getPostalCode('authority')">
+      <label label-style="prefix">bda_xfall_aut_postalCode:</label>
+      <title>bda_xfall_aut_postalCode</title>
+    </field>
+    <field name="bda_xfall_aut_street" id="bda_xfall_aut_street" type="computed" required="false" read-only="false" value-expression="getStreet('authority')">
+      <label label-style="prefix">bda_xfall_aut_street:</label>
+      <title>bda_xfall_aut_street</title>
+    </field>
+    <field name="bda_xfall_aut_houseno" id="bda_xfall_aut_houseno" type="computed" required="false" read-only="false" value-expression="getHouseNo('authorityt')">
+      <label label-style="prefix">bda_xfall_aut_houseNo:</label>
+      <title>bda_xfall_aut_houseNo</title>
+    </field>
+    <field name="bda_xfall_aut_nationality" id="bda_xfall_aut_nationality" type="computed" required="false" read-only="false" value-expression="'DE'">
+      <label label-style="prefix">bda_xfall_aut_nationality:</label>
+      <title>bda_xfall_aut_nationality</title>
+    </field>
+    <field name="bda_xfall_aut_bezirknr" id="bda_xfall_aut_bezirknr" type="computed" required="false" read-only="false" value-expression="getBezirkNr('authority')">
+      <label label-style="prefix">bda_xfall_aut_bezirkNr:</label>
+      <title>bda_xfall_aut_bezirkNr</title>
+    </field>
+    <field name="bda_xfall_aut_postofficebox" id="bda_xfall_aut_postofficebox" type="computed" required="false" read-only="false" value-expression="getPostOfficeBox('authority')">
+      <label label-style="prefix">bda_xfall_aut_postOfficeBox:</label>
+      <title>bda_xfall_aut_postOfficeBox</title>
+    </field>
+    <field name="bda_xfall_aut_identitynamespace" id="bda_xfall_aut_identitynamespace" type="computed" required="false" read-only="false" value-expression="getIdentityNamespace()">
+      <label label-style="prefix">bda_xfall_aut_identityNamespace:</label>
+      <title>bda_xfall_aut_identityNamespace</title>
+    </field>
+    <field name="bda_xfall_aut_city" id="bda_xfall_aut_city" type="computed" required="false" read-only="false" value-expression="getCity('authority')">
+      <label label-style="prefix">bda_xfall_aut_city:</label>
+      <title>bda_xfall_aut_city</title>
+    </field>
+  </page>
+  <flow scope="dateien">
+    <page name="Nachweise" path="nachweise" id="nachweise" model-src="Nachweise.2715">
+      <title>Nachweise</title>
+      <intro><![CDATA[<p>Auf dieser Seite können Sie Nachweise hochladen. Zugelassene Dateiformate sind: PDF, JPG/JPEG, PNG, DOCX</p>]]></intro>
+      <field name="scheidungsurteil" id="dateien.scheidungsurteil" type="file" required="false" read-only="false" repeated="true" condition="myForm.antragstellerweitere.familienstand === &quot;geschieden&quot;">
+        <label label-style="prefix">Scheidungsurteil</label>
+        <title>scheidungsurteil</title>
+      </field>
+      <field name="aufhebungsurkunde" id="dateien.aufhebungsurkunde" type="file" required="false" read-only="false" repeated="true" condition="myForm.antragstellerweitere.familienstand === &quot;nicht mehr lebenspartnerschaft&quot;">
+        <label label-style="prefix">Aufhebungsurkunde Ihrer eingetragenen (gleichgeschlechtlichen) Lebenspartnerschaft</label>
+        <title>aufhebungsurkunde</title>
+      </field>
+      <field name="sterbeurkunde" id="dateien.sterbeurkunde" type="file" required="false" read-only="false" repeated="true" condition="myForm.antragstellerweitere.familienstand === &quot;verwitwet&quot;">
+        <label label-style="prefix">Sterbeurkunde des Ehegatten/der Ehegattin</label>
+        <title>sterbeurkunde</title>
+      </field>
+      <field name="getrenntweilnachweis" id="dateien.getrenntweilnachweis" type="file" required="false" read-only="false" repeated="true" condition="myForm.antragstellerweitere.vonehepartnergetrenntweil == &quot;mein Ehegatte/Lebenspartner / meine Ehegattin/Lebenspartnerin voraussichtlich wenigstens sechs Monate wegen einer gerichtlichen Anordnung (z. B. Haft/ Krankheit/ Behinderung) in einer Anstalt lebt.&quot;">
+        <label label-style="prefix">Nachweis der gerichtlichen Anordnung (z. B. Haft/ Krankheit/ Behinderung)</label>
+        <title>getrenntweilnachweis</title>
+      </field>
+      <field name="aufenthaltstitel" id="dateien.aufenthaltstitel" type="file" required="false" read-only="false" repeated="true" condition="myForm.kind.staatsangehoerigkeit != &quot;deutsch&quot;">
+        <label label-style="prefix">Aufenthaltstitel Ihres Kindes</label>
+        <title>aufenthaltstitel</title>
+      </field>
+      <field name="nachweiseuebereinkommenundkrankenkasse" id="dateien.nachweiseuebereinkommenundkrankenkasse" type="file" required="false" read-only="false" repeated="true" condition="myForm.kind.staatsangehoerigkeit != &quot;deutsch&quot;">
+        <label label-style="prefix">Nachweise über Einkommen und Krankenkasse Ihres Kindes bei Daueraufenthaltsrecht nach § 4a FreizügG/EU (für EU/EWR/Schweiz) Ihres Kindes</label>
+        <title>nachweiseuebereinkommenundkrankenkasse</title>
+      </field>
+      <field name="geburtsurkunde" id="dateien.geburtsurkunde" type="file" required="false" read-only="false" repeated="true">
+        <label label-style="prefix">Geburtsurkunde Ihres Kindes</label>
+        <title>geburtsurkunde</title>
+      </field>
+      <field name="vaterschaftsanerkennungsurkunde" id="dateien.vaterschaftsanerkennungsurkunde" type="file" required="false" read-only="false" repeated="true" condition="myForm.andererelternteil1.vaterschaftanerkannt == true">
+        <label label-style="prefix">Vaterschaftsanerkennungsurkunde, falls die hochgeladene Geburtsurkunde den Vater nicht ausweist</label>
+        <title>vaterschaftsanerkennungsurkunde</title>
+      </field>
+      <field name="leistungsbezugbescheid" id="dateien.leistungsbezugbescheid" type="file" required="false" read-only="false" repeated="true" condition="myForm.kind.leistungsbezugnachuvg === true">
+        <label label-style="prefix">Bescheid des Leistungsbezugs Ihres Kindes nach UVG</label>
+        <title>leistungsbezugbescheid</title>
+      </field>
+      <field name="bewilligungsbescheid" id="dateien.bewilligungsbescheid" type="file" required="false" read-only="false" repeated="true" condition="myForm.kind.waisenrente === &quot;Ich erhalte für mein Kind Waisenbezüge oder Schadenersatzleistungen&quot;">
+        <label label-style="prefix">Bewilligungsbescheid der Waisenbezüge oder Schadensersatzleistungen für Ihr Kind</label>
+        <title>bewilligungsbescheid</title>
+      </field>
+      <field name="antragsbestaetigungwaisenbezuege" id="dateien.antragsbestaetigungwaisenbezuege" type="file" required="false" read-only="false" repeated="true" condition="myForm.kind.waisenrente === &quot;Ich habe für mein Kind einen Antrag auf Waisenbezüge gestellt&quot;">
+        <label label-style="prefix">Nachweis der Beantragung auf Waisenbezüge für Ihr Kind</label>
+        <title>antragsbestaetigungwaisenbezuege</title>
+      </field>
+      <field name="hilfelebensunterhaltbescheid" id="dateien.hilfelebensunterhaltbescheid" type="file" required="false" read-only="false" repeated="true" condition="myForm.kind.hilfelebensunterhalt === &quot;erhalte Hilfen zur Sicherung des Lebensunterhalts vom JobCenter / Sozialamt&quot;">
+        <label label-style="prefix">Bescheid über Ihre Hilfen zur Sicherung des Lebensunterhalts</label>
+        <title>hilfelebensunterhaltbescheid</title>
+      </field>
+      <field name="anlagevereinbarung" id="dateien.anlagevereinbarung" type="file" required="false" read-only="false" repeated="true" condition="myForm.andererelternteil1.kindehelich == &quot;ehelich&quot; &amp;&amp; myForm.betreuung.betreuungkind == &quot;teile mir die Versorgung und Betreuung meines Kindes mit dem anderen Elternteil.&quot; || myForm.andererelternteil1.vaterschaftanerkannt == true &amp;&amp; myForm.betreuung.betreuungkind == &quot;teile mir die Versorgung und Betreuung meines Kindes mit dem anderen Elternteil.&quot; || myForm.andererelternteil1.antragauffeststellungvaterschaft == true &amp;&amp; myForm.betreuung.betreuungkind == &quot;teile mir die Versorgung und Betreuung meines Kindes mit dem anderen Elternteil.&quot;">
+        <label label-style="prefix">Schriftliche Vereinbarung zur Betreuung Ihres Kindes</label>
+        <title>anlagevereinbarung</title>
+      </field>
+      <field name="monatlicheauflistung" id="dateien.monatlicheauflistung" type="file" required="false" read-only="false" repeated="true" condition="myForm.andererelternteil1.kindehelich == &quot;ehelich&quot; &amp;&amp; myForm.betreuung.vereinbarunggilt === &quot;davon abweichende Regelung&quot; || myForm.andererelternteil1.vaterschaftanerkannt == true &amp;&amp; myForm.betreuung.vereinbarunggilt === &quot;davon abweichende Regelung&quot; || myForm.andererelternteil1.antragauffeststellungvaterschaft == true &amp;&amp; myForm.betreuung.vereinbarunggilt === &quot;davon abweichende Regelung&quot;">
+        <label label-style="prefix">Monatliche Auflistung der Betreuung</label>
+        <title>monatlicheauflistung</title>
+      </field>
+      <field name="bescheidjobcenter" id="dateien.bescheidjobcenter" type="file" required="false" read-only="false" repeated="true" condition="getAge(myForm.kind.geburtsdatum) &gt;= 12 &amp;&amp; myForm.kindueber12.leistungenjobcenter == true || ( getAge(myForm.kind.geburtsdatum) &gt;= 11 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) ) &amp;&amp; myForm.kindueber12.leistungenjobcenter == true">
+        <label label-style="prefix">Bescheid über Leistungen vom Jobcenter für {myForm.monat}</label>
+        <title>bescheidjobcenter</title>
+      </field>
+      <field name="bescheidkinderwohngeld" id="dateien.bescheidkinderwohngeld" type="file" required="false" read-only="false" repeated="true" condition="getAge(myForm.kind.geburtsdatum) &gt;= 12 &amp;&amp; myForm.kindueber12.kinderwohngeld == true || ( getAge(myForm.kind.geburtsdatum) &gt;= 11 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) ) &amp;&amp; myForm.kindueber12.kinderwohngeld == true">
+        <label label-style="prefix">Bescheid über die Beziehung von Kinderwohngeld</label>
+        <title>bescheidkinderwohngeld</title>
+      </field>
+      <field name="schulbescheinigung" id="dateien.schulbescheinigung" type="file" required="false" read-only="false" repeated="true" condition="getAge(myForm.kind.geburtsdatum) &gt;= 12 &amp;&amp; myForm.kindueber12.schulebeendet == false || ( getAge(myForm.kind.geburtsdatum) &gt;= 11 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) ) &amp;&amp; myForm.kindueber12.schulebeendet == false">
+        <label label-style="prefix">Schulbescheinigung Ihres Kindes</label>
+        <title>schulbescheinigung</title>
+      </field>
+      <field name="ausbildungsnachweis" id="dateien.ausbildungsnachweis" type="file" required="false" read-only="false" repeated="true" condition="getAge(myForm.kind.geburtsdatum) &gt;= 12 &amp;&amp; myForm.kindueber12.schulebeendet == true || ( getAge(myForm.kind.geburtsdatum) &gt;= 11 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) ) &amp;&amp; myForm.kindueber12.schulebeendet == true">
+        <label label-style="prefix">Ausbildungs- bzw. Arbeitsvertrag und entsprechende Nachweise über das erzielte Einkommen (z. B. Lohn- und Gehaltsbescheinigungen) Ihres Kindes</label>
+        <title>ausbildungsnachweis</title>
+      </field>
+      <field name="nachweishalbwaisenrente" id="dateien.nachweishalbwaisenrente" type="file" required="false" read-only="false" repeated="true" condition="getAge(myForm.kind.geburtsdatum) &gt;= 12 &amp;&amp; myForm.kindueber12.kindhalbwaisenrente == true || ( getAge(myForm.kind.geburtsdatum) &gt;= 11 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) ) &amp;&amp; myForm.kindueber12.kindhalbwaisenrente == true">
+        <label label-style="prefix">Nachweis über die Halbwaisenrente Ihres Kindes</label>
+        <title>nachweishalbwaisenrente</title>
+      </field>
+      <field name="nachweisschadensersatzleistungen" id="dateien.nachweisschadensersatzleistungen" type="file" required="false" read-only="false" repeated="true" condition="getAge(myForm.kind.geburtsdatum) &gt;= 12 &amp;&amp; myForm.kindueber12.schadensersatzleistungen == true || ( getAge(myForm.kind.geburtsdatum) &gt;= 11 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) ) &amp;&amp; myForm.kindueber12.schadensersatzleistungen == true">
+        <label label-style="prefix">Nachweis über den Bezug Ihres Kindes von Schadensersatzleistungen</label>
+        <title>nachweisschadensersatzleistungen</title>
+      </field>
+      <field name="nachweisnichtselbststaendigearbeit" id="dateien.nachweisnichtselbststaendigearbeit" type="file" required="false" read-only="false" repeated="true" condition="getAge(myForm.kind.geburtsdatum) &gt;= 12 &amp;&amp; myForm.kindueber12.nichtselbststaendigearbeit == true || ( getAge(myForm.kind.geburtsdatum) &gt;= 11 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) ) &amp;&amp; myForm.kindueber12.nichtselbststaendigearbeit == true">
+        <label label-style="prefix">Nachweis über Einkünfte aus nichtselbstständiger Arbeit, Ausbildung, Freiwilligendienst Ihres Kindes</label>
+        <title>nachweisnichtselbststaendigearbeit</title>
+      </field>
+      <field name="nachweisselbststaendigearbeit" id="dateien.nachweisselbststaendigearbeit" type="file" required="false" read-only="false" repeated="true" condition="getAge(myForm.kind.geburtsdatum) &gt;= 12 &amp;&amp; myForm.kindueber12.selbststaendigearbeit == true || ( getAge(myForm.kind.geburtsdatum) &gt;= 11 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) ) &amp;&amp; myForm.kindueber12.selbststaendigearbeit == true">
+        <label label-style="prefix">Nachweise über Einkünfte aus Land- oder Forstwirtschaft, Gewerbebetrieb oder selbstständiger Tätigkeit Ihres Kindes</label>
+        <title>nachweisselbststaendigearbeit</title>
+      </field>
+      <field name="nachweiskapitalvermoegen" id="dateien.nachweiskapitalvermoegen" type="file" required="false" read-only="false" repeated="true" condition="getAge(myForm.kind.geburtsdatum) &gt;= 12 &amp;&amp; myForm.kindueber12.kapitalvermoegen == true || ( getAge(myForm.kind.geburtsdatum) &gt;= 11 &amp;&amp; birthdayThisMonth(myForm.kind.geburtsdatum) ) &amp;&amp; myForm.kindueber12.kapitalvermoegen == true">
+        <label label-style="prefix">Nachweis über Einkünfte Ihres Kindes aus Kapitalvermögen, Vermietung oder Verpachtung</label>
+        <title>nachweiskapitalvermoegen</title>
+      </field>
+      <field name="privatrechtlichevereinbarung" id="dateien.privatrechtlichevereinbarung" type="file" required="false" read-only="false" repeated="true" condition="(myForm.unterhalt) ? myForm.unterhalt.unterhaltsfestsetzung == &quot;Eine Unterhaltsfestsetzung ist bereits erfolgt&quot; : false">
+        <label label-style="prefix">Unterhaltstitel oder die privatrechtliche Vereinbarung zum Unterhalt</label>
+        <title>privatrechtlichevereinbarung</title>
+      </field>
+      <field name="unterhaltsrelevanteleistungnachweis" id="dateien.unterhaltsrelevanteleistungnachweis" type="file" required="false" read-only="false" repeated="true" condition="(myForm.unterhalt) ? myForm.unterhalt.zahlungunterhaltsrelevanteleistungen == true : false">
+        <label label-style="prefix">Nachweis über unterhaltsrelevante Leistungen</label>
+        <title>unterhaltsrelevanteleistungnachweis</title>
+      </field>
+    </page>
+  </flow>
+  <page name="Schriftformerfordernis" path="schriftformerfordernis" id="schriftformerfordernis" model-src="Schriftformerfordernis.2971">
+    <title>Schriftformerfordernis</title>
+    <infobox name="Infokasten" condition="myForm.eid == false">
+      <title>Wichtiger Hinweis, bitte beachten!</title>
+      <display-text><![CDATA[<p>Dieser Antrag hat eine Schriftformerfordernis. Um den Antrag bearbeiten zu können, benötigen wir Ihre Unterschrift.<br/> Gehen Sie hierfür bitte wie folgt vor:<br/> </p><ul class="noindent"><li>Wechseln Sie auf die nächste Antragsseite</li><li>Öffnen Sie die dort hinterlegte Antrags-PDF</li><li>Prüfen Sie die dort angegenbenen Daten auf Vollständigkeit und Korrektheit</li><li>Wenn alle Daten vollständig und korrekt sind, drucken Sie die Antrags-PDF aus</li><li>Unterschreiben Sie den Antrag an der hierfür vorgesehenen Stelle</li><li>Senden Sie den unterschriebenen Antrag per Post an die zuständige Behörde (diese ist im Antrag bereits als Empfänger eingetragen)</li></ul>]]></display-text>
+    </infobox>
+    <infobox name="Infokasten" condition="myForm.eid == true">
+      <display-text><![CDATA[<p>Auf der nächsten Antragsseite finden Sie die Antrags-PDF, in der alle angegebenen Daten noch einmal zusammengefasst sind. Bitter Prüfen Sie Ihre Angaben in der Antrags-PDF. Falls Sie noch Änderungen vornehmen wollen, nehmen Sie diese bitte im Online-Formular vor.<br/>Da Sie sich mit der elektronischen ID Ihres neuen Personalausweises authentifiziert haben, ist keine weitere Unterschrift erforderlich. Der Antrag wird nach Ihrer Bestätigung direkt in das Fachverfahren weitergeleitet und bearbeitet.</p>]]></display-text>
+    </infobox>
+  </page>
+</dialog>

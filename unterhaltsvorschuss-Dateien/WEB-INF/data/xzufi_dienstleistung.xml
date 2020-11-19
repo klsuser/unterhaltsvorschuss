@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<leistungsverzeichnis>
+  <ergebnisLeistung>
+    <id schemeAgencyID="S100001">S100001_325891</id>
+    <idSekundaer schemeAgencyID="XZUFI_ERWEITERUNG" schemeID="OPERATION_SCHLUESSEL">CreateUpdate</idSekundaer>
+    <idSekundaer schemeAgencyID="XZUFI_ERWEITERUNG" schemeID="LEIKA_SCHLUESSEL">11063022007000</idSekundaer>
+    <modulText>
+      <positionDarstellung>0</positionDarstellung>
+      <inhalt languageCode="de-DE">.....</inhalt>
+      <leikaTextmodul listVersionID="">
+        <code>02</code>
+      </leikaTextmodul>
+    </modulText>
+    <modulText>
+      <positionDarstellung>1</positionDarstellung>
+      <inhalt languageCode="de-DE">.....</inhalt>
+      <leikaTextmodul listVersionID="">
+        <code>06</code>
+      </leikaTextmodul>
+    </modulText>
+    <modulText>
+      <positionDarstellung>2</positionDarstellung>
+      <inhalt languageCode="de-DE">Link zur Leistung im berliner Service-Portal</inhalt>
+      <leikaTextmodul listVersionID="">
+        <code>18</code>
+      </leikaTextmodul>
+      <weiterfuehrenderLink languageCode="de-DE">
+        <uri>http%3A%2F%2Fdev.service.berlin.dev.local%2Fdienstleistung%2F325891%2F</uri>
+        <titel>.....</titel>
+        <beschreibung>.....</beschreibung>
+        <positionDarstellung>1</positionDarstellung>
+      </weiterfuehrenderLink>
+    </modulText>
+    <modulText>
+      <positionDarstellung>3</positionDarstellung>
+      <inhalt languageCode="de-DE">.....</inhalt>
+      <leikaTextmodul listVersionID="">
+        <code>08</code>
+      </leikaTextmodul>
+    </modulText>
+    <modulText>
+      <positionDarstellung>4</positionDarstellung>
+      <inhalt languageCode="de-DE">keine Voraussetzungen erforderlich</inhalt>
+      <leikaTextmodul listVersionID="">
+        <code>09</code>
+      </leikaTextmodul>
+    </modulText>
+    <modulText>
+      <positionDarstellung>5</positionDarstellung>
+      <inhalt languageCode="de-DE">......</inhalt>
+      <leikaTextmodul listVersionID="">
+        <code>10</code>
+      </leikaTextmodul>
+    </modulText>
+    <modulText>
+      <positionDarstellung>6</positionDarstellung>
+      <inhalt languageCode="de-DE">.......</inhalt>
+      <leikaTextmodul listVersionID="">
+        <code>07</code>
+      </leikaTextmodul>
+      <weiterfuehrenderLink languageCode="de-DE">
+        <uri>http.....</uri>
+        <titel>.......</titel>
+        <positionDarstellung>1</positionDarstellung>
+      </weiterfuehrenderLink>
+    </modulText>
+    <modulText>
+      <positionDarstellung>7</positionDarstellung>
+      <inhalt languageCode="de-DE">..........</inhalt>
+      <leikaTextmodul listVersionID="">
+        <code>12</code>
+      </leikaTextmodul>
+    </modulText>
+    <modulBegriffImKontext>
+      <positionDarstellung>0</positionDarstellung>
+      <begriffImKontext>
+        <begriff languageCode="de-DE">.........</begriff>
+        <typ>
+          <code>002</code>
+        </typ>
+      </begriffImKontext>
+    </modulBegriffImKontext>
+    <modulBegriffImKontext>
+      <positionDarstellung>1</positionDarstellung>
+      <begriffImKontext>
+        <begriff languageCode="de-DE">.........</begriff>
+        <typ>
+          <code>002</code>
+        </typ>
+      </begriffImKontext>
+    </modulBegriffImKontext>
+    <modulBegriffImKontext>
+      <positionDarstellung>2</positionDarstellung>
+      <begriffImKontext>
+        <begriff languageCode="de-DE">........</begriff>
+        <typ>
+          <code>002</code>
+        </typ>
+      </begriffImKontext>
+    </modulBegriffImKontext>
+    <leistungsadressat>
+      <code>001</code>
+    </leistungsadressat>
+    <leistungsadressat>
+      <code>002</code>
+    </leistungsadressat>
+    <sprachversion>
+      <languageCode>de-DE</languageCode>
+      <sprachbezeichnungDeutsch>Deutsch</sprachbezeichnungDeutsch>
+      <sprachbezeichnungNativ>Deutsch</sprachbezeichnungNativ>
+      <geaendertDatumZeit>2013-07-23T12:18:05+02:00</geaendertDatumZeit>
+    </sprachversion>
+    <gueltigkeit>
+      <beginn>2013-07-23</beginn>
+      <ende>2050-01-01</ende>
+    </gueltigkeit>
+  </ergebnisLeistung>
+  <ergebnisOrganisationseinheit>
+    <id schemeAgencyID="S100001">S100001_122984</id>
+    <idSekundaer schemeAgencyID="XZUFI_ERWEITERUNG" schemeID="LEIKA_SCHLUESSEL">CreateUpdate</idSekundaer>
+    <externeOrganisationseinheitsermittlung>false</externeOrganisationseinheitsermittlung>
+    <name>
+      <name languageCode="de-DE">Senatsverwaltung für Finanzen, Nebengebäude</name>
+      <kurzbezeichnung languageCode="de-DE">Senatsverwaltung für Finanzen, Nebengebäude</kurzbezeichnung>
+    </name>
+    <beschreibung languageCode="de-DE">Senatsverwaltung für Finanzen, Nebengebäude</beschreibung>
+    <kurzbeschreibung languageCode="de-DE">Senatsverwaltung für Finanzen, Nebengebäude</kurzbeschreibung>
+    <infoOeffnungszeitenText languageCode="de-DE"/>
+    <infoOEPNV languageCode="de-DE"/>
+    <anschrift>
+      <typ>
+        <code>001</code>
+      </typ>
+      <strasse>Beispielstraße</strasse>
+      <hausnummer>16-18</hausnummer>
+      <postfach/>
+      <postleitzahl>10958</postleitzahl>
+      <ort>Berlin</ort>
+      <verwaltungspolitischeKodierung>
+        <bundesland listVersionID="">
+          <code>11</code>
+          <name>Berlin</name>
+        </bundesland>
+        <gemeindeschluessel listVersionID="">
+          <code>11000000</code>
+          <name>Berlin, Stadt</name>
+        </gemeindeschluessel>
+        <regionalschluessel listVersionID="">
+          <code>110000000000</code>
+          <name>Berlin, Stadt</name>
+        </regionalschluessel>
+        <staat listVersionID="">
+          <code>DE</code>
+          <name>Berlin</name>
+        </staat>
+      </verwaltungspolitischeKodierung>
+    </anschrift>
+    <kommunikation>
+      <kanal>
+        <code>email</code>
+        <name>E-Mail</name>
+      </kanal>
+      <kennung>beispiel@beispiel.de</kennung>
+    </kommunikation>
+    <kommunikation>
+      <kanal>
+        <code>fax</code>
+        <name>Telefax</name>
+      </kanal>
+      <kennung></kennung>
+    </kommunikation>
+    <kommunikation>
+      <kanal>
+        <code>telefon</code>
+        <name>Telefon</name>
+      </kanal>
+      <kennung>030000000000</kennung>
+    </kommunikation>
+    <versionsinformation>
+      <geaendertDatumZeit>2015-02-23T13:33:53+01:00</geaendertDatumZeit>
+    </versionsinformation>
+    <sprachversion>
+      <languageCode>de-DE</languageCode>
+      <sprachbezeichnungDeutsch>Deutsch</sprachbezeichnungDeutsch>
+      <sprachbezeichnungNativ>Deutsch</sprachbezeichnungNativ>
+      <geaendertDatumZeit>2015-02-23T13:33:53+01:00</geaendertDatumZeit>
+    </sprachversion>
+    <gueltigkeit>
+      <beginn>2015-02-23</beginn>
+      <ende>2050-01-01</ende>
+    </gueltigkeit>
+    <zustaendigkeit>
+      <rolle listVersionID="">
+        <code>01</code>
+        <name>Zuständige Stelle und Ansprechpunkt</name>
+      </rolle>
+    </zustaendigkeit>
+  </ergebnisOrganisationseinheit>
+</leistungsverzeichnis>

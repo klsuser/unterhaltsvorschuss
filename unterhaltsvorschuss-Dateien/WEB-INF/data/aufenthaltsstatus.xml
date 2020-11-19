@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xoev-cl-2="http://xoev.de/schemata/genericode/2"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <Annotation>
+      <Description>
+         <xoev-cl-2:nameKurz>Aufenthaltsstatus</xoev-cl-2:nameKurz>
+         <xoev-cl-2:beschreibung-codeliste>Diese Entität enthält die nicht titelbezogenen aufenthaltsrechtlichen Status sowie alte aufenthaltsrechtliche Entscheidungen nach dem Ausländergesetz. Letztere können nicht mehr neu vergeben, sondern nur noch für den Wiederaufbau alter Datensätze gemeldet werden und sind noch im Bestand vorhanden für Ausländer, die diesen alten Aufenthaltstitel besitzen.</xoev-cl-2:beschreibung-codeliste>
+         <xoev-cl-2:herausgebernameKurz>BVA</xoev-cl-2:herausgebernameKurz>
+         <xoev-cl-2:datumGueltigkeitAb>2020-08-26</xoev-cl-2:datumGueltigkeitAb>
+         <xoev-cl-2:versionXOEVHandbuch>2.1</xoev-cl-2:versionXOEVHandbuch>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>Code.AZR.AufenthaltsstatusArt</ShortName>
+      <LongName xml:lang="en">AufenthaltsstatusArt</LongName>
+      <Version>3</Version>
+      <CanonicalUri>urn:de:xauslaender:codelist:azr:aufenthaltsstatus</CanonicalUri>
+      <CanonicalVersionUri>urn:de:xauslaender:codelist:azr:aufenthaltsstatus_3</CanonicalVersionUri>
+      <Agency>
+         <LongName xml:lang="de">Bundesverwaltungsamt</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="code" Use="required">
+         <ShortName>code</ShortName>
+         <LongName>Code</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="beschreibung" Use="optional">
+         <ShortName>beschreibung</ShortName>
+         <LongName>Beschreibung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="beschreibung_lang" Use="optional">
+         <ShortName>beschreibung_lang</ShortName>
+         <LongName>Beschreibung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="codeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-2:xoev-code/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>codeKey</ShortName>
+         <ColumnRef Ref="code"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>01</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>befristete Aufenthaltserlaubnis erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>befristete AE erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nummer des Aufenthaltsetiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>02</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>unbefristete Aufenthaltserlaubnis erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>unbefristete AE erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nummer des Aufenthaltsetiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>03</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltsberechtigung erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltsberechtigung erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nummer des Aufenthaltsetiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>04</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>vom Erfordernis eines Aufenthaltstitels befreit</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>vom Erfordernis eines Aufenthaltstitels befreit meldende ABH &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>05</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Erteilung/Verlängerung des Aufenthaltstitels abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Erteilung/Verlaengerung des Aufenthaltstitels abgelehnt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>06</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltstitel widerrufen/erloschen</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltstitel widerrufen/erloschen am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>07</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>befristete Aufenthaltserlaubnis erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>befristete Aufenthaltserlaubnis erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>08</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltsbewilligung erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltsbewilligung erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nummer des Aufenthaltsetiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>09</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltsbefugnis erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltsbefugnis erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nummer des Aufenthaltsetiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>10</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>befristete Aufenthaltserlaubnis - EG erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>befristete Aufenthaltserlaubnis-EG erteilt am &lt;ereignisdatum&gt; Nummer des Aufenthaltsetiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>11</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>unbefristete Aufenthaltserlaubnis - EG erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>unbefristete Aufenthaltserlaubnis-EG erteilt am &lt;ereignisdatum&gt; Nummer des Aufenthaltsetiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>12</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Antrag auf einen Aufenthaltstitel (Altfall bis 30.06.2014) gestellt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>13</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltstitel zurückgenommen</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltstitel zurueckgenommen am &lt;ereignisdatum&gt; meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>14</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltstitel widerrufen</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltstitel widerrufen am &lt;ereignisdatum&gt; meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>15</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltstitel erloschen</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltstitel erloschen am &lt;ereignisdatum&gt; meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>16</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltstitel erteilt nach Einreise in das Bundesgebiet mit Visum nach § 18c AufenthG</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltstitel erteilt nach Einreise in das Bundesgebiet mit Visum nach § 18c AufenthG am &lt;ereignisdatum&gt; meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>17</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Antrag auf einen Aufenthaltstitel (ab 01.07.2014) gestellt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Antrag auf einen Aufenthaltstitel (ab 01.07.2014) gestellt am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>18</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Antrag auf Verlängerung eines Aufenthaltstitels gestellt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Antrag auf Verlaengerung eines Aufenthaltstitels gestellt am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>19</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bescheinigung über die Wirkung der Antragstellung (Fiktionsbescheinigung) ausgestellt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>21</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>befristete Aufenthaltserlaubnis nach dem AufenthG erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltserlaubnis nach dem AufenthG erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nummer des Aufenthaltsetiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>22</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Niederlassungserlaubnis nach dem AufenthG erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Niederlassungserlaubnis nach d. AufenthG erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nummer des Aufenthaltsetiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>23</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltserlaubnis/EU (Angehörige von EU-/EWR-Bürgern) befristet erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltserlaubnis/EU (Angehoerige von EU-/EWR-Buergern, befristet) erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nr. des Aufenth.Etiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>24</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltserlaubnis/EU (Angehörige von EU-/EWR-Bürgern) unbefristet erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltserlaubnis/EU (Angehoerige von EU-/EWR-Buergern, unbefristet) erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nr. des Aufenth.Etiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>25</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bescheinigung für freizügigkeitsberechtigte EU/EWR-Bürger befristet erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Bescheinigung (fuer freizuegigkeitsberechtigte EU/EWR-Buerger, befristet) erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nr. des Aufenth.Etiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>26</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bescheinigung für freizügigkeitsberechtigte EU/EWR-Bürger unbefristet erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Bescheinigung (fuer freizuegigkeitsberechtigte EU/EWR-Buerger, unbefristet) erteilt am &lt;ereignisdatum&gt; meldende ABH &lt;meldendeBehoerde&gt; Nr. des Aufenth.Etiketts &lt;nummerAufenthaltstitel&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>27</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 16a AufenthG abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 16a AufenthG abgelehnt am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>28</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 16a AufenthG, Bescheinigung ausgestellt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 16a AufenthG Bescheinigung ausgestellt am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>29</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 19c Absatz 1 AufenthG abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 19c Absatz 1 AufenthG abgelehnt am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>30</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 19c Absatz 1 AufenthG, Bescheinigung ausgestellt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 19c Absatz 1 AufenthG Bescheinigung ausgestellt am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>31</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 20a AufenthG abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 20a AufenthG abgelehnt am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>32</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 20a AufenthG, Bescheinigung ausgestellt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 20a AufenthG Bescheinigung ausgestellt am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>33</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Aufenthaltstitel erteilt nach Einreise in das Bundesgebiet mit Visum nach § 20 AufenthG</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>Aufenthaltstitel nach Einreise in das Bundesgebiet mit Visum nach § 20 AufenthG am &lt;ereignisdatum&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>34</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 16c AufenthG abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 16c AufenthG abgelehnt am &lt;ereignisdatum&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>35</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 16c AufenthG, Bescheinigung ausgestellt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 16c AufenthG, Bescheinigung ausgestellt am &lt;ereignisdatum&gt;, gueltig bis &lt;befristungsdatum&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>36</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 19a Absatz 1 AufenthG abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 19a Absatz 1 AufenthG abgelehnt am &lt;ereignisdatum&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>37</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 19a Absatz 1 AufenthG, Bescheinigung ausgestellt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 19a Absatz 1 AufenthG, Bescheinigung ausgestellt am &lt;ereignisdatum&gt;, gueltig bis &lt;befristungsdatum&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>38</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 30 Absatz 5 AufenthG (Ehegattennachzug zu kurzfristig mobilen Forschern) abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 30 Absatz 5 AufenthG (Ehegattennachzug zu kurzfristig mobilen Forschern) abgelehnt am &lt;ereignisdatum&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>39</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 30 Absatz 5 AufenthG (Ehegattennachzug zu kurzfristig mobilen Forschern), Bescheinigung ausgestellt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 30 Absatz 5 AufenthG (Ehegattennachzug zu kurzfristig mobilen Forschern), Bescheinigung ausgestellt am &lt;ereignisdatum&gt; gueltig bis &lt;befristungsdatum&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>40</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 32 Absatz 5 AufenthG (Kindesnachzug zu kurzfristig mobilen Forschern) abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 32 Absatz 5 AufenthG (Kindesnachzug zu kurzfristig mobilen Forschern) abgelehnt ausgestellt am &lt;ereignisdatum&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>41</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach § 32 Absatz 5 AufenthG (Kindesnachzug zu kurzfristig mobilen Forschern), Bescheinigung ausgestellt</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach § 32 Absatz 5 AufenthG (Kindesnachzug zu kurzfristig mobilen Forschern), Bescheinigung ausgestellt am &lt;ereignisdatum&gt; gueltig bis &lt;befristungsdatum&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>42</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach Einreise in das Bundesgebiet mit Visum nach § 17 Absatz 1 AufenthG</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach Einreise in das Bundesgebiet mit Visum nach Par. 17 Abs. 1 AufenthG am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>43</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach Einreise in das Bundesgebiet mit Visum nach § 17 Absatz 2 AufenthG</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach Einreise in das Bundesgebiet mit Visum nach Par. 17 Abs. 2 AufenthG am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>44</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach Einreise in das Bundesgebiet mit Visum nach § 20 Absatz 1 AufenthG</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach Einreise in das Bundesgebiet mit Visum nach Par. 20 Abs. 1 AufenthG am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>45</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach Einreise in das Bundesgebiet mit Visum nach § 20 Absatz 2 AufenthG</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach Einreise in das Bundesgebiet mit Visum nach Par. 20 Abs. 2 AufenthG am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>46</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>nach Einreise in das Bundesgebiet mit einem im Verfahren nach § 81a AufenthG erteilten Visum</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung_lang">
+            <SimpleValue>nach Einreise in das Bundesgebiet mit einem im Verfahren nach Par. 81a AufenthG erteilten Visum am &lt;ereignisdatum&gt;, meldende Behoerde &lt;meldendeBehoerde&gt;</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>
