@@ -1,5 +1,5 @@
 //----------------xZufi--------------------
-
+//--etwas neues---
 var NSAPP = 'antragsteller';
 var NSAUT = 'behoerde';
 
